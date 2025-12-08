@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đăng Nhập - PetCareX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FF6B9D 0%, #FFB6C1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            padding: 3rem 2rem;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-header h1 {
+            color: #FF6B9D;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #FF6B9D;
+            box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox input {
+            width: auto;
+        }
+
+        .forgot-link {
+            color: #FF6B9D;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-link:hover {
+            color: #E84C8A;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, #FF6B9D, #FF8AB5);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #999;
+        }
+
+        .signup-link a {
+            color: #FF6B9D;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .signup-link a:hover {
+            color: #E84C8A;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            color: #ddd;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider span {
+            padding: 0 1rem;
+            color: #999;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 0.7rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-btn:hover {
+            border-color: #FF6B9D;
+            background: #FFF5F9;
+        }
+
+        /* Auth Tab Styles */
+        .auth-tab {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .error-message {
+            background: #FFE6E6;
+            color: #CC0000;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: none !important;
+            animation: shake 0.3s ease;
+            border-left: 4px solid #CC0000;
+            display: flex !important;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .error-message.show {
+            display: flex !important;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .error-message::before {
+            content: '⚠';
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            color: #CC0000;
+        }
+
+        .form-error {
+            background: #FFE6E6;
+            color: #CC0000;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            display: none;
+            border-left: 4px solid #CC0000;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .form-error.show {
+            display: flex;
+        }
+
+        .form-error::before {
+            content: '✕';
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #CC0000;
+            flex-shrink: 0;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .success-message {
+            background: #E6F7E6;
+            color: #006600;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none !important;
+            border-left: 4px solid #006600;
+        }
+
+        .success-message.show {
+            display: flex !important;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .success-message::before {
+            content: '✓';
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Top Notification Bar */
+        .top-notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            z-index: 9998;
+            animation: slideDown 0.3s ease;
+        }
+
+        .top-notification.show {
+            display: flex;
+        }
+
+        .top-notification.error {
+            background: #FFE6E6;
+            border-bottom: 2px solid #CC0000;
+        }
+
+        .top-notification.error::before {
+            content: '⚠';
+            font-size: 1.5rem;
+            color: #CC0000;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .top-notification.success {
+            background: #E6F7E6;
+            border-bottom: 2px solid #006600;
+        }
+
+        .top-notification.success::before {
+            content: '✓';
+            font-size: 1.5rem;
+            color: #006600;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .top-notification.info {
+            background: #E3F2FD;
+            border-bottom: 2px solid #2196F3;
+        }
+
+        .top-notification.info::before {
+            content: 'ℹ';
+            font-size: 1.5rem;
+            color: #2196F3;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .notification-text {
+            flex: 1;
+            color: inherit;
+        }
+
+        .notification-close {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: inherit;
+            background: none;
+            border: none;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .notification-close:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .btn-login {
+                padding: 0.8rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="logo">🐾</div>
+            <h1>PetCareX</h1>
+            <p>Hệ Thống Quản Lý Thú Y</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <!-- LOGIN TAB -->
+        <div id="loginTab" class="auth-tab">
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginUsername">Tên Đăng Nhập</label>
+                    <input type="text" id="loginUsername" name="username" placeholder="Nhập tên đăng nhập" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Mật Khẩu</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Nhập mật khẩu" required>
+                </div>
+
+                <div class="remember-forgot">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember" id="rememberMe">
+                        <span>Nhớ tôi</span>
+                    </label>
+                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Đăng Nhập</button>
+                
+                <div class="form-error" id="loginError"></div>
+            </form>
+
+            <div class="signup-link">
+                Chưa có tài khoản? <a href="#" onclick="switchTab('signupTab')">Tạo tài khoản mới</a>
+            </div>
+        </div>
+
+        <!-- SIGNUP TAB -->
+        <div id="signupTab" class="auth-tab" style="display: none;">
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Họ và Tên</label>
+                    <input type="text" id="signupName" name="fullname" placeholder="Nhập họ và tên" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupUsername">Tên Đăng Nhập</label>
+                    <input type="text" id="signupUsername" name="username" placeholder="Nhập tên đăng nhập" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupPhone">Số Điện Thoại</label>
+                    <input type="tel" id="signupPhone" name="phone" placeholder="Nhập số điện thoại" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupPassword">Mật Khẩu</label>
+                    <input type="password" id="signupPassword" name="password" placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Xác Nhận Mật Khẩu</label>
+                    <input type="password" id="signupConfirmPassword" name="confirmPassword" placeholder="Xác nhận mật khẩu" required>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <span>Tôi đồng ý với <a href="#" class="forgot-link">điều khoản sử dụng</a></span>
+                </label>
+
+                <button type="submit" class="btn-login" style="margin-top: 1.5rem;">Tạo Tài Khoản</button>
+            </form>
+
+            <div class="signup-link">
+                Đã có tài khoản? <a href="#" onclick="switchTab('loginTab')">Đăng nhập ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function switchTab(tabName) {
+            const loginTab = document.getElementById('loginTab');
+            const signupTab = document.getElementById('signupTab');
+            
+            if (tabName === 'loginTab') {
+                loginTab.style.display = 'block';
+                signupTab.style.display = 'none';
+            } else {
+                loginTab.style.display = 'none';
+                signupTab.style.display = 'block';
+            }
+        }
+
+        // Get all registered accounts from localStorage
+        function getAllAccounts() {
+            const accounts = localStorage.getItem('petcarex-accounts');
+            return accounts ? JSON.parse(accounts) : [];
+        }
+
+        // Save accounts to localStorage
+        function saveAccounts(accounts) {
+            localStorage.setItem('petcarex-accounts', JSON.stringify(accounts));
+        }
+
+        // Check if username already exists
+        function usernameExists(username) {
+            const accounts = getAllAccounts();
+            return accounts.some(acc => acc.username === username);
+        }
+
+        // Handle Login
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const remember = document.getElementById('rememberMe').checked;
+            const errorEl = document.getElementById('loginError');
+            
+            // Clear previous error
+            errorEl.classList.remove('show');
+            errorEl.innerHTML = '';
+            
+            // Validation
+            if (!username || !password) {
+                showFormError(errorEl, 'Vui lòng điền đầy đủ thông tin');
+                return;
+            }
+            
+            // Get accounts and find user
+            const accounts = getAllAccounts();
+            const user = accounts.find(acc => acc.username === username && acc.password === password);
+            
+            if (user) {
+                // Lưu info nếu remember
+                if (remember) {
+                    localStorage.setItem('petcarex-remember', JSON.stringify({
+                        username: username,
+                        remember: true
+                    }));
+                } else {
+                    localStorage.removeItem('petcarex-remember');
+                }
+                
+                // Lưu user info vào petcarex-user
+                localStorage.setItem('petcarex-user', JSON.stringify({
+                    id: user.id,
+                    username: user.username,
+                    name: user.fullname,
+                    loyaltyPoints: user.loyaltyPoints || 0
+                }));
+                
+                showSuccess('Đăng nhập thành công! Đang chuyển hướng...');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            } else {
+                showFormError(errorEl, 'Tên đăng nhập hoặc mật khẩu không chính xác');
+            }
+        }
+
+        // Handle Signup
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            const fullname = document.getElementById('signupName').value.trim();
+            const username = document.getElementById('signupUsername').value.trim();
+            const phone = document.getElementById('signupPhone').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            // Validation
+            if (!fullname || !username || !phone || !password || !confirmPassword) {
+                showError('Vui lòng điền đầy đủ thông tin');
+                return;
+            }
+            
+            if (username.length < 3) {
+                showError('Tên đăng nhập phải có tối thiểu 3 ký tự');
+                return;
+            }
+            
+            if (usernameExists(username)) {
+                showError('Tên đăng nhập đã tồn tại');
+                return;
+            }
+            
+            if (!/^[0-9]{10,11}$/.test(phone)) {
+                showError('Số điện thoại không hợp lệ');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showError('Mật khẩu phải có tối thiểu 6 ký tự');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showError('Mật khẩu xác nhận không khớp');
+                return;
+            }
+            
+            if (!agreeTerms) {
+                showError('Vui lòng đồng ý với điều khoản sử dụng');
+                return;
+            }
+            
+            // Create new account
+            const accounts = getAllAccounts();
+            const newAccount = {
+                id: Date.now(),
+                fullname: fullname,
+                username: username,
+                phone: phone,
+                password: password,
+                loyaltyPoints: 0,
+                createdAt: new Date().toLocaleString('vi-VN')
+            };
+            
+            accounts.push(newAccount);
+            saveAccounts(accounts);
+            
+            showSuccess('Đăng ký thành công! Hãy đăng nhập');
+            
+            // Reset form and switch to login
+            document.getElementById('signupForm').reset();
+            setTimeout(() => {
+                switchTab('loginTab');
+                // Clear login form and focus
+                document.getElementById('loginUsername').focus();
+            }, 1500);
+        }
+        
+        function showError(message) {
+            showNotification(message, 'error');
+            // Also show inline error in form
+            const errorEl = document.getElementById('errorMessage');
+            if (errorEl) {
+                errorEl.innerHTML = `<span>${message}</span>`;
+                errorEl.classList.add('show');
+                setTimeout(() => {
+                    errorEl.classList.remove('show');
+                }, 4000);
+            }
+        }
+
+        function showFormError(element, message) {
+            element.innerHTML = `<span>${message}</span>`;
+            element.classList.add('show');
+        }
+        
+        function showSuccess(message) {
+            showNotification(message, 'success');
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification container if not exists
+            let notifContainer = document.getElementById('notificationContainer');
+            if (!notifContainer) {
+                notifContainer = document.createElement('div');
+                notifContainer.id = 'notificationContainer';
+                document.body.insertBefore(notifContainer, document.body.firstChild);
+            }
+
+            // Create notification element
+            const notif = document.createElement('div');
+            notif.className = `top-notification ${type} show`;
+            notif.innerHTML = `
+                <div class="notification-text">${message}</div>
+                <button class="notification-close">✕</button>
+            `;
+
+            notifContainer.appendChild(notif);
+
+            // Close button handler
+            notif.querySelector('.notification-close').addEventListener('click', () => {
+                notif.classList.remove('show');
+                setTimeout(() => notif.remove(), 300);
+            });
+
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                if (notif.parentElement) {
+                    notif.classList.remove('show');
+                    setTimeout(() => {
+                        if (notif.parentElement) {
+                            notif.remove();
+                        }
+                    }, 300);
+                }
+            }, 4000);
+        }
+        
+        // Load remembered username nếu có
+        window.addEventListener('DOMContentLoaded', () => {
+            const remembered = localStorage.getItem('petcarex-remember');
+            if (remembered) {
+                const data = JSON.parse(remembered);
+                document.getElementById('loginUsername').value = data.username;
+                document.getElementById('rememberMe').checked = true;
+            }
+        });
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</body>
+</html>

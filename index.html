@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCareX - Hệ Thống Quản Lý Thú Y</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-paw"></i>
+                <span>PetCareX</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Trang Chủ</a></li>
+                <li><a href="#services" class="nav-link">Dịch Vụ</a></li>
+                <li><a href="#branches" class="nav-link">Chi Nhánh</a></li>
+                <li><a href="#membership" class="nav-link">Thành Viên</a></li>
+                <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
+                <li><a href="#" class="nav-link" onclick="viewBookingHistory(); return false;" id="historyLink" style="display:none;"><i class="fas fa-history"></i> Lịch Sử</a></li>
+                <li><a href="#" class="nav-link btn-login" onclick="openModal('authModal'); return false;">Đăng Nhập</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Chăm Sóc Thú Cưng Của Bạn Với Chuyên Nghiệp</h1>
+            <p>Dịch vụ thú y hàng đầu tại 10 chi nhánh - Khám bệnh, Tiêm phòng, Bán sản phẩm</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openModal('bookingModal')">Đặt Lịch Hẹn</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Tìm Hiểu Thêm</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-heart"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2>Dịch Vụ Của Chúng Tôi</h2>
+            <p>Ba nhóm dịch vụ chính cung cấp cho thú cưng của bạn</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h3>Khám Bệnh</h3>
+                <p>Khám sức khỏe toàn diện cho thú cưng với bác sĩ thú y chuyên nghiệp, chuẩn đoán chính xác và toa thuốc phù hợp</p>
+                <button class="btn btn-outline" onclick="openModal('bookingModal')">Đặt Khám</button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-syringe"></i>
+                </div>
+                <h3>Tiêm Phòng</h3>
+                <p>Các gói tiêm phòng đa dạng với giảm giá từ 5-15%, bảo vệ sức khỏe thú cưng của bạn</p>
+                <button class="btn btn-outline" onclick="openModal('vaccinationModal')">Xem Gói</button>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h3>Bán Sản Phẩm</h3>
+                <p>Thức ăn, thuốc, phụ kiện chất lượng cao cho thú cưng với giá cạnh tranh</p>
+                <button class="btn btn-outline" onclick="showShop()">Mua Hàng</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Section -->
+    <section id="branches" class="branches">
+        <div class="section-header">
+            <h2>10 Chi Nhánh Tại Các Thành Phố Lớn</h2>
+            <p>Tìm chi nhánh gần nhất với bạn</p>
+        </div>
+        <div class="branches-grid" id="branchesContainer">
+            <!-- Các chi nhánh sẽ được tạo bằng JavaScript -->
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="membership">
+        <div class="section-header">
+            <h2>Chương Trình Thành Viên</h2>
+            <p>Các cấp độ thành viên với những lợi ích tuyệt vời</p>
+        </div>
+        <div class="membership-grid">
+            <div class="membership-card">
+                <div class="membership-badge">Cơ Bản</div>
+                <div class="membership-benefit">
+                    <p class="benefit-title">Dưới 100 điểm/năm</p>
+                    <h3>Giảm 5%</h3>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check"></i> Giảm 5% tổng hóa đơn</li>
+                        <li><i class="fas fa-check"></i> Tích lũy điểm loyalty</li>
+                        <li><i class="fas fa-check"></i> Ưu đãi chi nhánh</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="membership-card featured">
+                <div class="membership-badge badge-silver">Thân Thiết</div>
+                <div class="membership-benefit">
+                    <p class="benefit-title">100-239 điểm/năm</p>
+                    <h3>Giảm 10%</h3>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check"></i> Giảm 10% tổng hóa đơn</li>
+                        <li><i class="fas fa-check"></i> Hỗ trợ ưu tiên</li>
+                        <li><i class="fas fa-check"></i> Khuyến mãi độc quyền</li>
+                        <li><i class="fas fa-check"></i> Duy trì với 60 điểm/năm</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="membership-card">
+                <div class="membership-badge badge-gold">VIP</div>
+                <div class="membership-benefit">
+                    <p class="benefit-title">Từ 240 điểm/năm</p>
+                    <h3>Giảm 15%</h3>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check"></i> Giảm 15% tổng hóa đơn</li>
+                        <li><i class="fas fa-check"></i> Ưu tiên đặt lịch</li>
+                        <li><i class="fas fa-check"></i> Tư vấn miễn phí</li>
+                        <li><i class="fas fa-check"></i> Duy trì với 160 điểm/năm</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="loyalty-info">
+            <h3>Cách Tích Lũy Điểm Loyalty</h3>
+            <p>1 điểm được tính cho mỗi 50.000 VNĐ chi tiêu - Điểm được cộng ngay sau khi thanh toán thành công</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <p>Đặt câu hỏi hoặc yêu cầu thông tin thêm</p>
+        </div>
+        <div class="contact-content">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>Họ và Tên</label>
+                    <input type="text" placeholder="Nhập họ và tên">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="Nhập email">
+                </div>
+                <div class="form-group">
+                    <label>Số Điện Thoại</label>
+                    <input type="tel" placeholder="Nhập số điện thoại">
+                </div>
+                <div class="form-group">
+                    <label>Tin Nhắn</label>
+                    <textarea placeholder="Nhập tin nhắn của bạn" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Gửi</button>
+            </form>
+            <div class="contact-info">
+                <h3>Thông Tin Liên Hệ</h3>
+                <p><i class="fas fa-phone"></i> Hotline: 1800 1234</p>
+                <p><i class="fas fa-envelope"></i> Email: support@petcarex.vn</p>
+                <p><i class="fas fa-map-marker-alt"></i> Trụ Sở Chính: Hà Nội, Việt Nam</p>
+                <p><i class="fas fa-clock"></i> Giờ Hỗ Trợ: 7:00 - 21:00 (Hàng Ngày)</p>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Về PetCareX</h4>
+                <ul>
+                    <li><a href="#">Giới Thiệu</a></li>
+                    <li><a href="#">Sứ Mệnh</a></li>
+                    <li><a href="#">Đội Ngũ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Dịch Vụ</h4>
+                <ul>
+                    <li><a href="#">Khám Bệnh</a></li>
+                    <li><a href="#">Tiêm Phòng</a></li>
+                    <li><a href="#">Bán Hàng</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Hỗ Trợ</h4>
+                <ul>
+                    <li><a href="#">Trung Tâm Trợ Giúp</a></li>
+                    <li><a href="#">Điều Khoản Sử Dụng</a></li>
+                    <li><a href="#">Chính Sách Bảo Mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Theo Dõi Chúng Tôi</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PetCareX. Tất cả quyền được bảo vệ.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+            <h2>Đặt Lịch Khám Bệnh</h2>
+            <form onsubmit="handleBookingSubmit(event)">
+                <div class="form-group">
+                    <label>Chọn Chi Nhánh</label>
+                    <select id="bookingBranch" required>
+                        <option>Chọn chi nhánh</option>
+                        <option>Hà Nội - Chi Nhánh 1</option>
+                        <option>TP. Hồ Chí Minh - Chi Nhánh 3</option>
+                        <option>Đà Nẵng - Chi Nhánh 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tên Thú Cưng</label>
+                    <input type="text" id="petName" placeholder="Nhập tên thú cưng" required>
+                </div>
+                <div class="form-group">
+                    <label>Loài</label>
+                    <select id="petSpecies" required>
+                        <option>Chọn loài</option>
+                        <option>Chó</option>
+                        <option>Mèo</option>
+                        <option>Thỏ</option>
+                        <option>Chim</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Triệu Chứng</label>
+                    <textarea id="symptoms" placeholder="Mô tả triệu chứng" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Ngày Khám</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Giờ Khám</label>
+                    <input type="time" id="bookingTime" required>
+                </div>
+                <div class="form-group">
+                    <label>Dịch Vụ Khám</label>
+                    <select id="serviceType" required onchange="updateBookingPrice()">
+                        <option value="">Chọn dịch vụ</option>
+                        <option value="200000">Khám tổng quát - 200,000 VNĐ</option>
+                        <option value="300000">Khám chuyên sâu - 300,000 VNĐ</option>
+                        <option value="500000">Khám + Xét nghiệm - 500,000 VNĐ</option>
+                        <option value="150000">Tư vấn cơ bản - 150,000 VNĐ</option>
+                    </select>
+                </div>
+                <div class="price-summary" style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">Thành tiền:</p>
+                    <h3 style="margin: 0.5rem 0; color: #2196F3;" id="bookingTotalPrice">0 VNĐ</h3>
+                    <p style="margin: 0; font-size: 0.85rem; color: #999;" id="bookingLoyaltyEarn">Tích lũy: 0 điểm</p>
+                </div>
+                <button type="submit" class="btn btn-primary">Đặt Lịch</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="vaccinationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('vaccinationModal')">&times;</span>
+            <h2>Gói Tiêm Phòng</h2>
+            <div class="vaccination-packages">
+                <div class="package-card">
+                    <h3>Gói 6 Tháng</h3>
+                    <p class="discount">Giảm 5%</p>
+                    <h4 style="color: #2196F3; margin: 0.5rem 0;">1,900,000 VNĐ</h4>
+                    <p style="color: #999; font-size: 0.85rem; text-decoration: line-through;">2,000,000 VNĐ</p>
+                    <ul>
+                        <li>Tiêm cơ bản</li>
+                        <li>Kiểm tra sức khỏe</li>
+                        <li>Tư vấn miễn phí</li>
+                    </ul>
+                    <p style="color: #4CAF50; font-size: 0.9rem; margin: 0.5rem 0;">💎 Tích lũy: 38 điểm</p>
+                    <button class="btn btn-primary" type="button" onclick="selectVaccinationPackage('Gói 6 Tháng', 1900000)">Chọn</button>
+                </div>
+                <div class="package-card">
+                    <h3>Gói 12 Tháng</h3>
+                    <p class="discount">Giảm 10%</p>
+                    <h4 style="color: #2196F3; margin: 0.5rem 0;">3,600,000 VNĐ</h4>
+                    <p style="color: #999; font-size: 0.85rem; text-decoration: line-through;">4,000,000 VNĐ</p>
+                    <ul>
+                        <li>Tiêm đầy đủ</li>
+                        <li>Kiểm tra sức khỏe định kỳ</li>
+                        <li>Tư vấn ưu tiên</li>
+                        <li>Ưu đãi sản phẩm</li>
+                    </ul>
+                    <p style="color: #4CAF50; font-size: 0.9rem; margin: 0.5rem 0;">💎 Tích lũy: 72 điểm</p>
+                    <button class="btn btn-primary" type="button" onclick="selectVaccinationPackage('Gói 12 Tháng', 3600000)">Chọn</button>
+                </div>
+                <div class="package-card">
+                    <h3>Gói Lẻ</h3>
+                    <p class="discount">Giá thường</p>
+                    <h4 style="color: #2196F3; margin: 0.5rem 0;">400,000 VNĐ/mũi</h4>
+                    <ul>
+                        <li>Từng mũi riêng lẻ</li>
+                        <li>Linh hoạt lịch tiêm</li>
+                        <li>Thanh toán theo mũi</li>
+                    </ul>
+                    <p style="color: #4CAF50; font-size: 0.9rem; margin: 0.5rem 0;">💎 Tích lũy: 8 điểm</p>
+                    <button class="btn btn-primary" type="button" onclick="selectVaccinationPackage('Gói Lẻ', 400000)">Chọn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal (Đăng Nhập / Đăng Ký) -->
+    <div id="authModal" class="modal">
+        <div class="modal-content auth-modal-content">
+            <span class="close" onclick="closeModal('authModal')">&times;</span>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" onclick="switchAuthTab('login')">Đăng Nhập</button>
+                <button class="auth-tab-btn" onclick="switchAuthTab('signup')">Đăng Ký</button>
+            </div>
+
+            <!-- TAB ĐĂNG NHẬP -->
+            <div id="loginTab" class="auth-tab-content active">
+                <h2>Đăng Nhập</h2>
+                <form id="loginForm" onsubmit="handleLogin(event); return false;">
+                    <div class="form-group">
+                        <label>Tên Đăng Nhập</label>
+                        <input type="text" placeholder="Nhập tên đăng nhập" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật Khẩu</label>
+                        <input type="password" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Nhớ tôi</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Đăng Nhập</button>
+                    <div class="form-error" id="modalLoginError"></div>
+                </form>
+                <div class="auth-footer">
+                    <a href="#" class="forgot-link">Quên mật khẩu?</a>
+                </div>
+            </div>
+
+            <!-- TAB ĐĂNG KÝ -->
+            <div id="signupTab" class="auth-tab-content">
+                <h2>Tạo Tài Khoản</h2>
+                <form id="signupForm" onsubmit="handleSignup(event); return false;">
+                    <div class="form-group">
+                        <label>Họ và Tên</label>
+                        <input type="text" name="fullname" placeholder="Nhập họ và tên đầy đủ" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên Đăng Nhập</label>
+                        <input type="text" name="username" placeholder="Nhập tên đăng nhập" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Số Điện Thoại</label>
+                        <input type="tel" name="phone" placeholder="Nhập số điện thoại" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật Khẩu</label>
+                        <input type="password" name="password" placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Xác Nhận Mật Khẩu</label>
+                        <input type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" name="agreeTerms" id="agreeTerms" required>
+                        <label for="agreeTerms">Tôi đồng ý với <a href="#">Điều khoản sử dụng</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Đăng Ký</button>
+                    <div class="form-error" id="modalSignupError"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Member Info Modal -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <span class="close" onclick="closeModal('memberModal')">&times;</span>
+            <h2>Thông Tin Thành Viên</h2>
+            <div id="memberInfo" style="text-align: center; padding: 2rem;">
+                <div style="margin-bottom: 2rem;">
+                    <h3 id="memberName" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="memberEmail" style="color: #999;"></p>
+                </div>
+                <div style="background: #F5F5F5; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <p style="color: #999; margin-bottom: 0.5rem;">Điểm Loyalty Hiện Tại</p>
+                    <h1 id="loyaltyPoints" style="color: var(--primary-color); margin: 0;">0</h1>
+                </div>
+                <div style="background: #F5F5F5; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <p style="color: #999; margin-bottom: 0.5rem;">Cấp Độ Thành Viên</p>
+                    <h3 id="memberTier" style="margin: 0;">Cơ Bản</h3>
+                </div>
+                <div style="text-align: left; background: #F9F9F9; padding: 1rem; border-radius: 8px;">
+                    <h4 style="margin-bottom: 1rem;">Ưu Đãi Của Bạn:</h4>
+                    <ul id="memberBenefits" style="list-style: none; padding: 0; margin: 0;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal (Lịch Sử & Đơn Hàng) -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close" onclick="closeModal('historyModal')">&times;</span>
+            <h2>Lịch Sử Đặt Khám & Gói Tiêm</h2>
+            <div id="historyContent" style="padding: 1.5rem;">
+                <!-- Nội dung sẽ được tạo bằng JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop Modal -->
+    <div id="shopModal" class="modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="close" onclick="closeModal('shopModal')">&times;</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="margin: 0;">Cửa Hàng Sản Phẩm</h2>
+                <button class="btn btn-primary" onclick="openCart()" style="position: relative;">
+                    <i class="fas fa-shopping-cart"></i> Giỏ Hàng
+                    <span id="cartCount" style="position: absolute; top: -8px; right: -8px; background: #f44336; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 0.75rem; display: none; align-items: center; justify-content: center;">0</span>
+                </button>
+            </div>
+            
+            <div class="shop-categories" style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                <button class="category-btn active" onclick="filterProducts('all')">Tất Cả</button>
+                <button class="category-btn" onclick="filterProducts('food')">Thức Ăn</button>
+                <button class="category-btn" onclick="filterProducts('medicine')">Thuốc</button>
+                <button class="category-btn" onclick="filterProducts('accessories')">Phụ Kiện</button>
+                <button class="category-btn" onclick="filterProducts('toys')">Đồ Chơi</button>
+            </div>
+            
+            <div id="productsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; max-height: 500px; overflow-y: auto; padding: 1rem;">
+                <!-- Sản phẩm sẽ được tạo bằng JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Branch Detail Modal -->
+    <div id="branchDetailModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <span class="close" onclick="closeModal('branchDetailModal')">&times;</span>
+            <div id="branchDetailContent">
+                <!-- Branch details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close" onclick="closeModal('cartModal')">&times;</span>
+            <h2>Giỏ Hàng</h2>
+            <div id="cartContent" style="padding: 1rem;">
+                <!-- Nội dung giỏ hàng -->
+            </div>
+            <div style="border-top: 2px solid #eee; padding-top: 1rem; margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3>Tổng Tiền:</h3>
+                    <h3 style="color: #2196F3;" id="cartTotal">0 VNĐ</h3>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.9rem; color: #666;">
+                    <span>Giảm giá (cấp độ):</span>
+                    <span id="cartDiscount">0 VNĐ</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3>Thành Tiền:</h3>
+                    <h3 style="color: #4CAF50;" id="cartFinalTotal">0 VNĐ</h3>
+                </div>
+                <p style="color: #4CAF50; font-size: 0.9rem; margin-bottom: 1rem;" id="cartLoyaltyEarn">💎 Tích lũy: 0 điểm</p>
+                <button class="btn btn-primary btn-full" onclick="checkout()">Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
