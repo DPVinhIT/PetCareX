@@ -1368,6 +1368,12 @@ function updateNavbarAfterLogin() {
             historyLink.style.display = 'block';
         }
         
+        // Hiển thị button Đăng Xuất và ẩn Đăng Nhập
+        const logoutBtn = document.querySelector('.btn-logout');
+        if (logoutBtn) {
+            logoutBtn.style.display = 'block';
+        }
+        
         const loginLink = document.querySelector('.btn-login');
         if (loginLink) {
             const displayName = user.fullname || user.username || 'Người dùng';
@@ -1380,6 +1386,43 @@ function updateNavbarAfterLogin() {
                 displayMemberInfo();
             };
         }
+    }
+}
+
+function handleLogout() {
+    // Xác nhận đăng xuất
+    if (confirm('Bạn có chắc muốn đăng xuất?')) {
+        // Xóa thông tin user
+        localStorage.removeItem('petcarex-user');
+        
+        // Reset navbar
+        const loginLink = document.querySelector('.btn-login');
+        if (loginLink) {
+            loginLink.innerHTML = 'Đăng Nhập';
+            loginLink.style.background = '';
+            loginLink.style.color = '';
+            loginLink.onclick = function(e) {
+                e.preventDefault();
+                openModal('authModal');
+            };
+        }
+        
+        // Ẩn button Lịch Sử và Đăng Xuất
+        const historyLink = document.getElementById('historyLink');
+        if (historyLink) {
+            historyLink.style.display = 'none';
+        }
+        
+        const logoutBtn = document.querySelector('.btn-logout');
+        if (logoutBtn) {
+            logoutBtn.style.display = 'none';
+        }
+        
+        // Reset giỏ hàng nếu có
+        cart = [];
+        updateCartCount();
+        
+        alert('Đã đăng xuất thành công!');
     }
 }
 
