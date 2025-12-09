@@ -1,0 +1,55 @@
+﻿EID,PetID,ExaminationDate,Symptoms,Diagnoses,FollowUpDate
+SRV0060,PET88705,2024-07-29 21:03:00,Lờ đờ - mất sinh lực,Xuất huyết nội bộ - cấp cứu,2024-08-15
+SRV0179,PET26455,2024-11-13 20:32:01,Lờ đờ - mất sinh lực,Viêm tụy cấp (Pancreatitis),2024-11-17
+SRV0049,PET47680,2022-02-24 05:59:22,Tê liệt mặt - miệng méo,Virus Parvovirus (parvo) - nguy hiểm,2022-03-06
+SRV0115,PET109896,2022-04-26 22:20:46,Hôi miệng kinh khủng - nướu sưng tấy,Bệnh đĩa đệm (bệnh IVDD),2022-05-19
+SRV0029,PET21939,2022-04-09 16:38:15,Hôi miệng kinh khủng - nướu sưng tấy,Viêm tụy cấp (Pancreatitis),2022-04-22
+SRV0032,PET20620,2023-07-13 02:48:44,Lờ đờ - mất sinh lực,Nhiễm trùng vết mổ sau phẫu thuật,2023-08-01
+SRV0014,PET119955,2022-06-18 08:46:47,Lờ đờ - mất sinh lực,Viêm mống mắt - cần chỉ định nhanh,2022-07-16
+SRV0164,PET27703,2024-11-09 19:15:30,Sốt cao (38-39°C) - bỏ ăn - mệt mỏi,Viêm đường hô hấp cấp tính,2024-12-03
+SRV0020,PET97303,2024-09-14 04:58:43,Liệt chi sau - không đứng được,Viêm tai ngoài do nấm Malassezia,2024-09-20
+SRV0055,PET84421,2023-12-05 08:39:06,Tiêu chảy nặng - nôn - bỏ ăn hoàn toàn,Virus Parvovirus (parvo) - nguy hiểm,2023-12-21
+SRV0196,PET35684,2021-01-30 09:26:48,Hôi miệng kinh khủng - nướu sưng tấy,Bệnh đĩa đệm (bệnh IVDD),2021-02-23
+SRV0047,PET113540,2023-02-11 13:20:47,Mắt đỏ - phù nề - khó mở mắt,Thiếu máu do sốc mất máu hoặc ký sinh,2023-03-03
+SRV0057,PET62040,2022-01-17 17:16:00,Vết mổ sưng - chảy máu - sốc nhiễm trùng,Bệnh nha chu giai đoạn cuối,2022-02-15
+SRV0013,PET83421,2024-03-24 03:43:08,Liệt chi sau - không đứng được,Suy thận cấp - cần xét nghiệm ngay,2024-04-04
+SRV0133,PET107202,2021-12-22 02:50:01,Lờ đờ - mất sinh lực,Viêm dạ dày ruột cấp do vi khuẩn,2022-01-14
+SRV0069,PET95997,2021-01-12 15:07:00,Tê liệt mặt - miệng méo,Chấn thương cột sống lưng thắt lưng,2021-02-11
+SRV0148,PET12876,2022-02-07 08:32:06,Chảy máu cam liên tục - nước tiểu đỏ,Nhiễm trùng vết mổ sau phẫu thuật,2022-03-02
+SRV0022,PET30838,2021-06-12 12:21:02,Ho kéo dài - khó thở - chảy nước mũi,Bệnh nha chu giai đoạn cuối,2021-06-13
+SRV0091,PET37042,2024-11-22 07:21:07,Liệt chi sau - không đứng được,Tổn thương thần kinh ngoại biên,2024-12-18
+SRV0042,PET26359,2022-06-07 19:01:34,Ho kéo dài - khó thở - chảy nước mũi,Tắc đường tiêu hóa hoặc xoắn dạ dày,2022-07-02
+SRV0024,PET47496,2021-06-07 01:06:32,Bụng căng như quả bóng - đau nhiều,Nhiễm trùng vết mổ sau phẫu thuật,2021-06-22
+SRV0200,PET113678,2022-02-04 03:03:50,Ngứa dữ dội - chảy máu tai từ gãi,Tổn thương thần kinh ngoại biên,2022-02-24
+SRV0025,PET69382,2024-03-27 08:14:06,Ngứa dữ dội - chảy máu tai từ gãi,Thiếu máu do sốc mất máu hoặc ký sinh,2024-03-28
+SRV0028,PET97566,2024-03-10 06:24:48,Liệt chi sau - không đứng được,Viêm đường hô hấp cấp tính,2024-04-03
+SRV0027,PET106567,2021-07-10 02:13:57,Tê liệt mặt - miệng méo,Tổn thương thần kinh ngoại biên,2021-07-28
+SRV0160,PET79730,2022-09-21 14:02:29,Sốt cao (38-39°C) - bỏ ăn - mệt mỏi,Viêm tai ngoài do nấm Malassezia,2022-09-29
+SRV0002,PET45907,2021-04-28 17:48:46,Ho kéo dài - khó thở - chảy nước mũi,Tắc đường tiêu hóa hoặc xoắn dạ dày,2021-05-07
+SRV0161,PET22605,2023-11-17 03:05:21,Hôi miệng kinh khủng - nướu sưng tấy,Bệnh đĩa đệm (bệnh IVDD),2023-12-05
+SRV0008,PET117855,2024-11-04 21:48:20,Lờ đờ - mất sinh lực,Chấn thương cột sống lưng thắt lưng,2024-11-11
+SRV0056,PET43873,2023-05-05 09:35:50,Ho kéo dài - khó thở - chảy nước mũi,Nhiễm trùng vết mổ sau phẫu thuật,2023-05-27
+SRV0012,PET50093,2021-08-23 23:28:47,Liệt chi sau - không đứng được,Thiếu máu do sốc mất máu hoặc ký sinh,2021-09-13
+SRV0067,PET61423,2023-01-20 16:37:39,Sốt cao (38-39°C) - bỏ ăn - mệt mỏi,Thiếu máu do sốc mất máu hoặc ký sinh,2023-01-27
+SRV0089,PET114940,2021-04-03 22:34:36,Bụng căng như quả bóng - đau nhiều,Virus Parvovirus (parvo) - nguy hiểm,2021-04-06
+SRV0019,PET87245,2023-12-24 09:20:48,Tiêu chảy nặng - nôn - bỏ ăn hoàn toàn,Tổn thương thần kinh ngoại biên,2024-01-22
+SRV0093,PET94227,2021-07-09 06:21:23,Sốt cao (38-39°C) - bỏ ăn - mệt mỏi,Bệnh đĩa đệm (bệnh IVDD),2021-07-25
+SRV0125,PET23364,2021-03-21 23:57:20,Hôi miệng kinh khủng - nướu sưng tấy,Thiếu máu do sốc mất máu hoặc ký sinh,2021-04-11
+SRV0097,PET82953,2024-08-08 09:41:44,Tiêu chảy nặng - nôn - bỏ ăn hoàn toàn,Viêm mống mắt - cần chỉ định nhanh,2024-08-29
+SRV0092,PET96913,2024-03-14 22:14:52,Ho kéo dài - khó thở - chảy nước mũi,Viêm dạ dày ruột cấp do vi khuẩn,2024-03-27
+SRV0058,PET92038,2021-11-16 21:20:29,Chảy máu cam liên tục - nước tiểu đỏ,Viêm đường hô hấp cấp tính,2021-12-15
+SRV0158,PET49750,2021-09-25 22:50:22,Mắt đỏ - phù nề - khó mở mắt,Virus Parvovirus (parvo) - nguy hiểm,2021-10-17
+SRV0130,PET82511,2021-03-05 20:48:39,Hôi miệng kinh khủng - nướu sưng tấy,Virus Parvovirus (parvo) - nguy hiểm,2021-03-18
+SRV0059,PET55386,2023-10-08 02:35:28,Tê liệt mặt - miệng méo,Thiếu máu do sốc mất máu hoặc ký sinh,2023-10-15
+SRV0018,PET56598,2021-09-21 02:22:28,Chảy máu cam liên tục - nước tiểu đỏ,Suy thận cấp - cần xét nghiệm ngay,2021-10-18
+SRV0009,PET113460,2024-05-31 06:20:23,Lờ đờ - mất sinh lực,Nhiễm trùng vết mổ sau phẫu thuật,2024-06-01
+SRV0168,PET116268,2024-06-17 15:11:08,Ngứa dữ dội - chảy máu tai từ gãi,Viêm đường hô hấp cấp tính,2024-07-07
+SRV0004,PET48977,2022-03-09 10:50:30,Lờ đờ - mất sinh lực,Suy thận cấp - cần xét nghiệm ngay,2022-03-31
+SRV0061,PET52311,2024-09-05 10:33:55,Ho kéo dài - khó thở - chảy nước mũi,Tổn thương thần kinh ngoại biên,2024-10-03
+SRV0163,PET30332,2023-06-26 13:17:29,Chảy máu cam liên tục - nước tiểu đỏ,Tổn thương thần kinh ngoại biên,2023-06-30
+SRV0001,PET37920,2022-04-07 00:48:45,Ho kéo dài - khó thở - chảy nước mũi,Virus Parvovirus (parvo) - nguy hiểm,2022-05-06
+SRV0078,PET58385,2021-07-22 05:57:41,Lờ đờ - mất sinh lực,Viêm tụy cấp (Pancreatitis),2021-07-30
+SRV0170,PET111469,2022-02-23 09:13:03,Chảy máu cam liên tục - nước tiểu đỏ,Suy thận cấp - cần xét nghiệm ngay,2022-03-20
+SRV0178,PET75378,2022-08-06 03:24:35,Chảy máu cam liên tục - nước tiểu đỏ,Virus Parvovirus (parvo) - nguy hiểm,2022-09-01
+SRV0098,PET31926,2022-02-12 11:06:01,Bụng căng như quả bóng - đau nhiều,Bệnh đĩa đệm (bệnh IVDD),2022-03-03
+SRV0162,PET72027,2022-06-07 12:44:08,Lờ đờ - mất sinh lực,Bệnh nha chu giai đoạn cuối,2022-07-01
