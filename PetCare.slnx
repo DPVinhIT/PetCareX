@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DOCTOR/DOCTOR.csproj" Id="8ae2c83f-9087-4c45-aa3e-4f9d525bd99a" />
+  <Project Path="LOGIN/LOGIN.csproj" Id="5b55df60-2060-477f-9618-995c763c38bf" />
+  <Project Path="RECEPTIONIST/RECEPTIONIST.csproj" />
+</Solution>
