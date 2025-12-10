@@ -205,6 +205,120 @@ app.get('/api/orders/:customerId', async (req, res) => {
     }
 });
 
+// Create booking (appointment)
+app.post('/api/bookings', async (req, res) => {
+    try {
+        const { branch, petName, species, symptoms, date, time, service, price, customerId } = req.body;
+
+        const appointmentId = 'AP' + Date.now();
+        const createDate = new Date().toISOString().split('T')[0];
+        const createTime = new Date().toTimeString().split(' ')[0];
+
+        // Try to find branch id by name
+        let branchId = null;
+        if (branch) {
+            const b = await pool.query('SELECT "BranchID" FROM branch WHERE "BranchName" = $1 LIMIT 1', [branch]);
+            if (b.rows.length > 0) branchId = b.rows[0].BranchID;
+        }
+
+        // Try to find service id by name
+        let serviceId = null;
+        if (service) {
+            const s = await pool.query('SELECT "ServiceID" FROM service WHERE "ServiceName" = $1 LIMIT 1', [service]);
+            if (s.rows.length > 0) serviceId = s.rows[0].ServiceID;
+        }
+
+        await pool.query(
+            `INSERT INTO appointment(appointmentid, createdate, createtime, date, time, branchid, serviceid, customerid, room)
+             VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+            [appointmentId, createDate, createTime, date, time, branchId, serviceId, customerId, null]
+        );
+
+        res.json({ success: true, data: { appointmentId } });
+    } catch (error) {
+        console.error('Booking error:', error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Get bookings for customer
+app.get('/api/bookings/:customerId', async (req, res) => {
+    try {
+        const { customerId } = req.params;
+        const result = await pool.query('SELECT * FROM appointment WHERE customerid = $1 ORDER BY createdate DESC, createtime DESC', [customerId]);
+        res.json({ success: true, data: result.rows });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Create order (and details)
+app.post('/api/orders', async (req, res) => {
+    const client = await pool.connect();
+    try {
+        const { OrderID, CustomerID, items, subtotal, discount, total, membershipTier } = req.body;
+        await client.query('BEGIN');
+
+        await client.query(
+            'INSERT INTO orders(orderid, customerid, salespersonid, createdate, createtime, status) VALUES($1,$2,$3,$4,$5,$6)',
+            [OrderID, CustomerID, null, new Date().toISOString().split('T')[0], new Date().toTimeString().split(' ')[0], 'Đã đặt']
+        );
+
+        for (const it of items) {
+            await client.query(
+                'INSERT INTO orderdetail(orderid, productid, quantity, temporaryprice) VALUES($1,$2,$3,$4)',
+                [OrderID, it.ProductID, it.Quantity, it.TemporaryPrice]
+            );
+        }
+
+        await client.query('COMMIT');
+        res.json({ success: true, data: { OrderID } });
+    } catch (error) {
+        await client.query('ROLLBACK');
+        console.error('Create order error:', error);
+        res.status(500).json({ success: false, error: error.message });
+    } finally {
+        client.release();
+    }
+});
+
+// Add loyalty points to customer's cardmembership
+app.post('/api/customers/:customerId/add-loyalty', async (req, res) => {
+    try {
+        const { customerId } = req.params;
+        const { points } = req.body;
+
+        // Find existing cardmembership
+        const cm = await pool.query('SELECT * FROM cardmembership WHERE customerid = $1 LIMIT 1', [customerId]);
+        if (cm.rows.length > 0) {
+            await pool.query('UPDATE cardmembership SET loyalpoint = COALESCE(loyalpoint,0) + $1 WHERE customerid = $2', [points, customerId]);
+        } else {
+            const cardId = 'CM' + Date.now();
+            await pool.query('INSERT INTO cardmembership(cardid, registrationdate, loyalpoint, levelid, customerid) VALUES($1, NOW(), $2, NULL, $3)', [cardId, points, customerId]);
+        }
+
+        // Return updated points
+        const updated = await pool.query('SELECT loyalpoint FROM cardmembership WHERE customerid = $1 LIMIT 1', [customerId]);
+        const total = updated.rows[0]?.loyalpoint || 0;
+        res.json({ success: true, data: { points: total } });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Save vaccination record
+app.post('/api/vaccinations', async (req, res) => {
+    try {
+        const { VPID, VaccineID, VaccinationDate, Dosage, customerId } = req.body;
+        const id = 'VAC' + Date.now();
+        await pool.query('INSERT INTO vaccination(vid, vaccineid, vaccinationdate, dosage) VALUES($1,$2,$3,$4)', [id, VaccineID || null, VaccinationDate || new Date().toISOString(), Dosage || null]);
+        // Optionally link to customer via appointment/invoice; skipping linking for now
+        res.json({ success: true, data: { id } });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 // ============================================
 // START SERVER
 // ============================================
