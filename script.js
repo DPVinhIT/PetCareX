@@ -1298,7 +1298,7 @@ function switchAuthTab(tab) {
     }
 }
 
-function handleLogin(event) {
+async function handleLogin(event) {
     event.preventDefault();
     event.stopPropagation();
     
