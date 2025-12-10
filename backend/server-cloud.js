@@ -5,7 +5,6 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 
 const app = express();
@@ -14,7 +13,21 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(cookieParser());
+
+// Lightweight cookie parser middleware (replaces cookie-parser dependency)
+app.use((req, res, next) => {
+    req.cookies = {};
+    const raw = req.headers?.cookie;
+    if (!raw) return next();
+    raw.split(';').forEach(pair => {
+        const idx = pair.indexOf('=');
+        if (idx < 0) return;
+        const key = pair.slice(0, idx).trim();
+        const val = pair.slice(idx + 1).trim();
+        try { req.cookies[key] = decodeURIComponent(val); } catch (e) { req.cookies[key] = val; }
+    });
+    next();
+});
 
 // Database connection
 const { Pool } = require('pg');
