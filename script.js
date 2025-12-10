@@ -1,10 +1,35 @@
 /* ============================================
-   DỮ LIỆU ĐỘNG TỪ API
-   Branch: BranchID, BranchName, Address, PhoneNumber, Email, OpenTime, CloseTime
-   ============================================ */
+    dữ liệu động từ api
+    branch: branchid, branchname, address, phonenumber, email, opentime, closetime
+    tất cả chữ thường, viết liền
+    ============================================ */
 
 // Sử dụng API trên cloud (Render)
 const API_BASE = 'https://petcarex-api.onrender.com/api';
+
+// session user (kept in memory only). cookie-based auth is used; fetchAuthMe() populates this.
+window.currentUser = null;
+
+function getCurrentUser() {
+    return window.currentUser;
+}
+
+async function fetchAuthMe() {
+    try {
+        const resp = await fetch(`${API_BASE}/auth/me`, { credentials: 'include' });
+        const result = await resp.json();
+        if (result && result.success) {
+            window.currentUser = result.data;
+        } else {
+            window.currentUser = null;
+        }
+        updateNavbarAfterLogin();
+        return window.currentUser;
+    } catch (err) {
+        window.currentUser = null;
+        return null;
+    }
+}
 
 // Biến lưu dữ liệu động từ API
 let branchesData = [];
@@ -75,22 +100,22 @@ async function renderBranches() {
     container.innerHTML = branches.map(branch => `
         <div class="branch-card">
             <div class="branch-header">
-                <h3>${branch.BranchName}</h3>
+                <h3>${branch.branchname}</h3>
                 <span class="badge">Mở cửa</span>
             </div>
             <div class="branch-info">
-                <p><i class="fas fa-map-marker-alt"></i> ${branch.Address}</p>
-                <p><i class="fas fa-phone"></i> ${branch.PhoneNumber}</p>
-                <p><i class="fas fa-clock"></i> ${branch.OpenTime}:00 - ${branch.CloseTime}:00</p>
+                <p><i class="fas fa-map-marker-alt"></i> ${branch.address}</p>
+                <p><i class="fas fa-phone"></i> ${branch.phonenumber}</p>
+                <p><i class="fas fa-clock"></i> ${branch.opentime}:00 - ${branch.closetime}:00</p>
             </div>
-            <button class="btn btn-outline-sm" onclick="showBranchDetail('${branch.BranchID}')">Chi Tiết</button>
+            <button class="btn btn-outline-sm" onclick="showBranchDetail('${branch.branchid}')">Chi Tiết</button>
         </div>
     `).join('');
 }
 
 // Show branch detail (theo cấu trúc database)
 function showBranchDetail(branchId) {
-    const branch = getBranches().find(b => b.BranchID === branchId);
+    const branch = getBranches().find(b => b.branchid === branchId);
     if (!branch) return;
     
     const detailContent = document.getElementById('branchDetailContent');
@@ -98,12 +123,12 @@ function showBranchDetail(branchId) {
     
     detailContent.innerHTML = `
         <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">${branch.BranchName}</h3>
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">${branch.branchname}</h3>
             <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-map-marker-alt" style="color: #f44336; width: 20px;"></i> Địa chỉ:</strong> ${branch.Address}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-phone" style="color: #4CAF50; width: 20px;"></i> Điện thoại:</strong> ${branch.PhoneNumber}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-envelope" style="color: #2196F3; width: 20px;"></i> Email:</strong> ${branch.Email}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-clock" style="color: #FF9800; width: 20px;"></i> Giờ mở cửa:</strong> ${branch.OpenTime}:00 - ${branch.CloseTime}:00</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-map-marker-alt" style="color: #f44336; width: 20px;"></i> Địa chỉ:</strong> ${branch.address}</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-phone" style="color: #4CAF50; width: 20px;"></i> Điện thoại:</strong> ${branch.phonenumber}</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-envelope" style="color: #2196F3; width: 20px;"></i> Email:</strong> ${branch.email}</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-clock" style="color: #FF9800; width: 20px;"></i> Giờ mở cửa:</strong> ${branch.opentime}:00 - ${branch.closetime}:00</p>
             </div>
         </div>
         
@@ -118,7 +143,7 @@ function showBranchDetail(branchId) {
         </div>
         
         <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-            <button class="btn btn-primary" onclick="bookAtBranch('${branch.BranchName}')">
+            <button class="btn btn-primary" onclick="bookAtBranch('${branch.branchname}')">
                 <i class="fas fa-calendar-plus"></i> Đặt Lịch Tại Đây
             </button>
             <button class="btn btn-outline" onclick="openMap('${branch.Address}')">
@@ -132,11 +157,22 @@ function showBranchDetail(branchId) {
 
 // Book at specific branch
 function bookAtBranch(branchName) {
+    // branchName may be a branchid or branchname; make selection robust
     closeModal('branchDetailModal');
     openModal('bookingModal');
     const branchSelect = document.getElementById('bookingBranch');
-    if (branchSelect) {
+    if (!branchSelect) return;
+
+    // Direct match by id
+    const byId = Array.from(branchSelect.options).find(o => o.value === branchName);
+    if (byId) {
         branchSelect.value = branchName;
+        return;
+    }
+    // Match by visible text (branchname)
+    const byName = Array.from(branchSelect.options).find(o => o.text === branchName || o.text.includes(branchName));
+    if (byName) {
+        branchSelect.value = byName.value;
     }
 }
 
@@ -178,7 +214,7 @@ function getMembershipTier(points) {
 
 // Lưu booking qua API backend
 async function saveBooking(bookingData) {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    const user = getCurrentUser();
     if (!user) {
         showNotification('Vui lòng đăng nhập trước', 'info');
         return;
@@ -186,8 +222,9 @@ async function saveBooking(bookingData) {
     try {
         const resp = await fetch(`${API_BASE}/bookings`, {
             method: 'POST',
+            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...bookingData, customerId: user.id })
+            body: JSON.stringify({ ...bookingData, customerid: user.customerid || user.id })
         });
         const result = await resp.json();
         if (result.success) {
@@ -202,10 +239,10 @@ async function saveBooking(bookingData) {
 
 // Lấy booking của user qua API backend
 async function getUserBookings() {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    const user = getCurrentUser();
     if (!user) return [];
     try {
-        const resp = await fetch(`${API_BASE}/bookings/${user.id}`);
+        const resp = await fetch(`${API_BASE}/bookings/${user.customerid || user.id}`, { credentials: 'include' });
         const result = await resp.json();
         if (result.success) return result.data;
         return [];
@@ -216,10 +253,10 @@ async function getUserBookings() {
 
 // Lấy orders của user qua API backend
 async function getUserOrders() {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    const user = getCurrentUser();
     if (!user) return [];
     try {
-        const resp = await fetch(`${API_BASE}/orders/${user.id}`);
+        const resp = await fetch(`${API_BASE}/orders/${user.customerid || user.id}`, { credentials: 'include' });
         const result = await resp.json();
         if (result.success) return result.data;
         return [];
@@ -269,22 +306,48 @@ function displayBookingHistory(bookings, vaccinations, orders) {
     
     let content = '';
     
-    // Orders section
+    // Orders section (group rows by orderid if backend returned flat rows)
     if (orders && orders.length > 0) {
+        // if rows look like flat orderdetail rows (productid present), group them
+        let ordersToRender = orders;
+        if (orders[0] && (orders[0].productid || orders[0].productid === 0) && orders[0].orderid) {
+            const map = {};
+            for (const row of orders) {
+                const oid = row.orderid || row.orderid || row.id || ('ord' + (row.orderid || Date.now()));
+                if (!map[oid]) {
+                    map[oid] = {
+                        orderid: oid,
+                        subtotal: row.subtotal || row.total || 0,
+                        discount: row.discount || 0,
+                        total: row.total || row.subtotal || 0,
+                        membershipTier: row.membershiptier || row.membershipTier || '',
+                        status: row.status || row.Status || '',
+                        createdate: row.createdate || row.createdate || '',
+                        createtime: row.createtime || row.createtime || '',
+                        items: []
+                    };
+                }
+                if (row.productid) {
+                    map[oid].items.push({ productid: row.productid, productname: row.productname || row.productname, quantity: row.quantity || row.quantity, temporaryprice: row.temporaryprice || row.temporaryprice });
+                }
+            }
+            ordersToRender = Object.values(map);
+        }
+
         content += `
         <h3 style="color: #9C27B0; border-bottom: 2px solid #9C27B0; padding-bottom: 0.5rem; margin-bottom: 1rem;">
             <i class="fas fa-shopping-bag"></i> Đơn Hàng
         </h3>
         <div style="margin-bottom: 2rem;">
-            ${orders.map(order => `
+            ${ordersToRender.map(order => `
                 <div style="background: #F3E5F5; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; border-left: 4px solid #9C27B0;">
-                    <p><strong>Mã đơn:</strong> #${order.OrderID || order.id}</p>
-                    <p><strong>Sản phẩm:</strong> ${order.items.map(item => `${item.ProductName || item.name} (x${item.Quantity || item.quantity})`).join(', ')}</p>
-                    <p><strong>Tổng tiền:</strong> ${order.subtotal.toLocaleString('vi-VN')} VNĐ</p>
-                    <p><strong>Giảm giá:</strong> -${order.discount.toLocaleString('vi-VN')} VNĐ (${order.membershipTier})</p>
-                    <p><strong>Thành tiền:</strong> <span style="color: #4CAF50; font-weight: bold;">${order.total.toLocaleString('vi-VN')} VNĐ</span></p>
-                    <p><strong>Trạng Thái:</strong> <span style="color: #4CAF50; font-weight: bold;">${order.Status || order.status}</span></p>
-                    <p style="font-size: 0.85rem; color: #999;">Ngày: ${order.CreateDate || ''} ${order.CreateTime || ''}</p>
+                    <p><strong>Mã đơn:</strong> #${order.orderid || order.id}</p>
+                    <p><strong>Sản phẩm:</strong> ${(order.items || []).map(item => `${item.productname || item.name} (x${item.quantity || item.Quantity || 1})`).join(', ')}</p>
+                    <p><strong>Tổng tiền:</strong> ${(order.subtotal || order.total || 0).toLocaleString('vi-VN')} VNĐ</p>
+                    <p><strong>Giảm giá:</strong> -${(order.discount || 0).toLocaleString('vi-VN')} VNĐ (${order.membershipTier || ''})</p>
+                    <p><strong>Thành tiền:</strong> <span style="color: #4CAF50; font-weight: bold;">${(order.total || order.subtotal || 0).toLocaleString('vi-VN')} VNĐ</span></p>
+                    <p><strong>Trạng Thái:</strong> <span style="color: #4CAF50; font-weight: bold;">${order.status || ''}</span></p>
+                    <p style="font-size: 0.85rem; color: #999;">Ngày: ${order.createdate || ''} ${order.createtime || ''}</p>
                 </div>
             `).join('')}
         </div>
@@ -342,21 +405,28 @@ function handleBookingSubmit(event) {
     event.preventDefault();
     
     const serviceType = document.getElementById('serviceType');
-    const price = parseInt(serviceType.value);
-    
+    const selectedService = serviceType?.options[serviceType.selectedIndex];
+    const price = parseInt(selectedService?.dataset?.price || serviceType?.value) || 0;
+
     if (!price) {
         showNotification('Vui lòng chọn dịch vụ', 'info');
         return;
     }
-    
+
+    const branchSelect = document.getElementById('bookingBranch');
+    const branchId = branchSelect?.value || '';
+    const branchName = branchSelect?.options[branchSelect.selectedIndex]?.text || '';
+
     const bookingData = {
-        branch: document.getElementById('bookingBranch').value,
+        branchid: branchId,
+        branch: branchName,
         petName: document.getElementById('petName').value,
         species: document.getElementById('petSpecies').value,
         symptoms: document.getElementById('symptoms').value,
         date: document.getElementById('bookingDate').value,
         time: document.getElementById('bookingTime').value,
-        service: serviceType.options[serviceType.selectedIndex].text,
+        serviceid: selectedService?.value || '',
+        service: selectedService?.text || '',
         price: price
     };
     
@@ -375,11 +445,15 @@ function handleBookingSubmit(event) {
 // Update booking price display
 function updateBookingPrice() {
     const serviceType = document.getElementById('serviceType');
-    const price = parseInt(serviceType.value) || 0;
+    if (!serviceType) return;
+    const selected = serviceType.options[serviceType.selectedIndex];
+    const price = parseInt(selected?.dataset?.price || serviceType.value) || 0;
     const points = Math.floor(price / 50000);
-    
-    document.getElementById('bookingTotalPrice').textContent = price.toLocaleString('vi-VN') + ' VNĐ';
-    document.getElementById('bookingLoyaltyEarn').textContent = `Tích lũy: ${points} điểm`;
+
+    const totalEl = document.getElementById('bookingTotalPrice');
+    const earnEl = document.getElementById('bookingLoyaltyEarn');
+    if (totalEl) totalEl.textContent = price.toLocaleString('vi-VN') + ' VNĐ';
+    if (earnEl) earnEl.textContent = `Tích lũy: ${points} điểm`;
 }
 
 // Select vaccination package
@@ -408,6 +482,37 @@ function openModal(modalId) {
     if (modal) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
+        // If opening booking modal, populate selects from API
+        if (modalId === 'bookingModal') {
+            try { populateBookingModal(); } catch (e) { console.error(e); }
+        }
+    }
+}
+
+// Populate booking modal selects from API data
+async function populateBookingModal() {
+    try {
+        if (branchesData.length === 0 || servicesData.length === 0) {
+            await loadDataFromAPI();
+        }
+
+        const branchSelect = document.getElementById('bookingBranch');
+        const serviceSelect = document.getElementById('serviceType');
+        if (branchSelect) {
+            branchSelect.innerHTML = '<option value="">Chọn chi nhánh</option>' +
+                (branchesData || []).map(b => `<option value="${b.branchid}">${b.branchname}</option>`).join('');
+        }
+        if (serviceSelect) {
+            serviceSelect.innerHTML = '<option value="">Chọn dịch vụ</option>' +
+                (servicesData || []).map(s => {
+                    const price = s.price || s.fee || s.sellingprice || s.serviceprice || 0;
+                    const name = s.servicename || s.service || s.name || '';
+                    return `<option value="${s.serviceid}" data-price="${price}">${name} - ${Number(price).toLocaleString('vi-VN')} VNĐ</option>`;
+                }).join('');
+        }
+        updateBookingPrice();
+    } catch (err) {
+        console.error('populateBookingModal error', err);
     }
 }
 
@@ -448,45 +553,46 @@ window.onclick = function(event) {
    ============================================ */
 
 /* ============================================
-   SHOP & CART MANAGEMENT (theo cấu trúc database)
-   Product: ProductID, ProductName, ProductType, SellingPrice
-   ============================================ */
+    shop & cart management (theo cấu trúc database)
+    product: productid, productname, producttype, sellingprice
+    tất cả chữ thường, viết liền
+    ============================================ */
 
 // Fallback Product catalog - dùng khi API không hoạt động
 const fallbackProducts = [
     // Thức ăn
-    { ProductID: 'PRD0004', ProductName: 'Thức ăn thỏ hữu cơ', ProductType: 'Thức ăn', SellingPrice: 433048, icon: '🌿' },
-    { ProductID: 'PRD0009', ProductName: 'Thức ăn mèo cao cấp', ProductType: 'Thức ăn', SellingPrice: 794584, icon: '🐟' },
-    { ProductID: 'PRD0010', ProductName: 'Thức ăn Tây Ban Nha', ProductType: 'Thức ăn', SellingPrice: 584751, icon: '🍖' },
-    { ProductID: 'PRD0015', ProductName: 'Thức ăn mèo cao cấp 2', ProductType: 'Thức ăn', SellingPrice: 142048, icon: '🐟' },
+    { productid: 'PRD0004', productname: 'Thức ăn thỏ hữu cơ', producttype: 'Thức ăn', sellingprice: 433048, icon: '🌿' },
+    { productid: 'PRD0009', productname: 'Thức ăn mèo cao cấp', producttype: 'Thức ăn', sellingprice: 794584, icon: '🐟' },
+    { productid: 'PRD0010', productname: 'Thức ăn Tây Ban Nha', producttype: 'Thức ăn', sellingprice: 584751, icon: '🍖' },
+    { productid: 'PRD0015', productname: 'Thức ăn mèo cao cấp 2', producttype: 'Thức ăn', sellingprice: 142048, icon: '🐟' },
     
     // Dược phẩm
-    { ProductID: 'PRD0013', ProductName: 'Siro ho cho chó', ProductType: 'Dược phẩm', SellingPrice: 887064, icon: '💊' },
-    { ProductID: 'PRD0024', ProductName: 'Vitamin B12 tiêm', ProductType: 'Dược phẩm', SellingPrice: 177300, icon: '💉' },
-    { ProductID: 'PRD0029', ProductName: 'Kem chữa ghẻ', ProductType: 'Dược phẩm', SellingPrice: 267671, icon: '🧴' },
+    { productid: 'PRD0013', productname: 'Siro ho cho chó', producttype: 'Dược phẩm', sellingprice: 887064, icon: '💊' },
+    { productid: 'PRD0024', productname: 'Vitamin B12 tiêm', producttype: 'Dược phẩm', sellingprice: 177300, icon: '💉' },
+    { productid: 'PRD0029', productname: 'Kem chữa ghẻ', producttype: 'Dược phẩm', sellingprice: 267671, icon: '🧴' },
     
     // Vitamin
-    { ProductID: 'PRD0012', ProductName: 'Canxi cho chó già', ProductType: 'Vitamin', SellingPrice: 522901, icon: '💊' },
-    { ProductID: 'PRD0017', ProductName: 'Dầu cá tốt cho lông', ProductType: 'Vitamin', SellingPrice: 160019, icon: '💊' },
-    { ProductID: 'PRD0021', ProductName: 'Vitamin C dạng bột', ProductType: 'Vitamin', SellingPrice: 678478, icon: '💊' },
+    { productid: 'PRD0012', productname: 'Canxi cho chó già', producttype: 'Vitamin', sellingprice: 522901, icon: '💊' },
+    { productid: 'PRD0017', productname: 'Dầu cá tốt cho lông', producttype: 'Vitamin', sellingprice: 160019, icon: '💊' },
+    { productid: 'PRD0021', productname: 'Vitamin C dạng bột', producttype: 'Vitamin', sellingprice: 678478, icon: '💊' },
     
     // Thiết bị y tế
-    { ProductID: 'PRD0002', ProductName: 'Ký sinh trùng detector', ProductType: 'Thiết bị y tế', SellingPrice: 242905, icon: '🧬' },
-    { ProductID: 'PRD0003', ProductName: 'Bàn chải đánh răng', ProductType: 'Thiết bị y tế', SellingPrice: 996708, icon: '🪥' },
-    { ProductID: 'PRD0005', ProductName: 'Ngoạm cắt móng', ProductType: 'Thiết bị y tế', SellingPrice: 943065, icon: '✂️' },
+    { productid: 'PRD0002', productname: 'Ký sinh trùng detector', producttype: 'Thiết bị y tế', sellingprice: 242905, icon: '🧬' },
+    { productid: 'PRD0003', productname: 'Bàn chải đánh răng', producttype: 'Thiết bị y tế', sellingprice: 996708, icon: '🪥' },
+    { productid: 'PRD0005', productname: 'Ngoạm cắt móng', producttype: 'Thiết bị y tế', sellingprice: 943065, icon: '✂️' },
     
     // Phụ kiện
-    { ProductID: 'PRD0006', ProductName: 'Cát lót thỏ', ProductType: 'Phụ kiện', SellingPrice: 622570, icon: '🪻' },
-    { ProductID: 'PRD0027', ProductName: 'Giường nằm cho mèo', ProductType: 'Phụ kiện', SellingPrice: 244919, icon: '🛏️' },
+    { productid: 'PRD0006', productname: 'Cát lót thỏ', producttype: 'Phụ kiện', sellingprice: 622570, icon: '🪻' },
+    { productid: 'PRD0027', productname: 'Giường nằm cho mèo', producttype: 'Phụ kiện', sellingprice: 244919, icon: '🛏️' },
     
     // Chăm sóc da
-    { ProductID: 'PRD0007', ProductName: 'Xịt khử mùi', ProductType: 'Chăm sóc da', SellingPrice: 711660, icon: '🧿' },
-    { ProductID: 'PRD0008', ProductName: 'Kem chống côn trùng', ProductType: 'Chăm sóc da', SellingPrice: 58432, icon: '🧴' },
+    { productid: 'PRD0007', productname: 'Xịt khử mùi', producttype: 'Chăm sóc da', sellingprice: 711660, icon: '🧿' },
+    { productid: 'PRD0008', productname: 'Kem chống côn trùng', producttype: 'Chăm sóc da', sellingprice: 58432, icon: '🧴' },
     
     // Đồ chơi
-    { ProductID: 'PRD0001', ProductName: 'Tunnel chơi thỏ', ProductType: 'Đồ chơi', SellingPrice: 751370, icon: '🚽' },
-    { ProductID: 'PRD0011', ProductName: 'Chuông leng keng', ProductType: 'Đồ chơi', SellingPrice: 129578, icon: '🔔' },
-    { ProductID: 'PRD0018', ProductName: 'Dây kéo vải', ProductType: 'Đồ chơi', SellingPrice: 28719, icon: '🧶' }
+    { productid: 'PRD0001', productname: 'Tunnel chơi thỏ', producttype: 'Đồ chơi', sellingprice: 751370, icon: '🚽' },
+    { productid: 'PRD0011', productname: 'Chuông leng keng', producttype: 'Đồ chơi', sellingprice: 129578, icon: '🔔' },
+    { productid: 'PRD0018', productname: 'Dây kéo vải', producttype: 'Đồ chơi', sellingprice: 28719, icon: '🧶' }
 ];
 
 let cart = [];
@@ -521,9 +627,9 @@ function filterProducts(category) {
     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     
-    // Filter products by ProductType
+    // Filter products by producttype
     const allProducts = getProducts();
-    const filtered = category === 'all' ? allProducts : allProducts.filter(p => p.ProductType === category);
+    const filtered = category === 'all' ? allProducts : allProducts.filter(p => (p.producttype || p.ProductType) === category);
     displayProducts(filtered);
 }
 
@@ -532,17 +638,21 @@ function displayProducts(productList) {
     if (!grid) return;
     
     grid.innerHTML = productList.map(product => {
-        const needsToggle = product.ProductName.length > 25;
+        const name = product.productname || product.ProductName || '';
+        const id = product.productid || product.ProductID || '';
+        const type = product.producttype || product.ProductType || '';
+        const price = product.sellingprice || product.SellingPrice || 0;
+        const needsToggle = name.length > 25;
         return `
-        <div class="product-card" data-category="${product.ProductType}">
+        <div class="product-card" data-category="${type}">
             <div class="product-image">${product.icon}</div>
             <div class="product-title-row">
-                <div class="product-name" id="name-${product.ProductID}">${product.ProductName}</div>
-                ${needsToggle ? `<button class="product-toggle" onclick="toggleProductName('${product.ProductID}')">Xem</button>` : ''}
+                <div class="product-name" id="name-${id}">${name}</div>
+                ${needsToggle ? `<button class="product-toggle" onclick="toggleProductName('${id}')">Xem</button>` : ''}
             </div>
-            <div class="product-price">${product.SellingPrice.toLocaleString('vi-VN')} VNĐ</div>
-            <div class="product-stock">${product.ProductType}</div>
-            <button class="btn btn-primary btn-full" onclick="addToCart('${product.ProductID}')">
+            <div class="product-price">${price.toLocaleString('vi-VN')} VNĐ</div>
+            <div class="product-stock">${type}</div>
+            <button class="btn btn-primary btn-full" onclick="addToCart('${id}')">
                 Thêm vào giỏ
             </button>
         </div>
@@ -569,17 +679,22 @@ function addToCart(productId) {
         return;
     }
     
-    const product = getProducts().find(p => p.ProductID === productId);
+    const product = getProducts().find(p => (p.productid || p.ProductID) === productId);
     if (!product) return;
     
-    const existingItem = cart.find(item => item.ProductID === productId);
+    const existingItem = cart.find(item => (item.productid || item.ProductID) === productId);
     
     if (existingItem) {
         existingItem.quantity++;
         showNotification('Đã cập nhật số lượng', 'success');
     } else {
+        // normalize to lowercase keys when pushing to cart
         cart.push({
-            ...product,
+            productid: product.productid || product.ProductID,
+            productname: product.productname || product.ProductName,
+            producttype: product.producttype || product.ProductType,
+            sellingprice: product.sellingprice || product.SellingPrice || 0,
+            icon: product.icon || '',
             quantity: 1
         });
         showNotification('Đã thêm vào giỏ hàng', 'success');
@@ -627,7 +742,7 @@ function displayCart() {
     const user = JSON.parse(localStorage.getItem('petcarex-user'));
     const tierInfo = getMembershipTier(user?.loyaltyPoints || 0);
     
-    const subtotal = cart.reduce((sum, item) => sum + (item.SellingPrice * item.quantity), 0);
+    const subtotal = cart.reduce((sum, item) => sum + ((item.sellingprice || item.SellingPrice || 0) * item.quantity), 0);
     const discount = Math.floor(subtotal * tierInfo.discount / 100);
     const finalTotal = subtotal - discount;
     const loyaltyPoints = Math.floor(finalTotal / 50000);
@@ -636,13 +751,13 @@ function displayCart() {
         <div class="cart-item">
             <div class="cart-item-image">${item.icon}</div>
             <div class="cart-item-info">
-                <div class="cart-item-name">${item.ProductName}</div>
-                <div class="cart-item-price">${item.SellingPrice.toLocaleString('vi-VN')} VNĐ</div>
+                <div class="cart-item-name">${item.productname || item.ProductName}</div>
+                <div class="cart-item-price">${(item.sellingprice || item.SellingPrice || 0).toLocaleString('vi-VN')} VNĐ</div>
                 <div class="cart-item-controls">
-                    <button class="cart-qty-btn" onclick="updateCartQuantity('${item.ProductID}', -1)">-</button>
+                    <button class="cart-qty-btn" onclick="updateCartQuantity('${item.productid || item.ProductID}', -1)">-</button>
                     <span class="cart-qty">${item.quantity}</span>
-                    <button class="cart-qty-btn" onclick="updateCartQuantity('${item.ProductID}', 1)">+</button>
-                    <button class="cart-remove-btn" onclick="removeFromCart('${item.ProductID}')">Xóa</button>
+                    <button class="cart-qty-btn" onclick="updateCartQuantity('${item.productid || item.ProductID}', 1)">+</button>
+                    <button class="cart-remove-btn" onclick="removeFromCart('${item.productid || item.ProductID}')">Xóa</button>
                 </div>
             </div>
         </div>
@@ -655,7 +770,7 @@ function displayCart() {
 }
 
 function updateCartQuantity(productId, change) {
-    const item = cart.find(i => i.ProductID === productId);
+    const item = cart.find(i => (i.productid || i.ProductID) === productId);
     if (!item) return;
     
     const newQuantity = item.quantity + change;
@@ -671,7 +786,7 @@ function updateCartQuantity(productId, change) {
 }
 
 function removeFromCart(productId) {
-    cart = cart.filter(item => item.ProductID !== productId);
+    cart = cart.filter(item => (item.productid || item.ProductID) !== productId);
     displayCart();
     updateCartCount();
     
@@ -682,7 +797,7 @@ function removeFromCart(productId) {
 }
 
 function checkout() {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    const user = getCurrentUser();
     if (!user) {
         showNotification('Vui lòng đăng nhập', 'info');
         return;
@@ -690,20 +805,20 @@ function checkout() {
     
     if (cart.length === 0) return;
     
-    const tierInfo = getMembershipTier(user.loyaltyPoints || 0);
-    const subtotal = cart.reduce((sum, item) => sum + (item.SellingPrice * item.quantity), 0);
+    const tierInfo = getMembershipTier(user.loyalpoint || user.loyaltyPoints || 0);
+    const subtotal = cart.reduce((sum, item) => sum + ((item.sellingprice || item.SellingPrice || 0) * item.quantity), 0);
     const discount = Math.floor(subtotal * tierInfo.discount / 100);
     const finalTotal = subtotal - discount;
     
     // Save order via API
     const orderPayload = {
-        OrderID: 'ORD' + Date.now(),
-        CustomerID: user.CustomerID || user.id,
+        orderid: 'ord' + Date.now(),
+        customerid: user.customerid || user.id || user.CustomerID,
         items: cart.map(item => ({
-            ProductID: item.ProductID,
-            ProductName: item.ProductName,
-            Quantity: item.quantity,
-            TemporaryPrice: item.SellingPrice
+            productid: item.productid || item.ProductID,
+            productname: item.productname || item.ProductName,
+            quantity: item.quantity,
+            temporaryprice: item.sellingprice || item.SellingPrice
         })),
         subtotal: subtotal,
         discount: discount,
@@ -713,6 +828,7 @@ function checkout() {
 
     fetch(`${API_BASE}/orders`, {
         method: 'POST',
+        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderPayload)
     }).then(r => r.json()).then(result => {
@@ -734,22 +850,24 @@ function checkout() {
 
 // Gọi API để thêm điểm loyalty cho user
 async function addLoyaltyPoints(amount) {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    const user = getCurrentUser();
     if (!user) return 0;
     const points = Math.floor(amount / 50000);
     if (points <= 0) return 0;
 
     try {
-        const resp = await fetch(`${API_BASE}/customers/${user.id}/add-loyalty`, {
+        const resp = await fetch(`${API_BASE}/customers/${user.customerid || user.id}/add-loyalty`, {
             method: 'POST',
+            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ points })
         });
         const result = await resp.json();
         if (result.success) {
             const total = result.data.points;
-            user.loyaltyPoints = total;
-            localStorage.setItem('petcarex-user', JSON.stringify(user));
+            // update in-memory currentUser
+            window.currentUser = window.currentUser || {};
+            window.currentUser.loyalpoint = total;
             return points;
         }
     } catch (err) {
@@ -769,7 +887,7 @@ async function saveVaccination(vaccinationData) {
         const resp = await fetch(`${API_BASE}/vaccinations`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...vaccinationData, customerId: user.id })
+            body: JSON.stringify({ ...vaccinationData, customerid: user.customerid || user.id })
         });
         const result = await resp.json();
         if (result.success) {
@@ -1210,45 +1328,41 @@ function handleLogin(event) {
         return false;
     }
     
-    // Get accounts and find user
-    const accounts = getAllAccounts();
-    const user = accounts.find(acc => acc.username === username && acc.password === password);
-    
-    if (user) {
-        console.log('user found, logging in');
-        // Lưu info nếu remember
-        if (remember) {
-            localStorage.setItem('petcarex-remember', JSON.stringify({
-                username: username,
-                remember: true
-            }));
+    // call backend login
+    try {
+        const resp = await fetch(`${API_BASE}/auth/login`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        });
+        const result = await resp.json();
+        if (result.success) {
+            // refresh current user from cookie-backed session
+            await fetchAuthMe();
+            if (remember) {
+                localStorage.setItem('petcarex-remember', JSON.stringify({ username, remember: true }));
+            } else {
+                localStorage.removeItem('petcarex-remember');
+            }
+            showNotification('Đăng nhập thành công!', 'success');
+            setTimeout(() => {
+                closeModal('authModal');
+                updateNavbarAfterLogin();
+            }, 800);
         } else {
-            localStorage.removeItem('petcarex-remember');
+            if (errorEl) {
+                errorEl.innerHTML = '<span>Tên đăng nhập hoặc mật khẩu không chính xác</span>';
+                errorEl.classList.add('show');
+            }
         }
-        
-        showNotification('Đăng nhập thành công!', 'success');
-        
-        // Lưu user info vào petcarex-user
-        localStorage.setItem('petcarex-user', JSON.stringify({
-            id: user.id,
-            username: user.username,
-            name: user.fullname,
-            loyaltyPoints: user.loyaltyPoints || 0
-        }));
-        
-        // Đóng modal sau 1.5 giây
-        setTimeout(() => {
-            closeModal('authModal');
-            updateNavbarAfterLogin();
-        }, 1500);
-    } else {
-        console.log('login failed, showing error');
+    } catch (err) {
+        console.error('login error', err);
         if (errorEl) {
-            errorEl.innerHTML = '<span>Tên đăng nhập hoặc mật khẩu không chính xác</span>';
+            errorEl.innerHTML = '<span>Lỗi kết nối server</span>';
             errorEl.classList.add('show');
         }
     }
-    
     return false;
 }
 
@@ -1332,8 +1446,10 @@ async function handleSignup(event) {
         const result = await resp.json();
         if (result.success) {
             // Lưu thông tin user vào localStorage (tối thiểu)
+            // chỉ dùng keys chữ thường để nhất quán với supabase
             localStorage.setItem('petcarex-user', JSON.stringify({
-                id: result.data.customerId,
+                id: result.data.customerid || null,
+                customerid: result.data.customerid || null,
                 username: result.data.username,
                 fullname: fullName
             }));
