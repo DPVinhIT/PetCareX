@@ -1169,6 +1169,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Load dữ liệu từ API
     console.log('🔄 Đang tải dữ liệu từ API...');
+    // First, populate auth state from cookie
+    await fetchAuthMe();
     await loadDataFromAPI();
     
     // Initialize tooltips if needed
@@ -1481,23 +1483,16 @@ function socialSignup(provider) {
 }
 
 function updateNavbarAfterLogin() {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    const user = getCurrentUser();
+    const historyLink = document.getElementById('historyLink');
+    const logoutBtn = document.querySelector('.btn-logout');
+    const loginLink = document.querySelector('.btn-login');
+
     if (user) {
-        // Hiển thị button Lịch Sử
-        const historyLink = document.getElementById('historyLink');
-        if (historyLink) {
-            historyLink.style.display = 'block';
-        }
-        
-        // Hiển thị button Đăng Xuất và ẩn Đăng Nhập
-        const logoutBtn = document.querySelector('.btn-logout');
-        if (logoutBtn) {
-            logoutBtn.style.display = 'block';
-        }
-        
-        const loginLink = document.querySelector('.btn-login');
+        if (historyLink) historyLink.style.display = 'block';
+        if (logoutBtn) logoutBtn.style.display = 'block';
         if (loginLink) {
-            const displayName = user.fullname || user.username || 'Người dùng';
+            const displayName = user.fullname || user.username || user.name || 'Người dùng';
             loginLink.innerHTML = `<i class="fas fa-user"></i> ${displayName}`;
             loginLink.style.background = 'transparent';
             loginLink.style.color = 'white';
@@ -1506,6 +1501,16 @@ function updateNavbarAfterLogin() {
                 openModal('memberModal');
                 displayMemberInfo();
             };
+        }
+    } else {
+        // Ensure default login link behavior when no authenticated user
+        if (historyLink) historyLink.style.display = 'none';
+        if (logoutBtn) logoutBtn.style.display = 'none';
+        if (loginLink) {
+            loginLink.innerHTML = 'Đăng Nhập';
+            loginLink.style.background = '';
+            loginLink.style.color = '';
+            loginLink.onclick = function(e) { e.preventDefault(); openModal('authModal'); };
         }
     }
 }
