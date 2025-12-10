@@ -1,0 +1,12 @@
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\bin\Debug\NURSE.exe.config
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\bin\Debug\NURSE.exe
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\bin\Debug\NURSE.pdb
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.csproj.AssemblyReference.cache
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.Properties.Resources.resources
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.csproj.GenerateResource.cache
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.csproj.CoreCompileInputs.cache
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.exe
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.pdb
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.exe.config
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.frmNurseInpatients.resources
+C:\Private\2025\CSDLNC\PetCare_UI\NURSE\obj\Debug\NURSE.frmNurseNursingWorklist.resources
