@@ -397,7 +397,18 @@ app.listen(PORT, async () => {
         await pool.query('SELECT NOW()');
         console.log('✅ Kết nối PostgreSQL thành công!');
     } catch (error) {
-        console.error('❌ Lỗi kết nối database:', error.message);
+        console.error('❌ Lỗi kết nối database:', error);
+    }
+});
+
+// Diagnostic endpoint to check DB connectivity (useful for debugging deploys)
+app.get('/api/db-status', async (req, res) => {
+    try {
+        const r = await pool.query('SELECT NOW()');
+        res.json({ success: true, dbNow: r.rows[0] });
+    } catch (err) {
+        console.error('/api/db-status error', err);
+        res.status(500).json({ success: false, error: err.message || String(err) });
     }
 });
 
