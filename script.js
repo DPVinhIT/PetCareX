@@ -1327,10 +1327,10 @@ function handleLogin(event) {
     return false;
 }
 
-function handleSignup(event) {
+async function handleSignup(event) {
     event.preventDefault();
     event.stopPropagation();
-    
+
     const form = event.target;
     const fullName = form.querySelector('input[name="fullname"]').value.trim();
     const username = form.querySelector('input[name="username"]').value.trim();
@@ -1338,15 +1338,15 @@ function handleSignup(event) {
     const password = form.querySelector('input[name="password"]').value;
     const confirmPassword = form.querySelector('input[name="confirmPassword"]').value;
     const agreeTerms = form.querySelector('input[name="agreeTerms"]').checked;
-    
+
     // Clear previous error
     const errorEl = document.getElementById('modalSignupError');
     if (errorEl) {
         errorEl.classList.remove('show');
         errorEl.innerHTML = '';
     }
-    
-    // Validation
+
+    // Validation (giữ nguyên như cũ)
     if (!fullName || !username || !phone || !password || !confirmPassword) {
         if (errorEl) {
             errorEl.innerHTML = '<span>Vui lòng điền đầy đủ thông tin</span>';
@@ -1354,7 +1354,6 @@ function handleSignup(event) {
         }
         return false;
     }
-    
     if (username.length < 3) {
         if (errorEl) {
             errorEl.innerHTML = '<span>Tên đăng nhập phải có tối thiểu 3 ký tự</span>';
@@ -1362,15 +1361,6 @@ function handleSignup(event) {
         }
         return false;
     }
-    
-    if (usernameExists(username)) {
-        if (errorEl) {
-            errorEl.innerHTML = '<span>Tên đăng nhập đã tồn tại</span>';
-            errorEl.classList.add('show');
-        }
-        return false;
-    }
-    
     if (!/^[0-9]{10,11}$/.test(phone)) {
         if (errorEl) {
             errorEl.innerHTML = '<span>Số điện thoại không hợp lệ (10-11 số)</span>';
@@ -1378,7 +1368,6 @@ function handleSignup(event) {
         }
         return false;
     }
-    
     if (password.length < 6) {
         if (errorEl) {
             errorEl.innerHTML = '<span>Mật khẩu phải có tối thiểu 6 ký tự</span>';
@@ -1386,7 +1375,6 @@ function handleSignup(event) {
         }
         return false;
     }
-    
     if (password !== confirmPassword) {
         if (errorEl) {
             errorEl.innerHTML = '<span>Mật khẩu xác nhận không khớp</span>';
@@ -1394,7 +1382,6 @@ function handleSignup(event) {
         }
         return false;
     }
-    
     if (!agreeTerms) {
         if (errorEl) {
             errorEl.innerHTML = '<span>Vui lòng đồng ý với điều khoản sử dụng</span>';
@@ -1402,31 +1389,46 @@ function handleSignup(event) {
         }
         return false;
     }
-    
-    // Create new account
-    const accounts = getAllAccounts();
-    const newAccount = {
-        id: Date.now(),
-        fullname: fullName,
-        username: username,
-        phone: phone,
-        password: password,
-        loyaltyPoints: 0,
-        createdAt: new Date().toLocaleString('vi-VN')
-    };
-    
-    accounts.push(newAccount);
-    saveAccounts(accounts);
-    
-    showNotification('Đăng ký thành công! Hãy đăng nhập', 'success');
-    
-    // Xóa form
-    form.reset();
-    
-    // Chuyển sang tab login
-    setTimeout(() => {
-        switchAuthTab('login');
-    }, 1500);
+
+    // Gửi request lên API backend
+    try {
+        const payload = {
+            username,
+            password,
+            fullname: fullName,
+            phone,
+            email: null
+        };
+        const resp = await fetch(`${API_BASE}/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const result = await resp.json();
+        if (result.success) {
+            // Lưu thông tin user vào localStorage (tối thiểu)
+            localStorage.setItem('petcarex-user', JSON.stringify({
+                id: result.data.customerId,
+                username: result.data.username,
+                fullname: fullName
+            }));
+            showNotification('Đăng ký thành công! Hãy đăng nhập', 'success');
+            form.reset();
+            setTimeout(() => {
+                switchAuthTab('login');
+            }, 1500);
+        } else {
+            if (errorEl) {
+                errorEl.innerHTML = `<span>${result.error || 'Lỗi đăng ký'}</span>`;
+                errorEl.classList.add('show');
+            }
+        }
+    } catch (err) {
+        if (errorEl) {
+            errorEl.innerHTML = '<span>Lỗi kết nối server</span>';
+            errorEl.classList.add('show');
+        }
+    }
 }
 
 function socialLogin(provider) {

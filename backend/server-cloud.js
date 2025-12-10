@@ -20,6 +20,10 @@ const pool = new Pool({
     ssl: { rejectUnauthorized: false }
 });
 
+// For password hashing
+const bcrypt = require('bcrypt');
+const SALT_ROUNDS = 10;
+
 // ============================================
 // API ROUTES
 // ============================================
@@ -113,22 +117,71 @@ app.get('/api/membership-levels', async (req, res) => {
 app.post('/api/auth/login', async (req, res) => {
     try {
         const { username, password } = req.body;
-        
+        if (!username || !password) {
+            return res.status(400).json({ success: false, error: 'Missing username or password' });
+        }
+
+        // Get stored hash for username
+        const accRes = await pool.query('SELECT password FROM accountlogin WHERE username = $1', [username]);
+        if (accRes.rows.length === 0) {
+            return res.status(401).json({ success: false, error: 'Sai tên đăng nhập hoặc mật khẩu' });
+        }
+
+        const hash = accRes.rows[0].password;
+        const match = await bcrypt.compare(password, hash);
+        if (!match) {
+            return res.status(401).json({ success: false, error: 'Sai tên đăng nhập hoặc mật khẩu' });
+        }
+
+        // Password OK — fetch customer profile
         const result = await pool.query(
             `SELECT c.*, cm.loyalpoint, cm.levelid 
              FROM customer c 
              LEFT JOIN cardmembership cm ON c.customerid = cm.customerid
-             LEFT JOIN accountlogin a ON c.username = a.username
-             WHERE a.username = $1 AND a.password = $2`,
-            [username, password]
+             WHERE c.username = $1`,
+            [username]
         );
-        
-        if (result.rows.length === 0) {
-            return res.status(401).json({ success: false, error: 'Sai tên đăng nhập hoặc mật khẩu' });
-        }
-        
-        res.json({ success: true, data: result.rows[0] });
+
+        const user = result.rows[0] || null;
+        res.json({ success: true, data: user });
     } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// Register (secure)
+app.post('/api/auth/register', async (req, res) => {
+    try {
+        const { username, password, fullname, email, phone } = req.body;
+
+        if (!username || !password) {
+            return res.status(400).json({ success: false, error: 'Missing username or password' });
+        }
+
+        // Check if username exists
+        const exists = await pool.query('SELECT username FROM accountlogin WHERE username = $1', [username]);
+        if (exists.rows.length > 0) {
+            return res.status(409).json({ success: false, error: 'Tên đăng nhập đã tồn tại' });
+        }
+
+        // Hash password
+        const hashed = await bcrypt.hash(password, SALT_ROUNDS);
+
+        // Insert into accountlogin
+        await pool.query('INSERT INTO accountlogin(username, password) VALUES($1, $2)', [username, hashed]);
+
+        // Create a simple CustomerID
+        const customerId = 'C' + Date.now();
+
+        // Insert into customer (safe to provide NULLs for optional fields)
+        await pool.query(
+            'INSERT INTO customer(customerid, fullname, phonenumber, email, username) VALUES($1, $2, $3, $4, $5)',
+            [customerId, fullname || null, phone || null, email || null, username]
+        );
+
+        res.json({ success: true, data: { username, customerId } });
+    } catch (error) {
+        console.error('Register error:', error);
         res.status(500).json({ success: false, error: error.message });
     }
 });
