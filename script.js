@@ -58,108 +58,7 @@ async function loadDataFromAPI() {
     }
 }
 
-// Fallback data nếu API không hoạt động
-const fallbackBranchesData = [
-    {
-        BranchID: 'B001',
-        BranchName: 'Chi nhánh 1',
-        Address: '190 Daniel Mall - Quận 1 - TP. Hồ Chí Minh',
-        PhoneNumber: '0733218196',
-        Email: 'branch1@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B002',
-        BranchName: 'Chi nhánh 2',
-        Address: '24 Karen Overpass - Quận 1 - TP. Hồ Chí Minh',
-        PhoneNumber: '0538908386',
-        Email: 'branch2@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B003',
-        BranchName: 'Chi nhánh 3',
-        Address: '151 Andrew Hills - Long Biên - Hà Nội',
-        PhoneNumber: '0702654235',
-        Email: 'branch3@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B004',
-        BranchName: 'Chi nhánh 4',
-        Address: '98 Whitehead View - Quận 3 - TP. Hồ Chí Minh',
-        PhoneNumber: '0355940781',
-        Email: 'branch4@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B005',
-        BranchName: 'Chi nhánh 5',
-        Address: '142 Burnett Loaf - Hồng Bàng - Hải Phòng',
-        PhoneNumber: '0795931034',
-        Email: 'branch5@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B006',
-        BranchName: 'Chi nhánh 6',
-        Address: '26 Dustin Greens - Quận 8 - TP. Hồ Chí Minh',
-        PhoneNumber: '0847525534',
-        Email: 'branch6@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B007',
-        BranchName: 'Chi nhánh 7',
-        Address: '163 Sean Freeway - Cần Thơ - TP. Hồ Chí Minh',
-        PhoneNumber: '0583276483',
-        Email: 'branch7@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B008',
-        BranchName: 'Chi nhánh 8',
-        Address: '59 Michelle Heights - Hải Châu - Đà Nẵng',
-        PhoneNumber: '0356413953',
-        Email: 'branch8@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B009',
-        BranchName: 'Chi nhánh 9',
-        Address: '165 Louis Terrace - Kiến An - Hải Phòng',
-        PhoneNumber: '0824238849',
-        Email: 'branch9@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B010',
-        BranchName: 'Chi nhánh 10',
-        Address: '103 Stephanie Ridges - Đồ Sơn - Hải Phòng',
-        PhoneNumber: '0732871012',
-        Email: 'branch10@petcarex.com',
-        OpenTime: 8,
-        CloseTime: 18
-    },
-    {
-        BranchID: 'B011',
-        BranchName: 'Chi nhánh 12',
-        Address: '104 Thạch Ý - Phú Yên - Đông Hòa',
-        PhoneNumber: '0906446134',
-        Email: 'brach11@petcarex.com',
-        OpenTime: 10,
-        CloseTime: 11
-    }
-];
+// Đã loại bỏ dữ liệu mẫu fallback, mọi dữ liệu chi nhánh sẽ lấy từ API backend
 
 // Function để render branches (theo cấu trúc database)
 async function renderBranches() {
@@ -251,49 +150,9 @@ function openMap(address) {
    ACCOUNT MANAGEMENT
    ============================================ */
 
-// Get all registered accounts from localStorage
-function getAllAccounts() {
-    const accounts = localStorage.getItem('petcarex-accounts');
-    return accounts ? JSON.parse(accounts) : [];
-}
+// Đã loại bỏ toàn bộ hàm lấy/lưu tài khoản localStorage, mọi thao tác tài khoản sẽ qua API
 
-// Save accounts to localStorage
-function saveAccounts(accounts) {
-    localStorage.setItem('petcarex-accounts', JSON.stringify(accounts));
-}
-
-// Check if username already exists
-function usernameExists(username) {
-    const accounts = getAllAccounts();
-    return accounts.some(acc => acc.username === username);
-}
-
-// Add loyalty points to user (1 point = 50,000 VND)
-function addLoyaltyPoints(amount) {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
-    if (!user) return;
-    
-    // Calculate points: 1 point per 50,000 VND
-    const pointsToAdd = Math.floor(amount / 50000);
-    
-    // Update user loyalty points
-    user.loyaltyPoints = (user.loyaltyPoints || 0) + pointsToAdd;
-    localStorage.setItem('petcarex-user', JSON.stringify(user));
-    
-    // Update in accounts list
-    const accounts = getAllAccounts();
-    const accountIndex = accounts.findIndex(acc => acc.id === user.id);
-    if (accountIndex !== -1) {
-        accounts[accountIndex].loyaltyPoints = user.loyaltyPoints;
-        saveAccounts(accounts);
-    }
-    
-    // Show notification with new tier if changed
-    const tier = getMembershipTier(user.loyaltyPoints);
-    showNotification(`Đã cộng ${pointsToAdd} điểm loyalty! Cấp độ: ${tier.name}`, 'success');
-    
-    return pointsToAdd;
-}
+// Đã loại bỏ cộng điểm loyalty local, cần đồng bộ qua API nếu muốn
 
 // Get membership tier based on points (theo database MembershipLevel)
 // L1: Basic - 0.05 (5%), threshold: 60 points
@@ -313,72 +172,94 @@ function getMembershipTier(points) {
    BOOKING & ORDER MANAGEMENT
    ============================================ */
 
-// Save booking appointment
-function saveBooking(bookingData) {
+// =============================
+// API booking, orders, lịch sử
+// =============================
+
+// Lưu booking qua API backend
+async function saveBooking(bookingData) {
     const user = JSON.parse(localStorage.getItem('petcarex-user'));
     if (!user) {
         showNotification('Vui lòng đăng nhập trước', 'info');
         return;
     }
-    
-    let bookings = JSON.parse(localStorage.getItem('petcarex-bookings')) || [];
-    const booking = {
-        id: Date.now(),
-        userId: user.id,
-        ...bookingData,
-        createdAt: new Date().toLocaleString('vi-VN'),
-        status: 'Đã đặt'
-    };
-    bookings.push(booking);
-    localStorage.setItem('petcarex-bookings', JSON.stringify(bookings));
-}
-
-// Save vaccination package
-function saveVaccination(vaccinationData) {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
-    if (!user) {
-        showNotification('Vui lòng đăng nhập trước', 'info');
-        return;
+    try {
+        const resp = await fetch(`${API_BASE}/bookings`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...bookingData, customerId: user.id })
+        });
+        const result = await resp.json();
+        if (result.success) {
+            showNotification('Đặt lịch thành công!', 'success');
+        } else {
+            showNotification(result.error || 'Lỗi đặt lịch', 'error');
+        }
+    } catch (err) {
+        showNotification('Lỗi kết nối server', 'error');
     }
-    
-    let vaccinations = JSON.parse(localStorage.getItem('petcarex-vaccinations')) || [];
-    const vaccination = {
-        id: Date.now(),
-        userId: user.id,
-        ...vaccinationData,
-        createdAt: new Date().toLocaleString('vi-VN'),
-        status: 'Đã chọn'
-    };
-    vaccinations.push(vaccination);
-    localStorage.setItem('petcarex-vaccinations', JSON.stringify(vaccinations));
 }
 
-// Get user's bookings
-function getUserBookings() {
+// Lấy booking của user qua API backend
+async function getUserBookings() {
     const user = JSON.parse(localStorage.getItem('petcarex-user'));
     if (!user) return [];
-    
-    const bookings = JSON.parse(localStorage.getItem('petcarex-bookings')) || [];
-    return bookings.filter(b => b.userId === user.id);
+    try {
+        const resp = await fetch(`${API_BASE}/bookings/${user.id}`);
+        const result = await resp.json();
+        if (result.success) return result.data;
+        return [];
+    } catch {
+        return [];
+    }
 }
 
-// Get user's vaccinations
-function getUserVaccinations() {
+// Lấy orders của user qua API backend
+async function getUserOrders() {
     const user = JSON.parse(localStorage.getItem('petcarex-user'));
     if (!user) return [];
-    
-    const vaccinations = JSON.parse(localStorage.getItem('petcarex-vaccinations')) || [];
-    return vaccinations.filter(v => v.userId === user.id);
+    try {
+        const resp = await fetch(`${API_BASE}/orders/${user.id}`);
+        const result = await resp.json();
+        if (result.success) return result.data;
+        return [];
+    } catch {
+        return [];
+    }
 }
 
-// Get user's orders
-function getUserOrders() {
-    const user = JSON.parse(localStorage.getItem('petcarex-user'));
-    if (!user) return [];
-    
-    const orders = JSON.parse(localStorage.getItem('petcarex-orders')) || [];
-    return orders.filter(o => o.userId === user.id);
+// Hiển thị lịch sử booking, orders từ API
+async function displayBookingHistory() {
+    const historyContent = document.getElementById('historyContent');
+    if (!historyContent) return;
+    const bookings = await getUserBookings();
+    const orders = await getUserOrders();
+    let html = '';
+    if (bookings.length > 0) {
+        html += '<h4>Lịch sử đặt lịch</h4>';
+        html += '<ul>' + bookings.map(b => `<li>${b.branchname || b.branch || ''} - ${b.createdat || b.createdAt || ''}</li>`).join('') + '</ul>';
+    }
+    if (orders.length > 0) {
+        html += '<h4>Lịch sử đơn hàng</h4>';
+        html += '<ul>' + orders.map(o => `<li>${o.orderid || ''} - ${o.createdate || ''}</li>`).join('') + '</ul>';
+    }
+    if (!html) html = '<p>Chưa có lịch sử</p>';
+    historyContent.innerHTML = html;
 }
+
+// Xem lịch sử booking/orders qua API
+async function viewBookingHistory() {
+    openModal('historyModal');
+    await displayBookingHistory();
+}
+
+// Đã loại bỏ lưu vaccination local, cần gọi API backend để lưu vaccination
+
+// Đã loại bỏ lấy booking local, cần gọi API backend để lấy booking
+
+// Đã loại bỏ lấy vaccination local, cần gọi API backend để lấy vaccination
+
+// Đã loại bỏ lấy orders local, cần gọi API backend để lấy orders
 
 // View booking history
 function viewBookingHistory() {
