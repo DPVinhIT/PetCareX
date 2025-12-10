@@ -17,7 +17,7 @@ app.use(express.json());
 const { Pool } = require('pg');
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    ssl: { rejectUnauthorized: false }
 });
 
 // ============================================
@@ -32,7 +32,7 @@ app.get('/api/health', (req, res) => {
 // Get all branches
 app.get('/api/branches', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM "Branch" ORDER BY "BranchID"');
+        const result = await pool.query('SELECT * FROM branch ORDER BY "BranchID"');
         res.json({ success: true, data: result.rows, count: result.rows.length });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
@@ -43,7 +43,7 @@ app.get('/api/branches', async (req, res) => {
 app.get('/api/branches/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const result = await pool.query('SELECT * FROM "Branch" WHERE "BranchID" = $1', [id]);
+        const result = await pool.query('SELECT * FROM branch WHERE "BranchID" = $1', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ success: false, error: 'Không tìm thấy chi nhánh' });
         }
@@ -57,7 +57,7 @@ app.get('/api/branches/:id', async (req, res) => {
 app.get('/api/products', async (req, res) => {
     try {
         const { type, limit } = req.query;
-        let query = 'SELECT * FROM "Product"';
+        let query = 'SELECT * FROM product';
         const params = [];
         
         if (type) {
@@ -82,7 +82,7 @@ app.get('/api/products', async (req, res) => {
 // Get product types
 app.get('/api/products/types', async (req, res) => {
     try {
-        const result = await pool.query('SELECT DISTINCT "ProductType" FROM "Product" ORDER BY "ProductType"');
+        const result = await pool.query('SELECT DISTINCT "ProductType" FROM product ORDER BY "ProductType"');
         res.json({ success: true, data: result.rows.map(r => r.ProductType) });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
@@ -92,7 +92,7 @@ app.get('/api/products/types', async (req, res) => {
 // Get all services
 app.get('/api/services', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM "Service" ORDER BY "ServiceID"');
+        const result = await pool.query('SELECT * FROM service ORDER BY "ServiceID"');
         res.json({ success: true, data: result.rows, count: result.rows.length });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
@@ -102,7 +102,7 @@ app.get('/api/services', async (req, res) => {
 // Get membership levels
 app.get('/api/membership-levels', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM "MembershipLevel" ORDER BY "LevelID"');
+        const result = await pool.query('SELECT * FROM membershiplevel ORDER BY "LevelID"');
         res.json({ success: true, data: result.rows });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
@@ -115,11 +115,11 @@ app.post('/api/auth/login', async (req, res) => {
         const { username, password } = req.body;
         
         const result = await pool.query(
-            `SELECT c.*, cm."LoyalPoint", cm."LevelID" 
-             FROM "Customer" c 
-             LEFT JOIN "CardMembership" cm ON c."CustomerID" = cm."CustomerID"
-             LEFT JOIN "AccountLogin" a ON c."Username" = a."Username"
-             WHERE a."Username" = $1 AND a."Password" = $2`,
+            `SELECT c.*, cm.loyalpoint, cm.levelid 
+             FROM customer c 
+             LEFT JOIN cardmembership cm ON c.customerid = cm.customerid
+             LEFT JOIN accountlogin a ON c.username = a.username
+             WHERE a.username = $1 AND a.password = $2`,
             [username, password]
         );
         
@@ -138,12 +138,12 @@ app.get('/api/orders/:customerId', async (req, res) => {
     try {
         const { customerId } = req.params;
         const result = await pool.query(
-            `SELECT o.*, od."ProductID", od."Quantity", od."TemporaryPrice", p."ProductName"
-             FROM "Orders" o
-             LEFT JOIN "OrderDetail" od ON o."OrderID" = od."OrderID"
-             LEFT JOIN "Product" p ON od."ProductID" = p."ProductID"
-             WHERE o."CustomerID" = $1
-             ORDER BY o."CreateDate" DESC`,
+            `SELECT o.*, od.productid, od.quantity, od.temporaryprice, p.productname
+             FROM orders o
+             LEFT JOIN orderdetail od ON o.orderid = od.orderid
+             LEFT JOIN product p ON od.productid = p.productid
+             WHERE o.customerid = $1
+             ORDER BY o.createdate DESC`,
             [customerId]
         );
         res.json({ success: true, data: result.rows });
