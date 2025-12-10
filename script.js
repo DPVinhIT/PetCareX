@@ -228,30 +228,7 @@ async function getUserOrders() {
     }
 }
 
-// Hiển thị lịch sử booking, orders từ API
-async function displayBookingHistory() {
-    const historyContent = document.getElementById('historyContent');
-    if (!historyContent) return;
-    const bookings = await getUserBookings();
-    const orders = await getUserOrders();
-    let html = '';
-    if (bookings.length > 0) {
-        html += '<h4>Lịch sử đặt lịch</h4>';
-        html += '<ul>' + bookings.map(b => `<li>${b.branchname || b.branch || ''} - ${b.createdat || b.createdAt || ''}</li>`).join('') + '</ul>';
-    }
-    if (orders.length > 0) {
-        html += '<h4>Lịch sử đơn hàng</h4>';
-        html += '<ul>' + orders.map(o => `<li>${o.orderid || ''} - ${o.createdate || ''}</li>`).join('') + '</ul>';
-    }
-    if (!html) html = '<p>Chưa có lịch sử</p>';
-    historyContent.innerHTML = html;
-}
 
-// Xem lịch sử booking/orders qua API
-async function viewBookingHistory() {
-    openModal('historyModal');
-    await displayBookingHistory();
-}
 
 // Đã loại bỏ lưu vaccination local, cần gọi API backend để lưu vaccination
 
@@ -274,6 +251,15 @@ function viewBookingHistory() {
     
     openModal('historyModal');
     displayBookingHistory(bookings, vaccinations, orders);
+    // Xem lịch sử booking/orders qua API (gọi các API và truyền dữ liệu vào hàm hiển thị chi tiết)
+    async function viewBookingHistory() {
+        openModal('historyModal');
+        const bookings = await getUserBookings();
+        const orders = await getUserOrders();
+        const vaccinations = await getUserVaccinations();
+        // Gọi hàm hiển thị chi tiết (displayBookingHistory được giữ nguyên và nhận dữ liệu)
+        displayBookingHistory(bookings || [], vaccinations || [], orders || []);
+    }
 }
 
 // Display booking history (cập nhật theo cấu trúc database)
@@ -709,8 +695,8 @@ function checkout() {
     const discount = Math.floor(subtotal * tierInfo.discount / 100);
     const finalTotal = subtotal - discount;
     
-    // Save order (theo cấu trúc database Orders)
-    const order = {
+    // Save order via API
+    const orderPayload = {
         OrderID: 'ORD' + Date.now(),
         CustomerID: user.CustomerID || user.id,
         items: cart.map(item => ({
@@ -722,25 +708,83 @@ function checkout() {
         subtotal: subtotal,
         discount: discount,
         total: finalTotal,
-        membershipTier: tierInfo.name,
-        CreateDate: new Date().toISOString().split('T')[0],
-        CreateTime: new Date().toTimeString().split(' ')[0],
-        Status: 'Đã đặt'
+        membershipTier: tierInfo.name
     };
-    
-    let orders = JSON.parse(localStorage.getItem('petcarex-orders')) || [];
-    orders.push(order);
-    localStorage.setItem('petcarex-orders', JSON.stringify(orders));
-    
-    // Add loyalty points
-    addLoyaltyPoints(finalTotal);
-    
-    // Clear cart
-    cart = [];
-    updateCartCount();
-    
-    closeModal('cartModal');
-    showNotification('Đặt hàng thành công! Sẽ giao hàng trong 1-2 ngày', 'success');
+
+    fetch(`${API_BASE}/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderPayload)
+    }).then(r => r.json()).then(result => {
+        if (result.success) {
+            // Add loyalty points
+            addLoyaltyPoints(finalTotal);
+
+            // Clear cart
+            cart = [];
+            updateCartCount();
+
+            closeModal('cartModal');
+            showNotification('Đặt hàng thành công! Sẽ giao hàng trong 1-2 ngày', 'success');
+        } else {
+            showNotification(result.error || 'Lỗi tạo đơn hàng', 'error');
+        }
+    }).catch(() => showNotification('Lỗi kết nối server', 'error'));
+}
+
+// Gọi API để thêm điểm loyalty cho user
+async function addLoyaltyPoints(amount) {
+    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    if (!user) return 0;
+    const points = Math.floor(amount / 50000);
+    if (points <= 0) return 0;
+
+    try {
+        const resp = await fetch(`${API_BASE}/customers/${user.id}/add-loyalty`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ points })
+        });
+        const result = await resp.json();
+        if (result.success) {
+            const total = result.data.points;
+            user.loyaltyPoints = total;
+            localStorage.setItem('petcarex-user', JSON.stringify(user));
+            return points;
+        }
+    } catch (err) {
+        console.error('addLoyaltyPoints error', err);
+    }
+    return 0;
+}
+
+// Lưu vaccination via API
+async function saveVaccination(vaccinationData) {
+    const user = JSON.parse(localStorage.getItem('petcarex-user'));
+    if (!user) {
+        showNotification('Vui lòng đăng nhập trước', 'info');
+        return;
+    }
+    try {
+        const resp = await fetch(`${API_BASE}/vaccinations`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...vaccinationData, customerId: user.id })
+        });
+        const result = await resp.json();
+        if (result.success) {
+            showNotification('Chọn gói tiêm thành công', 'success');
+        } else {
+            showNotification(result.error || 'Lỗi chọn gói tiêm', 'error');
+        }
+    } catch (err) {
+        showNotification('Lỗi kết nối server', 'error');
+    }
+}
+
+// Lấy vaccination của user (tạm trả rỗng; có thể bổ sung endpoint GET khi cần)
+async function getUserVaccinations() {
+    return [];
 }
 
 /* ============================================
