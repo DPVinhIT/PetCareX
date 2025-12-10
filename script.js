@@ -1,119 +1,196 @@
 /* ============================================
-   MOCK DATA - CHI NHÁNH
+   DỮ LIỆU ĐỘNG TỪ API
+   Branch: BranchID, BranchName, Address, PhoneNumber, Email, OpenTime, CloseTime
    ============================================ */
 
-const branchesData = [
+const API_BASE = 'http://localhost:5000/api';
+
+// Biến lưu dữ liệu động từ API
+let branchesData = [];
+let productsData = [];
+let servicesData = [];
+let membershipLevelsData = [];
+
+// Hàm gọi API
+async function fetchAPI(endpoint) {
+    try {
+        const response = await fetch(`${API_BASE}${endpoint}`);
+        const result = await response.json();
+        if (result.success) {
+            return result.data;
+        }
+        console.error('API Error:', result.error);
+        return [];
+    } catch (error) {
+        console.error('Fetch Error:', error);
+        return [];
+    }
+}
+
+// Load dữ liệu khi khởi động
+async function loadDataFromAPI() {
+    console.log('🔄 Đang load dữ liệu từ API...');
+    
+    try {
+        // Load song song tất cả dữ liệu
+        const [branches, products, services, levels] = await Promise.all([
+            fetchAPI('/branches'),
+            fetchAPI('/products'),
+            fetchAPI('/services'),
+            fetchAPI('/membership-levels')
+        ]);
+        
+        branchesData = branches || [];
+        productsData = products || [];
+        servicesData = services || [];
+        membershipLevelsData = levels || [];
+        
+        console.log(`✅ Loaded: ${branchesData.length} branches, ${productsData.length} products, ${servicesData.length} services`);
+        
+        // Re-render nếu đang ở trang tương ứng
+        renderBranches();
+        
+        return true;
+    } catch (error) {
+        console.error('❌ Lỗi load dữ liệu:', error);
+        return false;
+    }
+}
+
+// Fallback data nếu API không hoạt động
+const fallbackBranchesData = [
     {
-        id: 1,
-        name: 'Hà Nội - Chi Nhánh 1',
-        address: '123 Đường Lý Thái Tổ, Hà Nội',
-        phone: '(024) 1234-5678',
-        hours: '7:00 - 21:00 (Thứ 2 - CN)',
-        status: 'Mở cửa',
-        email: 'hanoi1@petcarex.vn',
-        manager: 'BS. Nguyễn Văn A',
-        services: ['Khám bệnh', 'Tiêm phòng', 'Phẫu thuật', 'Siêu âm', 'X-quang', 'Spa thú cưng'],
-        parking: 'Có bãi đỗ xe rộng rãi',
-        facilities: ['Phòng khám hiện đại', '2 phòng mổ', 'Khu điều trị riêng', 'Phòng chờ VIP']
+        BranchID: 'B001',
+        BranchName: 'Chi nhánh 1',
+        Address: '190 Daniel Mall - Quận 1 - TP. Hồ Chí Minh',
+        PhoneNumber: '0733218196',
+        Email: 'branch1@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 2,
-        name: 'Hà Nội - Chi Nhánh 2',
-        address: '456 Phố Cổ, Hà Nội',
-        phone: '(024) 9876-5432',
-        hours: '7:00 - 21:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B002',
+        BranchName: 'Chi nhánh 2',
+        Address: '24 Karen Overpass - Quận 1 - TP. Hồ Chí Minh',
+        PhoneNumber: '0538908386',
+        Email: 'branch2@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 3,
-        name: 'TP. Hồ Chí Minh - Chi Nhánh 3',
-        address: '789 Nguyễn Hué, TP. HCM',
-        phone: '(028) 5555-6666',
-        hours: '7:00 - 21:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B003',
+        BranchName: 'Chi nhánh 3',
+        Address: '151 Andrew Hills - Long Biên - Hà Nội',
+        PhoneNumber: '0702654235',
+        Email: 'branch3@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 4,
-        name: 'Đà Nẵng - Chi Nhánh 4',
-        address: '321 Đường Tôn Đức Thắng, Đà Nẵng',
-        phone: '(0236) 3333-4444',
-        hours: '7:00 - 20:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B004',
+        BranchName: 'Chi nhánh 4',
+        Address: '98 Whitehead View - Quận 3 - TP. Hồ Chí Minh',
+        PhoneNumber: '0355940781',
+        Email: 'branch4@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 5,
-        name: 'Hải Phòng - Chi Nhánh 5',
-        address: '654 Đường Lạch Tray, Hải Phòng',
-        phone: '(0225) 2222-3333',
-        hours: '7:00 - 20:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B005',
+        BranchName: 'Chi nhánh 5',
+        Address: '142 Burnett Loaf - Hồng Bàng - Hải Phòng',
+        PhoneNumber: '0795931034',
+        Email: 'branch5@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 6,
-        name: 'Cần Thơ - Chi Nhánh 6',
-        address: '987 Đường Hòa Bình, Cần Thơ',
-        phone: '(0292) 1111-2222',
-        hours: '7:00 - 20:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B006',
+        BranchName: 'Chi nhánh 6',
+        Address: '26 Dustin Greens - Quận 8 - TP. Hồ Chí Minh',
+        PhoneNumber: '0847525534',
+        Email: 'branch6@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 7,
-        name: 'Nha Trang - Chi Nhánh 7',
-        address: '135 Đường Trần Phú, Nha Trang',
-        phone: '(0258) 7777-8888',
-        hours: '7:00 - 20:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B007',
+        BranchName: 'Chi nhánh 7',
+        Address: '163 Sean Freeway - Cần Thơ - TP. Hồ Chí Minh',
+        PhoneNumber: '0583276483',
+        Email: 'branch7@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 8,
-        name: 'Huế - Chi Nhánh 8',
-        address: '246 Đường Nguyễn Huệ, Huế',
-        phone: '(0234) 6666-7777',
-        hours: '7:00 - 20:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B008',
+        BranchName: 'Chi nhánh 8',
+        Address: '59 Michelle Heights - Hải Châu - Đà Nẵng',
+        PhoneNumber: '0356413953',
+        Email: 'branch8@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 9,
-        name: 'Biên Hòa - Chi Nhánh 9',
-        address: '357 Đường Võ Văn Kiệt, Biên Hòa',
-        phone: '(0251) 5555-6666',
-        hours: '7:00 - 20:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B009',
+        BranchName: 'Chi nhánh 9',
+        Address: '165 Louis Terrace - Kiến An - Hải Phòng',
+        PhoneNumber: '0824238849',
+        Email: 'branch9@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
     },
     {
-        id: 10,
-        name: 'Vũng Tàu - Chi Nhánh 10',
-        address: '468 Đường Thùy Vân, Vũng Tàu',
-        phone: '(0254) 4444-5555',
-        hours: '7:00 - 20:00 (Thứ 2 - CN)',
-        status: 'Mở cửa'
+        BranchID: 'B010',
+        BranchName: 'Chi nhánh 10',
+        Address: '103 Stephanie Ridges - Đồ Sơn - Hải Phòng',
+        PhoneNumber: '0732871012',
+        Email: 'branch10@petcarex.com',
+        OpenTime: 8,
+        CloseTime: 18
+    },
+    {
+        BranchID: 'B011',
+        BranchName: 'Chi nhánh 12',
+        Address: '104 Thạch Ý - Phú Yên - Đông Hòa',
+        PhoneNumber: '0906446134',
+        Email: 'brach11@petcarex.com',
+        OpenTime: 10,
+        CloseTime: 11
     }
 ];
 
-// Function để render branches
-function renderBranches() {
+// Function để render branches (theo cấu trúc database)
+async function renderBranches() {
     const container = document.getElementById('branchesContainer');
     if (!container) return;
     
-    container.innerHTML = branchesData.map(branch => `
+    // Load từ API nếu chưa có dữ liệu
+    if (branchesData.length === 0) {
+        await loadDataFromAPI();
+    }
+    
+    const branches = getBranches();
+    
+    container.innerHTML = branches.map(branch => `
         <div class="branch-card">
             <div class="branch-header">
-                <h3>${branch.name}</h3>
-                <span class="badge">${branch.status || 'Mở cửa'}</span>
+                <h3>${branch.BranchName}</h3>
+                <span class="badge">Mở cửa</span>
             </div>
             <div class="branch-info">
-                <p><i class="fas fa-map-marker-alt"></i> ${branch.address}</p>
-                <p><i class="fas fa-phone"></i> ${branch.phone}</p>
-                <p><i class="fas fa-clock"></i> ${branch.hours}</p>
+                <p><i class="fas fa-map-marker-alt"></i> ${branch.Address}</p>
+                <p><i class="fas fa-phone"></i> ${branch.PhoneNumber}</p>
+                <p><i class="fas fa-clock"></i> ${branch.OpenTime}:00 - ${branch.CloseTime}:00</p>
             </div>
-            <button class="btn btn-outline-sm" onclick="showBranchDetail(${branch.id})">Chi Tiết</button>
+            <button class="btn btn-outline-sm" onclick="showBranchDetail('${branch.BranchID}')">Chi Tiết</button>
         </div>
     `).join('');
 }
 
-// Show branch detail
+// Show branch detail (theo cấu trúc database)
 function showBranchDetail(branchId) {
-    const branch = branchesData.find(b => b.id === branchId);
+    const branch = getBranches().find(b => b.BranchID === branchId);
     if (!branch) return;
     
     const detailContent = document.getElementById('branchDetailContent');
@@ -121,48 +198,30 @@ function showBranchDetail(branchId) {
     
     detailContent.innerHTML = `
         <div style="margin-bottom: 1.5rem;">
-            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">${branch.name}</h3>
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">${branch.BranchName}</h3>
             <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-map-marker-alt" style="color: #f44336; width: 20px;"></i> Địa chỉ:</strong> ${branch.address}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-phone" style="color: #4CAF50; width: 20px;"></i> Điện thoại:</strong> ${branch.phone}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-envelope" style="color: #2196F3; width: 20px;"></i> Email:</strong> ${branch.email || 'Đang cập nhật'}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-clock" style="color: #FF9800; width: 20px;"></i> Giờ mở cửa:</strong> ${branch.hours}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-user-md" style="color: #9C27B0; width: 20px;"></i> Quản lý:</strong> ${branch.manager || 'Đang cập nhật'}</p>
-                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-car" style="color: #607D8B; width: 20px;"></i> Bãi đỗ xe:</strong> ${branch.parking || 'Có'}</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-map-marker-alt" style="color: #f44336; width: 20px;"></i> Địa chỉ:</strong> ${branch.Address}</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-phone" style="color: #4CAF50; width: 20px;"></i> Điện thoại:</strong> ${branch.PhoneNumber}</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-envelope" style="color: #2196F3; width: 20px;"></i> Email:</strong> ${branch.Email}</p>
+                <p style="margin: 0.5rem 0;"><strong><i class="fas fa-clock" style="color: #FF9800; width: 20px;"></i> Giờ mở cửa:</strong> ${branch.OpenTime}:00 - ${branch.CloseTime}:00</p>
             </div>
         </div>
         
-        ${branch.services ? `
         <div style="margin-bottom: 1.5rem;">
             <h4 style="color: #2196F3; margin-bottom: 0.8rem;"><i class="fas fa-stethoscope"></i> Dịch Vụ Cung Cấp</h4>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                ${branch.services.map(service => `
-                    <span style="background: #e3f2fd; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: #1976D2;">
-                        ✓ ${service}
-                    </span>
-                `).join('')}
+                <span style="background: #e3f2fd; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: #1976D2;">✓ Khám bệnh</span>
+                <span style="background: #e3f2fd; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: #1976D2;">✓ Tiêm phòng</span>
+                <span style="background: #e3f2fd; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: #1976D2;">✓ Phẫu thuật</span>
+                <span style="background: #e3f2fd; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; color: #1976D2;">✓ Spa thú cưng</span>
             </div>
         </div>
-        ` : ''}
-        
-        ${branch.facilities ? `
-        <div style="margin-bottom: 1.5rem;">
-            <h4 style="color: #4CAF50; margin-bottom: 0.8rem;"><i class="fas fa-building"></i> Cơ Sở Vật Chất</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                ${branch.facilities.map(facility => `
-                    <li style="padding: 0.4rem 0; color: #666;">
-                        <i class="fas fa-check-circle" style="color: #4CAF50; margin-right: 0.5rem;"></i>${facility}
-                    </li>
-                `).join('')}
-            </ul>
-        </div>
-        ` : ''}
         
         <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-            <button class="btn btn-primary" onclick="bookAtBranch('${branch.name}')">
+            <button class="btn btn-primary" onclick="bookAtBranch('${branch.BranchName}')">
                 <i class="fas fa-calendar-plus"></i> Đặt Lịch Tại Đây
             </button>
-            <button class="btn btn-outline" onclick="openMap('${branch.address}')">
+            <button class="btn btn-outline" onclick="openMap('${branch.Address}')">
                 <i class="fas fa-map"></i> Xem Bản Đồ
             </button>
         </div>
@@ -235,14 +294,17 @@ function addLoyaltyPoints(amount) {
     return pointsToAdd;
 }
 
-// Get membership tier based on points
+// Get membership tier based on points (theo database MembershipLevel)
+// L1: Basic - 0.05 (5%), threshold: 60 points
+// L2: Standard - 0.1 (10%), threshold: 240 points, retention: 60
+// L3: Platinum - 0.15 (15%), threshold: 99999 points, retention: 160
 function getMembershipTier(points) {
     if (points >= 240) {
-        return { name: 'VIP', discount: 15, color: '#FFD700' };
-    } else if (points >= 100) {
-        return { name: 'Thân Thiết', discount: 10, color: '#C0C0C0' };
+        return { LevelID: 'L3', name: 'Platinum', discount: 15, color: '#E5E4E2' };
+    } else if (points >= 60) {
+        return { LevelID: 'L2', name: 'Standard', discount: 10, color: '#C0C0C0' };
     } else {
-        return { name: 'Cơ Bản', discount: 5, color: '#CD7F32' };
+        return { LevelID: 'L1', name: 'Basic', discount: 5, color: '#CD7F32' };
     }
 }
 
@@ -332,7 +394,7 @@ function viewBookingHistory() {
     displayBookingHistory(bookings, vaccinations, orders);
 }
 
-// Display booking history
+// Display booking history (cập nhật theo cấu trúc database)
 function displayBookingHistory(bookings, vaccinations, orders) {
     const historyContent = document.getElementById('historyContent');
     if (!historyContent) return;
@@ -348,13 +410,13 @@ function displayBookingHistory(bookings, vaccinations, orders) {
         <div style="margin-bottom: 2rem;">
             ${orders.map(order => `
                 <div style="background: #F3E5F5; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; border-left: 4px solid #9C27B0;">
-                    <p><strong>Mã đơn:</strong> #${order.id}</p>
-                    <p><strong>Sản phẩm:</strong> ${order.items.map(item => `${item.name} (x${item.quantity})`).join(', ')}</p>
+                    <p><strong>Mã đơn:</strong> #${order.OrderID || order.id}</p>
+                    <p><strong>Sản phẩm:</strong> ${order.items.map(item => `${item.ProductName || item.name} (x${item.Quantity || item.quantity})`).join(', ')}</p>
                     <p><strong>Tổng tiền:</strong> ${order.subtotal.toLocaleString('vi-VN')} VNĐ</p>
                     <p><strong>Giảm giá:</strong> -${order.discount.toLocaleString('vi-VN')} VNĐ (${order.membershipTier})</p>
                     <p><strong>Thành tiền:</strong> <span style="color: #4CAF50; font-weight: bold;">${order.total.toLocaleString('vi-VN')} VNĐ</span></p>
-                    <p><strong>Trạng Thái:</strong> <span style="color: #4CAF50; font-weight: bold;">${order.status}</span></p>
-                    <p style="font-size: 0.85rem; color: #999;">Đặt lúc: ${order.createdAt}</p>
+                    <p><strong>Trạng Thái:</strong> <span style="color: #4CAF50; font-weight: bold;">${order.Status || order.status}</span></p>
+                    <p style="font-size: 0.85rem; color: #999;">Ngày: ${order.CreateDate || ''} ${order.CreateTime || ''}</p>
                 </div>
             `).join('')}
         </div>
@@ -518,46 +580,69 @@ window.onclick = function(event) {
    ============================================ */
 
 /* ============================================
-   SHOP & CART MANAGEMENT
+   SHOP & CART MANAGEMENT (theo cấu trúc database)
+   Product: ProductID, ProductName, ProductType, SellingPrice
    ============================================ */
 
-// Product catalog
-const products = [
+// Fallback Product catalog - dùng khi API không hoạt động
+const fallbackProducts = [
     // Thức ăn
-    { id: 1, name: 'Thức ăn hạt cho chó trưởng thành', category: 'food', price: 350000, stock: 50, icon: '🍖' },
-    { id: 2, name: 'Thức ăn hạt cho mèo', category: 'food', price: 280000, stock: 45, icon: '🐟' },
-    { id: 3, name: 'Pate cho chó vị gà', category: 'food', price: 45000, stock: 100, icon: '🥫' },
-    { id: 4, name: 'Pate cho mèo vị cá ngừ', category: 'food', price: 42000, stock: 120, icon: '🥫' },
-    { id: 5, name: 'Sữa cho chó con', category: 'food', price: 180000, stock: 30, icon: '🍼' },
+    { ProductID: 'PRD0004', ProductName: 'Thức ăn thỏ hữu cơ', ProductType: 'Thức ăn', SellingPrice: 433048, icon: '🌿' },
+    { ProductID: 'PRD0009', ProductName: 'Thức ăn mèo cao cấp', ProductType: 'Thức ăn', SellingPrice: 794584, icon: '🐟' },
+    { ProductID: 'PRD0010', ProductName: 'Thức ăn Tây Ban Nha', ProductType: 'Thức ăn', SellingPrice: 584751, icon: '🍖' },
+    { ProductID: 'PRD0015', ProductName: 'Thức ăn mèo cao cấp 2', ProductType: 'Thức ăn', SellingPrice: 142048, icon: '🐟' },
     
-    // Thuốc
-    { id: 6, name: 'Thuốc tẩy giun cho chó', category: 'medicine', price: 120000, stock: 60, icon: '💊' },
-    { id: 7, name: 'Thuốc tẩy giun cho mèo', category: 'medicine', price: 110000, stock: 55, icon: '💊' },
-    { id: 8, name: 'Vitamin tổng hợp', category: 'medicine', price: 250000, stock: 40, icon: '💉' },
-    { id: 9, name: 'Thuốc nhỏ mắt', category: 'medicine', price: 85000, stock: 35, icon: '👁️' },
-    { id: 10, name: 'Thuốc xịt ve rận', category: 'medicine', price: 150000, stock: 50, icon: '🧴' },
+    // Dược phẩm
+    { ProductID: 'PRD0013', ProductName: 'Siro ho cho chó', ProductType: 'Dược phẩm', SellingPrice: 887064, icon: '💊' },
+    { ProductID: 'PRD0024', ProductName: 'Vitamin B12 tiêm', ProductType: 'Dược phẩm', SellingPrice: 177300, icon: '💉' },
+    { ProductID: 'PRD0029', ProductName: 'Kem chữa ghẻ', ProductType: 'Dược phẩm', SellingPrice: 267671, icon: '🧴' },
+    
+    // Vitamin
+    { ProductID: 'PRD0012', ProductName: 'Canxi cho chó già', ProductType: 'Vitamin', SellingPrice: 522901, icon: '💊' },
+    { ProductID: 'PRD0017', ProductName: 'Dầu cá tốt cho lông', ProductType: 'Vitamin', SellingPrice: 160019, icon: '💊' },
+    { ProductID: 'PRD0021', ProductName: 'Vitamin C dạng bột', ProductType: 'Vitamin', SellingPrice: 678478, icon: '💊' },
+    
+    // Thiết bị y tế
+    { ProductID: 'PRD0002', ProductName: 'Ký sinh trùng detector', ProductType: 'Thiết bị y tế', SellingPrice: 242905, icon: '🧬' },
+    { ProductID: 'PRD0003', ProductName: 'Bàn chải đánh răng', ProductType: 'Thiết bị y tế', SellingPrice: 996708, icon: '🪥' },
+    { ProductID: 'PRD0005', ProductName: 'Ngoạm cắt móng', ProductType: 'Thiết bị y tế', SellingPrice: 943065, icon: '✂️' },
     
     // Phụ kiện
-    { id: 11, name: 'Vòng cổ cho chó', category: 'accessories', price: 95000, stock: 80, icon: '⭕' },
-    { id: 12, name: 'Dây dắt chó', category: 'accessories', price: 120000, stock: 70, icon: '🔗' },
-    { id: 13, name: 'Bát ăn inox', category: 'accessories', price: 65000, stock: 100, icon: '🥣' },
-    { id: 14, name: 'Lồng vận chuyển', category: 'accessories', price: 450000, stock: 25, icon: '📦' },
-    { id: 15, name: 'Áo cho chó', category: 'accessories', price: 150000, stock: 60, icon: '👕' },
+    { ProductID: 'PRD0006', ProductName: 'Cát lót thỏ', ProductType: 'Phụ kiện', SellingPrice: 622570, icon: '🪻' },
+    { ProductID: 'PRD0027', ProductName: 'Giường nằm cho mèo', ProductType: 'Phụ kiện', SellingPrice: 244919, icon: '🛏️' },
+    
+    // Chăm sóc da
+    { ProductID: 'PRD0007', ProductName: 'Xịt khử mùi', ProductType: 'Chăm sóc da', SellingPrice: 711660, icon: '🧿' },
+    { ProductID: 'PRD0008', ProductName: 'Kem chống côn trùng', ProductType: 'Chăm sóc da', SellingPrice: 58432, icon: '🧴' },
     
     // Đồ chơi
-    { id: 16, name: 'Bóng cao su cho chó', category: 'toys', price: 55000, stock: 90, icon: '⚽' },
-    { id: 17, name: 'Chuột nhồi bông cho mèo', category: 'toys', price: 35000, stock: 110, icon: '🐭' },
-    { id: 18, name: 'Xương gặm cao su', category: 'toys', price: 75000, stock: 85, icon: '🦴' },
-    { id: 19, name: 'Cần câu mèo', category: 'toys', price: 45000, stock: 70, icon: '🎣' },
-    { id: 20, name: 'Bàn cào móng cho mèo', category: 'toys', price: 280000, stock: 40, icon: '🪵' }
+    { ProductID: 'PRD0001', ProductName: 'Tunnel chơi thỏ', ProductType: 'Đồ chơi', SellingPrice: 751370, icon: '🚽' },
+    { ProductID: 'PRD0011', ProductName: 'Chuông leng keng', ProductType: 'Đồ chơi', SellingPrice: 129578, icon: '🔔' },
+    { ProductID: 'PRD0018', ProductName: 'Dây kéo vải', ProductType: 'Đồ chơi', SellingPrice: 28719, icon: '🧶' }
 ];
 
 let cart = [];
 let currentFilter = 'all';
 
-function showShop() {
+// Getter cho products - dùng API data hoặc fallback
+function getProducts() {
+    return productsData.length > 0 ? productsData : fallbackProducts;
+}
+
+// Getter cho branches - dùng API data hoặc fallback
+function getBranches() {
+    return branchesData.length > 0 ? branchesData : fallbackBranchesData;
+}
+
+async function showShop() {
     openModal('shopModal');
-    displayProducts(products);
+    
+    // Load dữ liệu từ API nếu chưa có
+    if (productsData.length === 0) {
+        await loadDataFromAPI();
+    }
+    
+    displayProducts(getProducts());
     updateCartCount();
 }
 
@@ -568,8 +653,9 @@ function filterProducts(category) {
     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     
-    // Filter products
-    const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+    // Filter products by ProductType
+    const allProducts = getProducts();
+    const filtered = category === 'all' ? allProducts : allProducts.filter(p => p.ProductType === category);
     displayProducts(filtered);
 }
 
@@ -578,18 +664,18 @@ function displayProducts(productList) {
     if (!grid) return;
     
     grid.innerHTML = productList.map(product => {
-        const needsToggle = product.name.length > 25;
+        const needsToggle = product.ProductName.length > 25;
         return `
-        <div class="product-card" data-category="${product.category}">
+        <div class="product-card" data-category="${product.ProductType}">
             <div class="product-image">${product.icon}</div>
             <div class="product-title-row">
-                <div class="product-name" id="name-${product.id}">${product.name}</div>
-                ${needsToggle ? `<button class="product-toggle" onclick="toggleProductName(${product.id})">Xem</button>` : ''}
+                <div class="product-name" id="name-${product.ProductID}">${product.ProductName}</div>
+                ${needsToggle ? `<button class="product-toggle" onclick="toggleProductName('${product.ProductID}')">Xem</button>` : ''}
             </div>
-            <div class="product-price">${product.price.toLocaleString('vi-VN')} VNĐ</div>
-            <div class="product-stock">Còn: ${product.stock} sản phẩm</div>
-            <button class="btn btn-primary btn-full" onclick="addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
-                ${product.stock === 0 ? 'Hết hàng' : 'Thêm vào giỏ'}
+            <div class="product-price">${product.SellingPrice.toLocaleString('vi-VN')} VNĐ</div>
+            <div class="product-stock">${product.ProductType}</div>
+            <button class="btn btn-primary btn-full" onclick="addToCart('${product.ProductID}')">
+                Thêm vào giỏ
             </button>
         </div>
     `}).join('');
@@ -615,19 +701,14 @@ function addToCart(productId) {
         return;
     }
     
-    const product = products.find(p => p.id === productId);
-    if (!product || product.stock === 0) return;
+    const product = getProducts().find(p => p.ProductID === productId);
+    if (!product) return;
     
-    const existingItem = cart.find(item => item.id === productId);
+    const existingItem = cart.find(item => item.ProductID === productId);
     
     if (existingItem) {
-        if (existingItem.quantity < product.stock) {
-            existingItem.quantity++;
-            showNotification('Đã cập nhật số lượng', 'success');
-        } else {
-            showNotification('Không đủ hàng trong kho', 'info');
-            return;
-        }
+        existingItem.quantity++;
+        showNotification('Đã cập nhật số lượng', 'success');
     } else {
         cart.push({
             ...product,
@@ -678,7 +759,7 @@ function displayCart() {
     const user = JSON.parse(localStorage.getItem('petcarex-user'));
     const tierInfo = getMembershipTier(user?.loyaltyPoints || 0);
     
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.SellingPrice * item.quantity), 0);
     const discount = Math.floor(subtotal * tierInfo.discount / 100);
     const finalTotal = subtotal - discount;
     const loyaltyPoints = Math.floor(finalTotal / 50000);
@@ -687,13 +768,13 @@ function displayCart() {
         <div class="cart-item">
             <div class="cart-item-image">${item.icon}</div>
             <div class="cart-item-info">
-                <div class="cart-item-name">${item.name}</div>
-                <div class="cart-item-price">${item.price.toLocaleString('vi-VN')} VNĐ</div>
+                <div class="cart-item-name">${item.ProductName}</div>
+                <div class="cart-item-price">${item.SellingPrice.toLocaleString('vi-VN')} VNĐ</div>
                 <div class="cart-item-controls">
-                    <button class="cart-qty-btn" onclick="updateCartQuantity(${item.id}, -1)">-</button>
+                    <button class="cart-qty-btn" onclick="updateCartQuantity('${item.ProductID}', -1)">-</button>
                     <span class="cart-qty">${item.quantity}</span>
-                    <button class="cart-qty-btn" onclick="updateCartQuantity(${item.id}, 1)">+</button>
-                    <button class="cart-remove-btn" onclick="removeFromCart(${item.id})">Xóa</button>
+                    <button class="cart-qty-btn" onclick="updateCartQuantity('${item.ProductID}', 1)">+</button>
+                    <button class="cart-remove-btn" onclick="removeFromCart('${item.ProductID}')">Xóa</button>
                 </div>
             </div>
         </div>
@@ -706,19 +787,13 @@ function displayCart() {
 }
 
 function updateCartQuantity(productId, change) {
-    const item = cart.find(i => i.id === productId);
+    const item = cart.find(i => i.ProductID === productId);
     if (!item) return;
     
-    const product = products.find(p => p.id === productId);
     const newQuantity = item.quantity + change;
     
     if (newQuantity <= 0) {
         removeFromCart(productId);
-        return;
-    }
-    
-    if (newQuantity > product.stock) {
-        showNotification('Không đủ hàng trong kho', 'info');
         return;
     }
     
@@ -728,7 +803,7 @@ function updateCartQuantity(productId, change) {
 }
 
 function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
+    cart = cart.filter(item => item.ProductID !== productId);
     displayCart();
     updateCartCount();
     
@@ -748,21 +823,27 @@ function checkout() {
     if (cart.length === 0) return;
     
     const tierInfo = getMembershipTier(user.loyaltyPoints || 0);
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.SellingPrice * item.quantity), 0);
     const discount = Math.floor(subtotal * tierInfo.discount / 100);
     const finalTotal = subtotal - discount;
     
-    // Save order
+    // Save order (theo cấu trúc database Orders)
     const order = {
-        id: Date.now(),
-        userId: user.id,
-        items: cart,
+        OrderID: 'ORD' + Date.now(),
+        CustomerID: user.CustomerID || user.id,
+        items: cart.map(item => ({
+            ProductID: item.ProductID,
+            ProductName: item.ProductName,
+            Quantity: item.quantity,
+            TemporaryPrice: item.SellingPrice
+        })),
         subtotal: subtotal,
         discount: discount,
         total: finalTotal,
         membershipTier: tierInfo.name,
-        createdAt: new Date().toLocaleString('vi-VN'),
-        status: 'Đã đặt'
+        CreateDate: new Date().toISOString().split('T')[0],
+        CreateTime: new Date().toTimeString().split(' ')[0],
+        Status: 'Đã đặt'
     };
     
     let orders = JSON.parse(localStorage.getItem('petcarex-orders')) || [];
@@ -771,14 +852,6 @@ function checkout() {
     
     // Add loyalty points
     addLoyaltyPoints(finalTotal);
-    
-    // Update product stock
-    cart.forEach(cartItem => {
-        const product = products.find(p => p.id === cartItem.id);
-        if (product) {
-            product.stock -= cartItem.quantity;
-        }
-    });
     
     // Clear cart
     cart = [];
@@ -1047,8 +1120,12 @@ function animateCounter(element, target, duration = 2000) {
    READY EVENT
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('PetCareX website loaded successfully!');
+    
+    // Load dữ liệu từ API
+    console.log('🔄 Đang tải dữ liệu từ API...');
+    await loadDataFromAPI();
     
     // Initialize tooltips if needed
     initializeTooltips();
@@ -1433,32 +1510,34 @@ function displayMemberInfo() {
     const loyaltyPoints = user.loyaltyPoints || 0;
     const tierInfo = getMembershipTier(loyaltyPoints);
     
+    // Theo cấu trúc database MembershipLevel
     let benefits = [];
     
-    if (loyaltyPoints >= 240) {
+    if (tierInfo.LevelID === 'L3') { // Platinum >= 240 điểm
         benefits = [
             'Giảm 15% tổng hóa đơn',
-            'Ưu tiên đặt lịch',
-            'Tư vấn miễn phí',
+            'Ưu tiên đặt lịch VIP',
+            'Tư vấn miễn phí 24/7',
             'Duy trì với 160 điểm/năm'
         ];
-    } else if (loyaltyPoints >= 100) {
+    } else if (tierInfo.LevelID === 'L2') { // Standard >= 60 điểm
         benefits = [
             'Giảm 10% tổng hóa đơn',
             'Hỗ trợ ưu tiên',
             'Khuyến mãi độc quyền',
             'Duy trì với 60 điểm/năm'
         ];
-    } else {
+    } else { // Basic (L1)
         benefits = [
             'Giảm 5% tổng hóa đơn',
             'Tích lũy điểm loyalty',
-            'Ưu đãi chi nhánh'
+            'Ưu đãi chi nhánh',
+            'Nâng cấp Standard khi đạt 60 điểm'
         ];
     }
     
-    document.getElementById('memberName').textContent = user.fullname || user.username || 'Khách Hàng';
-    document.getElementById('memberEmail').textContent = user.phone || 'Chưa có thông tin';
+    document.getElementById('memberName').textContent = user.FullName || user.fullname || user.username || 'Khách Hàng';
+    document.getElementById('memberEmail').textContent = user.PhoneNumber || user.phone || 'Chưa có thông tin';
     document.getElementById('loyaltyPoints').textContent = loyaltyPoints;
     document.getElementById('memberTier').textContent = tierInfo.name + ` (Giảm ${tierInfo.discount}%)`;
     
