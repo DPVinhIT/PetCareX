@@ -3,7 +3,8 @@
    Branch: BranchID, BranchName, Address, PhoneNumber, Email, OpenTime, CloseTime
    ============================================ */
 
-const API_BASE = 'http://localhost:5000/api';
+// Sử dụng API trên cloud (Render)
+const API_BASE = 'https://petcarex-api.onrender.com/api';
 
 // Biến lưu dữ liệu động từ API
 let branchesData = [];
