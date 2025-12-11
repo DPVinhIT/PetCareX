@@ -1341,7 +1341,15 @@ async function handleLogin(event) {
         const result = await resp.json();
         if (result.success) {
             // refresh current user from cookie-backed session
-            await fetchAuthMe();
+            // first, use returned user data immediately to update UI (fallback if cookie isn't available yet)
+            if (result.data) {
+                window.currentUser = result.data;
+            }
+            await fetchAuthMe().then(u => {
+                if (!u && result.data) {
+                    console.warn('fetchAuthMe returned null; using login response data as fallback');
+                }
+            });
             if (remember) {
                 localStorage.setItem('petcarex-remember', JSON.stringify({ username, remember: true }));
             } else {
