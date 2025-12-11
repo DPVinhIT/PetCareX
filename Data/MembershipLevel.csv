@@ -1,4 +1,0 @@
-﻿LevelID,LevelName,AnnualSpendingThreshold,RetentionThreshold,DiscountRate
-L1,Basic,60,0,0.05
-L2,Standard,240,60,0.1
-L3,Platinum,99999,160,0.15
