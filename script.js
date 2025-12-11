@@ -1494,7 +1494,7 @@ function updateNavbarAfterLogin() {
     const user = getCurrentUser();
     const historyLink = document.getElementById('historyLink');
     const logoutBtn = document.querySelector('.btn-logout');
-    const loginLink = document.querySelector('.btn-login');
+    const loginLink = document.querySelector('.nav-menu .btn-login');
 
     if (user) {
         if (historyLink) historyLink.style.display = 'block';
@@ -1530,7 +1530,7 @@ function handleLogout() {
         localStorage.removeItem('petcarex-user');
         
         // Reset navbar
-        const loginLink = document.querySelector('.btn-login');
+        const loginLink = document.querySelector('.nav-menu .btn-login');
         if (loginLink) {
             loginLink.innerHTML = 'Đăng Nhập';
             loginLink.style.background = '';
