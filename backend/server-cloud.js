@@ -47,6 +47,16 @@ const pool = new Pool({
 const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 10;
 
+// Determine cookie options depending on environment/origin
+const frontendUrl = process.env.FRONTEND_URL || '';
+const cookieOptions = {
+    httpOnly: true,
+    // For cross-site requests from browser, cookie must be SameSite=None and Secure
+    sameSite: (frontendUrl && frontendUrl.startsWith('https')) ? 'none' : 'lax',
+    secure: (frontendUrl && frontendUrl.startsWith('https')) ? true : (process.env.NODE_ENV === 'production'),
+    maxAge: 7 * 24 * 60 * 60 * 1000
+};
+
 // ============================================
 // API ROUTES
 // ============================================
@@ -166,12 +176,14 @@ app.post('/api/auth/login', async (req, res) => {
         );
 
         const user = result.rows[0] || null;
+        // If customer profile row isn't present, return at least minimal identity so frontend can update UI
+        const returnedUser = user || { username };
         // create jwt token (contains customerid and username)
         const payload = { username, customerid: user?.customerid || null };
         const token = jwt.sign(payload, process.env.JWT_SECRET || 'dev_secret', { expiresIn: '7d' });
-        // set HttpOnly cookie
-        res.cookie('pcx_token', token, { httpOnly: true, sameSite: 'lax', secure: false, maxAge: 7 * 24 * 60 * 60 * 1000 });
-        res.json({ success: true, data: user });
+        // set HttpOnly cookie with environment-aware options
+        res.cookie('pcx_token', token, cookieOptions);
+        res.json({ success: true, data: returnedUser });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
     }
@@ -210,7 +222,7 @@ app.post('/api/auth/register', async (req, res) => {
         // create jwt token and set cookie
         const payload = { username, customerid: customerId };
         const token = jwt.sign(payload, process.env.JWT_SECRET || 'dev_secret', { expiresIn: '7d' });
-        res.cookie('pcx_token', token, { httpOnly: true, sameSite: 'lax', secure: false, maxAge: 7 * 24 * 60 * 60 * 1000 });
+        res.cookie('pcx_token', token, cookieOptions);
 
         res.json({ success: true, data: { username, customerid: customerId } });
     } catch (error) {
@@ -243,7 +255,7 @@ app.get('/api/auth/me', async (req, res) => {
 
 // Logout
 app.post('/api/auth/logout', (req, res) => {
-    res.clearCookie('pcx_token');
+    res.clearCookie('pcx_token', { path: '/' });
     res.json({ success: true });
 });
 
