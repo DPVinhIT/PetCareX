@@ -1,0 +1,48 @@
+﻿SurgeryID,PetID,SurgeryStatus,SurgeryType,AnesthesiaType,SurgeryDate,DiagnosisNote
+SRV0132,PET29579,Đã thực hiện,Thiến,Gây mê toàn thân,2024-09-18 19:25:52,Phẫu thuật theo chỉ định bác sĩ
+SRV0021,PET76373,Đang theo dõi,Nội soi,Gây mê toàn thân,2022-06-11 03:55:18,Phẫu thuật theo chỉ định bác sĩ
+SRV0029,PET35370,Đã thực hiện,Mổ bụng,Gây tê,2023-05-01 00:42:40,Phẫu thuật theo chỉ định bác sĩ
+SRV0177,PET25969,Đã thực hiện,Nội soi,Gây tê,2024-03-25 09:58:00,Phẫu thuật theo chỉ định bác sĩ
+SRV0107,PET56209,Đang theo dõi,Mổ bụng,Gây mê toàn thân,2024-08-12 02:50:21,Phẫu thuật theo chỉ định bác sĩ
+SRV0085,PET88502,Đang theo dõi,Mổ u,Gây tê,2022-08-22 07:06:52,Phẫu thuật theo chỉ định bác sĩ
+SRV0025,PET112793,Đã thực hiện,Mổ u,Gây tê,2024-09-14 11:37:30,Phẫu thuật theo chỉ định bác sĩ
+SRV0150,PET33912,Đang theo dõi,Mổ bụng,Gây mê toàn thân,2023-04-01 02:37:32,Phẫu thuật theo chỉ định bác sĩ
+SRV0053,PET68378,Đang theo dõi,Mổ bụng,Gây mê toàn thân,2024-06-30 21:57:00,Phẫu thuật theo chỉ định bác sĩ
+SRV0012,PET95462,Đang theo dõi,Mổ bụng,Gây mê toàn thân,2021-12-27 03:52:27,Phẫu thuật theo chỉ định bác sĩ
+SRV0129,PET33642,Đang theo dõi,Nội soi,Gây tê,2023-06-30 23:28:36,Phẫu thuật theo chỉ định bác sĩ
+SRV0183,PET101267,Đã thực hiện,Nội soi,Gây mê toàn thân,2021-02-02 16:33:00,Phẫu thuật theo chỉ định bác sĩ
+SRV0054,PET90808,Đang theo dõi,Mổ bụng,Gây mê toàn thân,2024-02-10 10:15:14,Phẫu thuật theo chỉ định bác sĩ
+SRV0102,PET92256,Đang theo dõi,Nội soi,Gây mê toàn thân,2023-03-07 03:04:38,Phẫu thuật theo chỉ định bác sĩ
+SRV0105,PET112117,Đã thực hiện,Thiến,Gây tê,2022-01-11 05:56:51,Phẫu thuật theo chỉ định bác sĩ
+SRV0043,PET03171,Đã thực hiện,Thiến,Gây mê toàn thân,2023-06-07 18:11:27,Phẫu thuật theo chỉ định bác sĩ
+SRV0152,PET93661,Đang theo dõi,Nội soi,Gây tê,2022-12-24 11:38:22,Phẫu thuật theo chỉ định bác sĩ
+SRV0191,PET22062,Đang theo dõi,Mổ bụng,Gây mê toàn thân,2023-07-04 03:17:03,Phẫu thuật theo chỉ định bác sĩ
+SRV0080,PET71057,Đang theo dõi,Mổ u,Gây tê,2023-08-11 05:41:51,Phẫu thuật theo chỉ định bác sĩ
+SRV0188,PET113554,Đã thực hiện,Mổ u,Gây tê,2021-05-31 17:23:05,Phẫu thuật theo chỉ định bác sĩ
+SRV0058,PET44409,Đang theo dõi,Nội soi,Gây tê,2023-12-03 14:45:32,Phẫu thuật theo chỉ định bác sĩ
+SRV0165,PET07751,Đã thực hiện,Mổ bụng,Gây tê,2022-01-18 07:20:35,Phẫu thuật theo chỉ định bác sĩ
+SRV0009,PET30639,Đang theo dõi,Thiến,Gây mê toàn thân,2022-08-19 01:09:41,Phẫu thuật theo chỉ định bác sĩ
+SRV0198,PET27087,Đang theo dõi,Mổ bụng,Gây tê,2023-01-03 20:53:46,Phẫu thuật theo chỉ định bác sĩ
+SRV0175,PET115590,Đang theo dõi,Mổ u,Gây mê toàn thân,2023-11-06 01:54:51,Phẫu thuật theo chỉ định bác sĩ
+SRV0023,PET108093,Đang theo dõi,Mổ bụng,Gây tê,2021-08-27 02:19:53,Phẫu thuật theo chỉ định bác sĩ
+SRV0147,PET46606,Đã thực hiện,Thiến,Gây mê toàn thân,2024-07-14 09:17:31,Phẫu thuật theo chỉ định bác sĩ
+SRV0141,PET65225,Đang theo dõi,Thiến,Gây tê,2023-09-16 20:53:50,Phẫu thuật theo chỉ định bác sĩ
+SRV0028,PET97434,Đã thực hiện,Thiến,Gây mê toàn thân,2022-09-20 02:38:40,Phẫu thuật theo chỉ định bác sĩ
+SRV0056,PET110869,Đã thực hiện,Mổ u,Gây mê toàn thân,2023-03-28 07:57:10,Phẫu thuật theo chỉ định bác sĩ
+SRV0199,PET18719,Đã thực hiện,Nội soi,Gây tê,2021-08-30 23:26:40,Phẫu thuật theo chỉ định bác sĩ
+SRV0010,PET89897,Đang theo dõi,Thiến,Gây tê,2022-06-17 21:57:21,Phẫu thuật theo chỉ định bác sĩ
+SRV0181,PET87267,Đang theo dõi,Mổ bụng,Gây tê,2023-05-20 12:37:51,Phẫu thuật theo chỉ định bác sĩ
+SRV0115,PET20307,Đã thực hiện,Thiến,Gây mê toàn thân,2024-03-12 23:44:05,Phẫu thuật theo chỉ định bác sĩ
+SRV0036,PET08171,Đã thực hiện,Mổ u,Gây mê toàn thân,2023-06-05 00:42:56,Phẫu thuật theo chỉ định bác sĩ
+SRV0060,PET119491,Đã thực hiện,Mổ bụng,Gây mê toàn thân,2022-07-20 01:28:16,Phẫu thuật theo chỉ định bác sĩ
+SRV0095,PET116768,Đang theo dõi,Nội soi,Gây tê,2023-11-21 04:38:50,Phẫu thuật theo chỉ định bác sĩ
+SRV0186,PET26430,Đã thực hiện,Mổ u,Gây mê toàn thân,2023-01-06 10:21:13,Phẫu thuật theo chỉ định bác sĩ
+SRV0116,PET44002,Đã thực hiện,Nội soi,Gây mê toàn thân,2022-07-27 07:19:50,Phẫu thuật theo chỉ định bác sĩ
+SRV0155,PET71379,Đã thực hiện,Mổ u,Gây tê,2023-05-25 15:25:02,Phẫu thuật theo chỉ định bác sĩ
+SRV0149,PET70490,Đã thực hiện,Mổ u,Gây mê toàn thân,2021-02-15 22:47:37,Phẫu thuật theo chỉ định bác sĩ
+SRV0067,PET90565,Đã thực hiện,Mổ bụng,Gây mê toàn thân,2021-06-06 03:02:04,Phẫu thuật theo chỉ định bác sĩ
+SRV0026,PET83706,Đã thực hiện,Nội soi,Gây mê toàn thân,2023-03-09 00:42:11,Phẫu thuật theo chỉ định bác sĩ
+SRV0092,PET96110,Đã thực hiện,Nội soi,Gây tê,2022-11-07 10:25:14,Phẫu thuật theo chỉ định bác sĩ
+SRV0020,PET60704,Đang theo dõi,Nội soi,Gây tê,2022-07-09 14:43:45,Phẫu thuật theo chỉ định bác sĩ
+SRV0039,PET105305,Đang theo dõi,Mổ bụng,Gây tê,2023-08-10 09:54:59,Phẫu thuật theo chỉ định bác sĩ
+SRV0086,PET14881,Đã thực hiện,Mổ bụng,Gây tê,2023-08-23 00:58:06,Phẫu thuật theo chỉ định bác sĩ

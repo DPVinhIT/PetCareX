@@ -1,0 +1,201 @@
+﻿ServiceID,ServiceName,ServiceDescription,DID
+SRV0001,Khám da liễu thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0069
+SRV0002,Khám tổng quát cơ bản,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0004
+SRV0003,Khám tim mạch,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0072
+SRV0004,Tiêm phòng cho thỏ,Tiêm vắc - xin phòng bệnh theo lịch,E0025
+SRV0005,Tiêm vắc-xin FIP mèo,Tiêm vắc - xin phòng bệnh theo lịch,E0019
+SRV0006,Khám mắt thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0015
+SRV0007,Chụp X-quang,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0044
+SRV0008,Tiêm vắc-xin FIP mèo,Tiêm vắc - xin phòng bệnh theo lịch,E0004
+SRV0009,Phẫu thuật cắt bỏ u,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0090
+SRV0010,Phẫu thuật triệt sản cái,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0054
+SRV0011,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0059
+SRV0012,Phẫu thuật chỉnh hình,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0002
+SRV0013,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0085
+SRV0014,Siêu âm chẩn đoán,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0051
+SRV0015,Gói tiêm phòng đầy đủ cho chó,Gói tiêm phòng đầy đủ với ưu đãi,E0070
+SRV0016,Siêu âm chẩn đoán,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0005
+SRV0017,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0061
+SRV0018,Tiêm vắc-xin 4 bệnh mèo,Tiêm vắc - xin phòng bệnh theo lịch,E0033
+SRV0019,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0025
+SRV0020,Phẫu thuật chỉnh hình,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0055
+SRV0021,Phẫu thuật nội soi,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0093
+SRV0022,Tiêm vắc-xin Parvo,Tiêm vắc - xin phòng bệnh theo lịch,E0102
+SRV0023,Phẫu thuật triệt sản đực,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0031
+SRV0024,Tiêm nhắc lại hàng năm,Tiêm vắc - xin phòng bệnh theo lịch,E0035
+SRV0025,Phẫu thuật nội soi,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0051
+SRV0026,Phẫu thuật cấp cứu,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0056
+SRV0027,Tiêm phòng cho thỏ,Tiêm vắc - xin phòng bệnh theo lịch,E0102
+SRV0028,Phẫu thuật cấp cứu,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0078
+SRV0029,Phẫu thuật triệt sản đực,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0009
+SRV0030,Tiêm vắc-xin Care,Tiêm vắc - xin phòng bệnh theo lịch,E0048
+SRV0031,Gói tiêm phòng đầy đủ cho chó,Gói tiêm phòng đầy đủ với ưu đãi,E0074
+SRV0032,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0020
+SRV0033,Tiêm vắc-xin Leukemia mèo,Tiêm vắc - xin phòng bệnh theo lịch,E0093
+SRV0034,Tiêm vắc-xin Leukemia mèo,Tiêm vắc - xin phòng bệnh theo lịch,E0030
+SRV0035,Khám tim mạch,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0036
+SRV0036,Phẫu thuật nội soi,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0054
+SRV0037,Tiêm vắc-xin Care,Tiêm vắc - xin phòng bệnh theo lịch,E0074
+SRV0038,Chụp X-quang,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0010
+SRV0039,Phẫu thuật mắt,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0069
+SRV0040,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0002
+SRV0041,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0076
+SRV0042,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0097
+SRV0043,Phẫu thuật triệt sản cái,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0103
+SRV0044,Tiêm vắc-xin Leukemia mèo,Tiêm vắc - xin phòng bệnh theo lịch,E0065
+SRV0045,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0036
+SRV0046,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0010
+SRV0047,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0015
+SRV0048,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0030
+SRV0049,Khám thai cho thú cưng,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0014
+SRV0050,Tiêm vắc-xin phòng dại,Tiêm vắc - xin phòng bệnh theo lịch,E0094
+SRV0051,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0060
+SRV0052,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0108
+SRV0053,Phẫu thuật cấp cứu,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0059
+SRV0054,Phẫu thuật mổ đẻ,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0073
+SRV0055,Gói tiêm phòng đầy đủ cho chó,Gói tiêm phòng đầy đủ với ưu đãi,E0025
+SRV0056,Phẫu thuật tai,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0057
+SRV0057,Tiêm vắc-xin Care,Tiêm vắc - xin phòng bệnh theo lịch,E0061
+SRV0058,Phẫu thuật chỉnh hình,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0033
+SRV0059,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0040
+SRV0060,Phẫu thuật mắt,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0052
+SRV0061,Khám sàng lọc định kỳ,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0004
+SRV0062,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0042
+SRV0063,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0020
+SRV0064,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0053
+SRV0065,Khám hậu phục hồi,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0021
+SRV0066,Tiêm vắc-xin Parvo,Tiêm vắc - xin phòng bệnh theo lịch,E0082
+SRV0067,Phẫu thuật mắt,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0119
+SRV0068,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0116
+SRV0069,Tiêm vắc-xin Care,Tiêm vắc - xin phòng bệnh theo lịch,E0050
+SRV0070,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0007
+SRV0071,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0098
+SRV0072,Khám hậu phục hồi,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0015
+SRV0073,Tiêm vắc-xin 7 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0074
+SRV0074,Tiêm phòng cho thỏ,Tiêm vắc - xin phòng bệnh theo lịch,E0099
+SRV0075,Khám chẩn đoán bệnh,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0066
+SRV0076,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0093
+SRV0077,Chụp X-quang,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0043
+SRV0078,Tiêm vắc-xin 7 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0109
+SRV0079,Tiêm phòng cho thỏ,Tiêm vắc - xin phòng bệnh theo lịch,E0014
+SRV0080,Phẫu thuật tiêu hóa,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0017
+SRV0081,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0057
+SRV0082,Tiêm vắc-xin 7 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0021
+SRV0083,Khám sau phẫu thuật,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0062
+SRV0084,Tiêm vắc-xin 7 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0078
+SRV0085,Phẫu thuật xương khớp,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0104
+SRV0086,Phẫu thuật triệt sản đực,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0024
+SRV0087,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0031
+SRV0088,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0115
+SRV0089,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0062
+SRV0090,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0047
+SRV0091,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0024
+SRV0092,Phẫu thuật mổ đẻ,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0065
+SRV0093,Tiêm vắc-xin Parvo,Tiêm vắc - xin phòng bệnh theo lịch,E0022
+SRV0094,Siêu âm chẩn đoán,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0095
+SRV0095,Phẫu thuật tai,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0084
+SRV0096,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0030
+SRV0097,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0010
+SRV0098,Khám da liễu thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0118
+SRV0099,Khám nha khoa thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0060
+SRV0100,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0115
+SRV0101,Tiêm vắc-xin Parvo,Tiêm vắc - xin phòng bệnh theo lịch,E0035
+SRV0102,Phẫu thuật triệt sản cái,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0078
+SRV0103,Khám chẩn đoán bệnh,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0057
+SRV0104,Chụp X-quang,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0119
+SRV0105,Phẫu thuật tai,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0113
+SRV0106,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0089
+SRV0107,Phẫu thuật nha khoa,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0030
+SRV0108,Gói tiêm phòng đầy đủ cho chó,Gói tiêm phòng đầy đủ với ưu đãi,E0003
+SRV0109,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0004
+SRV0110,Khám da liễu thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0044
+SRV0111,Khám tim mạch,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0057
+SRV0112,Khám thai cho thú cưng,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0087
+SRV0113,Khám da liễu thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0039
+SRV0114,Khám mắt thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0099
+SRV0115,Phẫu thuật mắt,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0006
+SRV0116,Phẫu thuật cấp cứu,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0077
+SRV0117,Tiêm vắc-xin Parvo,Tiêm vắc - xin phòng bệnh theo lịch,E0009
+SRV0118,Tiêm vắc-xin Care,Tiêm vắc - xin phòng bệnh theo lịch,E0059
+SRV0119,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0094
+SRV0120,Tiêm vắc-xin 7 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0081
+SRV0121,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0095
+SRV0122,Xét nghiệm máu,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0074
+SRV0123,Tiêm vắc-xin Parvo,Tiêm vắc - xin phòng bệnh theo lịch,E0089
+SRV0124,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0098
+SRV0125,Gói tiêm phòng đầy đủ cho chó,Gói tiêm phòng đầy đủ với ưu đãi,E0091
+SRV0126,Tiêm phòng cho thỏ,Tiêm vắc - xin phòng bệnh theo lịch,E0025
+SRV0127,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0039
+SRV0128,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0011
+SRV0129,Phẫu thuật cắt bỏ u,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0070
+SRV0130,Khám nội khoa,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0004
+SRV0131,Tiêm vắc-xin phòng dại,Tiêm vắc - xin phòng bệnh theo lịch,E0084
+SRV0132,Phẫu thuật tai,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0020
+SRV0133,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0029
+SRV0134,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0056
+SRV0135,Gói tiêm phòng đầy đủ cho chó,Gói tiêm phòng đầy đủ với ưu đãi,E0099
+SRV0136,Tiêm vắc-xin phòng dại,Tiêm vắc - xin phòng bệnh theo lịch,E0111
+SRV0137,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0083
+SRV0138,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0043
+SRV0139,Chụp X-quang,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0091
+SRV0140,Tiêm vắc-xin phòng dại,Tiêm vắc - xin phòng bệnh theo lịch,E0015
+SRV0141,Phẫu thuật triệt sản đực,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0044
+SRV0142,Khám chẩn đoán bệnh,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0050
+SRV0143,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0056
+SRV0144,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0018
+SRV0145,Khám nha khoa thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0025
+SRV0146,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0041
+SRV0147,Phẫu thuật mắt,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0088
+SRV0148,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0107
+SRV0149,Phẫu thuật mắt,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0103
+SRV0150,Phẫu thuật cấp cứu,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0109
+SRV0151,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0113
+SRV0152,Phẫu thuật tai,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0088
+SRV0153,Gói tiêm phòng nâng cao Premium,Gói tiêm phòng đầy đủ với ưu đãi,E0066
+SRV0154,Khám da liễu thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0105
+SRV0155,Phẫu thuật xương khớp,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0011
+SRV0156,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0049
+SRV0157,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0043
+SRV0158,Tiêm phòng cho thỏ,Tiêm vắc - xin phòng bệnh theo lịch,E0085
+SRV0159,Khám sau phẫu thuật,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0053
+SRV0160,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0062
+SRV0161,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0109
+SRV0162,Tiêm phòng cho thỏ,Tiêm vắc - xin phòng bệnh theo lịch,E0067
+SRV0163,Tiêm nhắc lại hàng năm,Tiêm vắc - xin phòng bệnh theo lịch,E0094
+SRV0164,Khám nội khoa,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0077
+SRV0165,Phẫu thuật cắt bỏ u,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0037
+SRV0166,Tiêm vắc-xin phòng dại,Tiêm vắc - xin phòng bệnh theo lịch,E0100
+SRV0167,Khám nha khoa thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0003
+SRV0168,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0043
+SRV0169,Khám mắt thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0016
+SRV0170,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0070
+SRV0171,Khám mắt thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0016
+SRV0172,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0021
+SRV0173,Khám ngoại khoa,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0031
+SRV0174,Tiêm vắc-xin Care,Tiêm vắc - xin phòng bệnh theo lịch,E0052
+SRV0175,Phẫu thuật cấp cứu,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0024
+SRV0176,Khám nội khoa,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0107
+SRV0177,Phẫu thuật xương khớp,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0063
+SRV0178,Tiêm nhắc lại hàng năm,Tiêm vắc - xin phòng bệnh theo lịch,E0022
+SRV0179,Khám ngoại khoa,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0039
+SRV0180,Tiêm vắc-xin Parvo,Tiêm vắc - xin phòng bệnh theo lịch,E0039
+SRV0181,Phẫu thuật nha khoa,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0054
+SRV0182,Khám da liễu thú y,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0057
+SRV0183,Phẫu thuật mổ đẻ,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0120
+SRV0184,Xét nghiệm máu,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0032
+SRV0185,Gói tiêm phòng hàng năm,Gói tiêm phòng đầy đủ với ưu đãi,E0080
+SRV0186,Phẫu thuật chỉnh hình,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0085
+SRV0187,Tiêm vắc-xin 5 bệnh chó,Tiêm vắc - xin phòng bệnh theo lịch,E0038
+SRV0188,Phẫu thuật nha khoa,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0062
+SRV0189,Tiêm vắc-xin phòng dại,Tiêm vắc - xin phòng bệnh theo lịch,E0112
+SRV0190,Gói tiêm phòng đầy đủ cho mèo,Gói tiêm phòng đầy đủ với ưu đãi,E0006
+SRV0191,Phẫu thuật cấp cứu,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0064
+SRV0192,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0067
+SRV0193,Khám nội khoa,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0062
+SRV0194,Tiêm vắc-xin phòng dại,Tiêm vắc - xin phòng bệnh theo lịch,E0120
+SRV0195,Gói tiêm phòng đầy đủ cho chó,Gói tiêm phòng đầy đủ với ưu đãi,E0044
+SRV0196,Gói tiêm phòng cơ bản cho chó con,Gói tiêm phòng đầy đủ với ưu đãi,E0084
+SRV0197,Gói tiêm phòng cho mèo con,Gói tiêm phòng đầy đủ với ưu đãi,E0079
+SRV0198,Phẫu thuật triệt sản cái,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0007
+SRV0199,Phẫu thuật xương khớp,Phẫu thuật chuyên khoa với trang thiết bị hiện đại,E0084
+SRV0200,Siêu âm chẩn đoán,Khám sức khỏe tổng thể - kiểm tra thể trạng thú cưng,E0050
