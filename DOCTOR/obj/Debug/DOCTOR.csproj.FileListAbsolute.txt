@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\DOCTOR\bin\Debug\DOCTOR.exe.config
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\DOCTOR\bin\Debug\DOCTOR.exe
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\DOCTOR\bin\Debug\DOCTOR.pdb
@@ -14,3 +15,21 @@ C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\DOCTOR\obj\Debug\DO
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\DOCTOR\obj\Debug\DOCTOR.csproj.CoreCompileInputs.cache
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\DOCTOR\obj\Debug\DOCTOR.exe
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\DOCTOR\obj\Debug\DOCTOR.pdb
+=======
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.csproj.AssemblyReference.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Appointment_List.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Change_password.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Examination.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Pet_History.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Prescription_Form.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Properties.Resources.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Surgery.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.Vaccination.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.csproj.GenerateResource.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.csproj.CoreCompileInputs.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\bin\Debug\DOCTOR.exe.config
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\bin\Debug\DOCTOR.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\bin\Debug\DOCTOR.pdb
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\DOCTOR\obj\Debug\DOCTOR.pdb
+>>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457

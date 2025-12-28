@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe.config
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\bin\Debug\RECEPTIONIST.pdb
@@ -12,3 +13,19 @@ C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\De
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.CoreCompileInputs.cache
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.exe
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.pdb
+=======
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.AssemblyReference.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Add_Customer.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Appointment_Form.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Customer_Management.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Pet_Management.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Properties.Resources.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Service_Form.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.GenerateResource.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.CoreCompileInputs.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe.config
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\bin\Debug\RECEPTIONIST.pdb
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.pdb
+>>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457

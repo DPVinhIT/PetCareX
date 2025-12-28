@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\bin\Debug\LOGIN.exe.config
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\bin\Debug\LOGIN.exe
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\bin\Debug\LOGIN.pdb
@@ -10,3 +11,17 @@ C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOG
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.csproj.CoreCompileInputs.cache
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.exe
 C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.pdb
+=======
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.csproj.AssemblyReference.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.Forget_Pass.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.Properties.Resources.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.Reset_Pass.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.SignIn.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.csproj.GenerateResource.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.csproj.CoreCompileInputs.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\bin\Debug\LOGIN.exe.config
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\bin\Debug\LOGIN.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\bin\Debug\LOGIN.pdb
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\LOGIN\obj\Debug\LOGIN.pdb
+>>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
