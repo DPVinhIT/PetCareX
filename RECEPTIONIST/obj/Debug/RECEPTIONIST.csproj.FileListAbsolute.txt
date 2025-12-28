@@ -1,0 +1,14 @@
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe.config
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\bin\Debug\RECEPTIONIST.pdb
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.AssemblyReference.cache
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.Add_Customer.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.Appointment_Form.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.Customer_Management.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.Pet_Management.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.Properties.Resources.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.Service_Form.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.GenerateResource.cache
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.CoreCompileInputs.cache
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.exe
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\RECEPTIONIST\obj\Debug\RECEPTIONIST.pdb

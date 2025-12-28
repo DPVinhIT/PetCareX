@@ -1,0 +1,11 @@
+﻿BranchID,BranchName,Address,PhoneNumber,Email,OpenTime,CloseTime
+B001,PetCareX Quận 1,123 Nguyễn Huệ - Quận 1 - TP. Hồ Chí Minh,0304332181,chinhanh1@petcarex.vn,8,21
+B002,PetCareX Quận 7,456 Nguyễn Thị Thập - Quận 7 - TP. Hồ Chí Minh,0960013389,chinhanh2@petcarex.vn,8,21
+B003,PetCareX Bình Thạnh,789 Điện Biên Phủ - Bình Thạnh - TP. Hồ Chí Minh,0383863794,chinhanh3@petcarex.vn,8,21
+B004,PetCareX Gò Vấp,321 Quang Trung - Gò Vấp - TP. Hồ Chí Minh,0326542351,chinhanh4@petcarex.vn,8,21
+B005,PetCareX Thủ Đức,654 Võ Văn Ngân - Thủ Đức - TP. Hồ Chí Minh,0361559407,chinhanh5@petcarex.vn,8,21
+B006,PetCareX Ba Đình,111 Kim Mã - Ba Đình - Hà Nội,0916184959,chinhanh6@petcarex.vn,8,21
+B007,PetCareX Cầu Giấy,222 Xuân Thủy - Cầu Giấy - Hà Nội,0510341316,chinhanh7@petcarex.vn,8,21
+B008,PetCareX Đống Đa,333 Xã Đàn - Đống Đa - Hà Nội,0775255341,chinhanh8@petcarex.vn,8,21
+B009,PetCareX Hải Châu,444 Nguyễn Văn Linh - Hải Châu - Đà Nẵng,0928327648,chinhanh9@petcarex.vn,8,21
+B010,PetCareX Ninh Kiều,555 Trần Hưng Đạo - Ninh Kiều - Cần Thơ,0550305641,chinhanh10@petcarex.vn,8,21

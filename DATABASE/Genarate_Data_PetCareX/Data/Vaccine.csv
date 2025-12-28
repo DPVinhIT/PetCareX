@@ -1,0 +1,121 @@
+﻿VaccineID,VaccineName,ExpiryDate,ProductionDate,VaccineType,Manufacturer,SideEffects
+VAC0001,Rabies,2022-06-25,2021-01-28,Live attenuated,Pfizer,Sốt cao - mất ăn trong vài ngày
+VAC0002,Leptospirosis,2025-07-23,2023-02-28,Recombinant,Merck,Sưng hạch bạch huyết tạm thời
+VAC0003,Feline Herpesvirus,2023-06-10,2022-05-04,Virus,Merck,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0004,Rabies,2023-12-07,2022-02-15,Hỗn hợp,Virbac,Phát ban nhẹ tại vị trí tiêm
+VAC0005,Rabies,2022-12-03,2022-06-01,Vi khuẩn,Zoetis,Sốt cao - mất ăn trong vài ngày
+VAC0006,Feline Herpesvirus,2024-08-08,2022-08-06,Virus,Virbac,Phản ứng dị ứng nặng (rất hiếm)
+VAC0007,Chlamydia,2022-07-13,2020-10-07,Vi khuẩn,MSD,Sốt nhẹ - sưng vùng tiêm
+VAC0008,Leptospirosis,2022-03-19,2020-02-12,Hỗn hợp,Ceva,Phản ứng dị ứng nặng (rất hiếm)
+VAC0009,Feline Calicivirus,2024-05-08,2023-04-15,Vi khuẩn,Virbac,Không có tác dụng phụ đáng kể
+VAC0010,Chlamydia,2021-01-24,2020-04-19,Virus,MSD,Sưng hạch bạch huyết tạm thời
+VAC0011,Chlamydia,2023-02-22,2022-05-12,Recombinant,Pfizer,Phát ban nhẹ tại vị trí tiêm
+VAC0012,Rabies,2021-06-04,2020-02-24,Hỗn hợp,Virbac,Sưng hạch bạch huyết tạm thời
+VAC0013,Feline Herpesvirus,2023-07-27,2022-11-06,Hỗn hợp,Zoetis,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0014,Leptospirosis,2024-05-23,2021-12-19,Virus,Virbac,Mệt mỏi - quanh quẩn trong 24 giờ
+VAC0015,Rabies,2025-06-13,2023-09-04,Vi khuẩn,MSD,Không có tác dụng phụ đáng kể
+VAC0016,DHP(Distemper - Hepatitis- Parvovirus),2024-09-10,2023-10-11,Recombinant,Zoetis,Mệt mỏi - quanh quẩn trong 24 giờ
+VAC0017,Feline Herpesvirus,2025-07-24,2023-12-25,Virus,Virbac,Phản ứng dị ứng nặng (rất hiếm)
+VAC0018,Leptospirosis,2024-01-27,2023-03-03,Virus,Zoetis,Phản ứng dị ứng nặng (rất hiếm)
+VAC0019,FIP (Feline Infectious Peritonitis),2022-01-23,2021-03-27,Live attenuated,Boehringer Ingelheim,Không có tác dụng phụ đáng kể
+VAC0020,Feline Calicivirus,2023-06-26,2021-09-15,Virus,Pfizer,Phản ứng dị ứng nặng (rất hiếm)
+VAC0021,Feline Calicivirus,2022-04-06,2020-07-26,Live attenuated,Pfizer,Sốt nhẹ - sưng vùng tiêm
+VAC0022,Feline Calicivirus,2023-04-30,2022-08-26,Virus,Boehringer Ingelheim,Sốt cao - mất ăn trong vài ngày
+VAC0023,FIP (Feline Infectious Peritonitis),2022-12-19,2020-10-12,Recombinant,Merck,Sốt cao - mất ăn trong vài ngày
+VAC0024,DHP(Distemper - Hepatitis- Parvovirus),2022-04-22,2020-07-31,Hỗn hợp,Ceva,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0025,DHP(Distemper - Hepatitis- Parvovirus),2022-05-07,2020-08-17,Recombinant,Virbac,Sốt cao - mất ăn trong vài ngày
+VAC0026,Feline Herpesvirus,2024-01-28,2022-05-30,Live attenuated,Merck,Không có tác dụng phụ đáng kể
+VAC0027,FELV (Feline Leukemia Virus),2025-02-14,2022-09-09,Recombinant,Merck,Sốt cao - mất ăn trong vài ngày
+VAC0028,DHP(Distemper - Hepatitis- Parvovirus),2024-09-06,2023-05-03,Recombinant,Virbac,Phản ứng dị ứng nặng (rất hiếm)
+VAC0029,Feline Herpesvirus,2024-12-22,2023-11-30,Recombinant,Pfizer,Phản ứng dị ứng nặng (rất hiếm)
+VAC0030,Chlamydia,2025-05-18,2022-12-20,Recombinant,Pfizer,Sưng hạch bạch huyết tạm thời
+VAC0031,Leptospirosis,2026-02-21,2023-09-25,Recombinant,Merck,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0032,FIP (Feline Infectious Peritonitis),2021-12-02,2020-02-11,Vi khuẩn,Virbac,Không có tác dụng phụ đáng kể
+VAC0033,Rabies,2022-12-16,2020-11-22,Vi khuẩn,Elanco,Không có tác dụng phụ đáng kể
+VAC0034,Leptospirosis,2022-10-11,2021-12-09,Recombinant,Virbac,Sốt nhẹ - sưng vùng tiêm
+VAC0035,Giardia Vaccine,2024-11-15,2022-06-04,Vi khuẩn,Virbac,Sốt nhẹ - sưng vùng tiêm
+VAC0036,FELV (Feline Leukemia Virus),2024-01-25,2022-07-25,Live attenuated,Zoetis,Phản ứng dị ứng nặng (rất hiếm)
+VAC0037,DHP(Distemper - Hepatitis- Parvovirus),2023-09-15,2022-02-18,Vi khuẩn,MSD,Sốt cao - mất ăn trong vài ngày
+VAC0038,FELV (Feline Leukemia Virus),2023-06-24,2021-01-31,Recombinant,Pfizer,Phát ban nhẹ tại vị trí tiêm
+VAC0039,Feline Herpesvirus,2023-06-30,2022-03-26,Live attenuated,Elanco,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0040,Bordetella,2022-03-30,2020-01-10,Recombinant,Elanco,Không có tác dụng phụ đáng kể
+VAC0041,Leptospirosis,2025-04-05,2023-07-05,Virus,Boehringer Ingelheim,Phát ban nhẹ tại vị trí tiêm
+VAC0042,FELV (Feline Leukemia Virus),2025-11-29,2023-08-28,Vi khuẩn,Virbac,Phản ứng dị ứng nặng (rất hiếm)
+VAC0043,DHP(Distemper - Hepatitis- Parvovirus),2024-10-16,2023-07-28,Live attenuated,Boehringer Ingelheim,Sốt cao - mất ăn trong vài ngày
+VAC0044,FIP (Feline Infectious Peritonitis),2022-05-17,2021-01-07,Virus,Virbac,Không có tác dụng phụ đáng kể
+VAC0045,Rabies,2022-08-28,2021-06-02,Recombinant,Boehringer Ingelheim,Sưng hạch bạch huyết tạm thời
+VAC0046,Feline Herpesvirus,2025-07-27,2023-06-30,Virus,Elanco,Không có tác dụng phụ đáng kể
+VAC0047,FELV (Feline Leukemia Virus),2024-08-21,2023-05-17,Live attenuated,MSD,Sưng hạch bạch huyết tạm thời
+VAC0048,Leptospirosis,2025-07-13,2023-12-10,Vi khuẩn,Ceva,Không có tác dụng phụ đáng kể
+VAC0049,DHP(Distemper - Hepatitis- Parvovirus),2022-07-19,2021-12-23,Virus,Pfizer,Không có tác dụng phụ đáng kể
+VAC0050,FIP (Feline Infectious Peritonitis),2023-10-25,2021-07-01,Hỗn hợp,Zoetis,Phản ứng dị ứng nặng (rất hiếm)
+VAC0051,Feline Panleukopenia,2022-03-29,2020-05-11,Vi khuẩn,Virbac,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0052,Giardia Vaccine,2024-08-25,2022-07-22,Hỗn hợp,Elanco,Không có tác dụng phụ đáng kể
+VAC0053,Feline Leukemia,2024-06-18,2022-03-30,Virus,Zoetis,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0054,Giardia Vaccine,2024-01-08,2022-09-03,Hỗn hợp,MSD,Sốt cao - mất ăn trong vài ngày
+VAC0055,Rabies,2023-07-11,2022-11-24,Recombinant,Elanco,Phát ban nhẹ tại vị trí tiêm
+VAC0056,Feline Panleukopenia,2022-05-07,2020-06-29,Virus,Ceva,Sưng hạch bạch huyết tạm thời
+VAC0057,Feline Calicivirus,2022-06-02,2021-03-15,Recombinant,Zoetis,Mệt mỏi - quanh quẩn trong 24 giờ
+VAC0058,FELV (Feline Leukemia Virus),2022-09-14,2022-01-17,Hỗn hợp,Virbac,Phản ứng dị ứng nặng (rất hiếm)
+VAC0059,FELV (Feline Leukemia Virus),2025-03-13,2023-10-23,Live attenuated,Ceva,Không có tác dụng phụ đáng kể
+VAC0060,Feline Leukemia,2023-01-18,2022-03-22,Virus,Merck,Phản ứng dị ứng nặng (rất hiếm)
+VAC0061,Feline Panleukopenia,2023-05-30,2021-12-28,Recombinant,Elanco,Phát ban nhẹ tại vị trí tiêm
+VAC0062,Feline Calicivirus,2022-06-10,2020-01-16,Vi khuẩn,Merck,Không có tác dụng phụ đáng kể
+VAC0063,Feline Herpesvirus,2023-01-26,2022-01-14,Live attenuated,Ceva,Phát ban nhẹ tại vị trí tiêm
+VAC0064,Feline Leukemia,2022-09-28,2020-07-08,Hỗn hợp,Ceva,Không có tác dụng phụ đáng kể
+VAC0065,Feline Calicivirus,2024-11-03,2023-02-15,Recombinant,Boehringer Ingelheim,Sốt nhẹ - sưng vùng tiêm
+VAC0066,Chlamydia,2023-03-25,2022-03-12,Virus,Boehringer Ingelheim,Phản ứng dị ứng nặng (rất hiếm)
+VAC0067,FELV (Feline Leukemia Virus),2023-05-08,2021-01-02,Virus,Zoetis,Không có tác dụng phụ đáng kể
+VAC0068,Feline Panleukopenia,2022-05-09,2021-02-26,Live attenuated,Zoetis,Phát ban nhẹ tại vị trí tiêm
+VAC0069,Bordetella,2024-05-06,2023-06-07,Live attenuated,Elanco,Mệt mỏi - quanh quẩn trong 24 giờ
+VAC0070,Feline Herpesvirus,2023-08-16,2022-11-21,Vi khuẩn,Ceva,Sốt cao - mất ăn trong vài ngày
+VAC0071,Rabies,2023-09-19,2022-03-17,Vi khuẩn,Pfizer,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0072,FIP (Feline Infectious Peritonitis),2024-08-19,2023-11-25,Hỗn hợp,Boehringer Ingelheim,Sốt cao - mất ăn trong vài ngày
+VAC0073,Bordetella,2022-03-24,2020-07-01,Vi khuẩn,Boehringer Ingelheim,Không có tác dụng phụ đáng kể
+VAC0074,Feline Panleukopenia,2023-05-02,2022-08-27,Recombinant,MSD,Sốt nhẹ - sưng vùng tiêm
+VAC0075,FELV (Feline Leukemia Virus),2024-04-02,2022-10-13,Virus,Pfizer,Sốt cao - mất ăn trong vài ngày
+VAC0076,Leptospirosis,2021-08-10,2021-02-10,Live attenuated,Virbac,Sốt nhẹ - sưng vùng tiêm
+VAC0077,Rabies,2021-01-16,2020-01-20,Virus,Merck,Không có tác dụng phụ đáng kể
+VAC0078,DHP(Distemper - Hepatitis- Parvovirus),2022-10-08,2020-07-26,Hỗn hợp,Pfizer,Sốt cao - mất ăn trong vài ngày
+VAC0079,Leptospirosis,2023-04-14,2021-02-28,Recombinant,Pfizer,Sưng hạch bạch huyết tạm thời
+VAC0080,Giardia Vaccine,2023-02-01,2021-04-30,Vi khuẩn,Virbac,Mệt mỏi - quanh quẩn trong 24 giờ
+VAC0081,Feline Herpesvirus,2024-01-09,2022-05-06,Vi khuẩn,Pfizer,Mệt mỏi - quanh quẩn trong 24 giờ
+VAC0082,Feline Herpesvirus,2021-03-08,2020-05-14,Live attenuated,Zoetis,Sưng hạch bạch huyết tạm thời
+VAC0083,Feline Leukemia,2022-06-01,2021-04-28,Virus,Zoetis,Không có tác dụng phụ đáng kể
+VAC0084,Feline Herpesvirus,2022-12-01,2020-12-29,Hỗn hợp,Ceva,Phát ban nhẹ tại vị trí tiêm
+VAC0085,Bordetella,2023-02-01,2021-12-20,Recombinant,Virbac,Sưng hạch bạch huyết tạm thời
+VAC0086,Chlamydia,2024-03-07,2023-03-29,Live attenuated,Merck,Phát ban nhẹ tại vị trí tiêm
+VAC0087,Feline Herpesvirus,2022-09-03,2020-07-06,Virus,Boehringer Ingelheim,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0088,Bordetella,2024-10-30,2022-08-31,Hỗn hợp,Zoetis,Sốt cao - mất ăn trong vài ngày
+VAC0089,Feline Herpesvirus,2023-01-15,2020-09-23,Recombinant,MSD,Không có tác dụng phụ đáng kể
+VAC0090,Rabies,2021-05-02,2020-11-01,Live attenuated,Merck,Không có tác dụng phụ đáng kể
+VAC0091,Bordetella,2024-12-20,2022-09-23,Hỗn hợp,Merck,Sưng hạch bạch huyết tạm thời
+VAC0092,Feline Leukemia,2020-08-18,2020-01-31,Vi khuẩn,Elanco,Không có tác dụng phụ đáng kể
+VAC0093,Giardia Vaccine,2024-01-05,2023-02-15,Vi khuẩn,Pfizer,Sốt nhẹ - sưng vùng tiêm
+VAC0094,Feline Calicivirus,2021-11-28,2020-05-11,Hỗn hợp,Boehringer Ingelheim,Sốt nhẹ - sưng vùng tiêm
+VAC0095,Bordetella,2023-02-02,2020-12-25,Recombinant,Boehringer Ingelheim,Phát ban nhẹ tại vị trí tiêm
+VAC0096,Leptospirosis,2023-04-02,2020-12-01,Live attenuated,Boehringer Ingelheim,Phản ứng dị ứng nặng (rất hiếm)
+VAC0097,Feline Herpesvirus,2024-11-18,2022-07-16,Recombinant,Ceva,Không có tác dụng phụ đáng kể
+VAC0098,Rabies,2021-10-31,2020-03-31,Hỗn hợp,Ceva,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0099,FIP (Feline Infectious Peritonitis),2022-10-23,2020-12-04,Live attenuated,Zoetis,Sốt nhẹ - sưng vùng tiêm
+VAC0100,Feline Herpesvirus,2022-05-09,2021-05-08,Live attenuated,Zoetis,Sốt cao - mất ăn trong vài ngày
+VAC0101,FIP (Feline Infectious Peritonitis),2022-03-18,2020-12-16,Hỗn hợp,Elanco,Sốt nhẹ - sưng vùng tiêm
+VAC0102,FELV (Feline Leukemia Virus),2021-08-28,2020-03-02,Virus,Boehringer Ingelheim,Phản ứng dị ứng nặng (rất hiếm)
+VAC0103,Giardia Vaccine,2021-12-11,2020-02-01,Live attenuated,Ceva,Sốt nhẹ - sưng vùng tiêm
+VAC0104,Feline Panleukopenia,2026-03-08,2023-09-28,Recombinant,Ceva,Sốt nhẹ - sưng vùng tiêm
+VAC0105,DHP(Distemper - Hepatitis- Parvovirus),2024-06-08,2023-04-18,Recombinant,Pfizer,Sốt nhẹ - sưng vùng tiêm
+VAC0106,Feline Calicivirus,2023-09-03,2021-12-11,Virus,Zoetis,Sốt cao - mất ăn trong vài ngày
+VAC0107,FIP (Feline Infectious Peritonitis),2022-08-22,2021-07-28,Hỗn hợp,Boehringer Ingelheim,Phản ứng dị ứng nặng (rất hiếm)
+VAC0108,Feline Panleukopenia,2022-09-15,2020-06-24,Recombinant,Virbac,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0109,FELV (Feline Leukemia Virus),2022-01-19,2020-01-14,Recombinant,Pfizer,Phát ban nhẹ tại vị trí tiêm
+VAC0110,Feline Panleukopenia,2021-07-20,2020-06-16,Recombinant,MSD,Sốt nhẹ - sưng vùng tiêm
+VAC0111,FELV (Feline Leukemia Virus),2022-08-23,2020-04-06,Virus,Pfizer,Sốt nhẹ - sưng vùng tiêm
+VAC0112,Feline Panleukopenia,2023-08-30,2021-08-20,Hỗn hợp,Zoetis,Mệt mỏi - quanh quẩn trong 24 giờ
+VAC0113,Rabies,2024-02-20,2022-04-02,Live attenuated,MSD,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0114,FELV (Feline Leukemia Virus),2022-03-11,2020-06-25,Hỗn hợp,Pfizer,Không có tác dụng phụ đáng kể
+VAC0115,Feline Calicivirus,2024-02-06,2021-12-27,Live attenuated,Virbac,Phản ứng dị ứng nhẹ (hiếm gặp)
+VAC0116,Bordetella,2025-11-04,2023-10-07,Hỗn hợp,Boehringer Ingelheim,Không có tác dụng phụ đáng kể
+VAC0117,FIP (Feline Infectious Peritonitis),2026-02-06,2023-08-27,Live attenuated,Virbac,Sưng hạch bạch huyết tạm thời
+VAC0118,Feline Leukemia,2025-10-31,2023-07-21,Vi khuẩn,Pfizer,Phát ban nhẹ tại vị trí tiêm
+VAC0119,Bordetella,2025-04-06,2023-10-12,Virus,Boehringer Ingelheim,Phát ban nhẹ tại vị trí tiêm
+VAC0120,Feline Leukemia,2021-12-18,2020-12-09,Vi khuẩn,Virbac,Sưng hạch bạch huyết tạm thời

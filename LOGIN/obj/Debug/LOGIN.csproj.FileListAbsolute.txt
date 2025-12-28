@@ -1,0 +1,12 @@
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\bin\Debug\LOGIN.exe.config
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\bin\Debug\LOGIN.exe
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\bin\Debug\LOGIN.pdb
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.csproj.AssemblyReference.cache
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.Forget_Pass.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.Properties.Resources.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.Reset_Pass.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.SignIn.resources
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.csproj.GenerateResource.cache
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.csproj.CoreCompileInputs.cache
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.exe
+C:\Users\ngoct\Downloads\PetCareX-master (2)\PetCareX-master\LOGIN\obj\Debug\LOGIN.pdb

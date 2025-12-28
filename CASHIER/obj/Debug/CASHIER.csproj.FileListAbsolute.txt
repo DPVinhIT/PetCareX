@@ -1,0 +1,10 @@
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\obj\Debug\CASHIER.csproj.AssemblyReference.cache
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\obj\Debug\CASHIER.frmCashier.resources
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\obj\Debug\CASHIER.Properties.Resources.resources
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\obj\Debug\CASHIER.csproj.GenerateResource.cache
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\obj\Debug\CASHIER.csproj.CoreCompileInputs.cache
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\bin\Debug\CASHIER.exe.config
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\bin\Debug\CASHIER.exe
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\bin\Debug\CASHIER.pdb
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\obj\Debug\CASHIER.exe
+C:\Private\2025\CSDLNC\PetCare_UI\CASHIER\obj\Debug\CASHIER.pdb
