@@ -47,7 +47,11 @@
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
 <<<<<<< HEAD
+<<<<<<< HEAD
             : System.Serialization.Formatters.Binary.BinaryFormatter
+=======
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
@@ -65,6 +69,10 @@
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
@@ -77,14 +85,20 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <xsd:attribute name="name" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
               <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
               <xsd:attribute ref="xml:space" />
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
             </xsd:complexType>
           </xsd:element>
@@ -101,14 +115,20 @@
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
               <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
               <xsd:attribute ref="xml:space" />
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
             </xsd:complexType>
           </xsd:element>
@@ -132,15 +152,21 @@
   </resheader>
   <resheader name="reader">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
     <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
   </resheader>
 </root>

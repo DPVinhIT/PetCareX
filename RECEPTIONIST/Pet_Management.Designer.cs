@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace RECEPTIONIST
+=======
+﻿namespace RECEPTIONIST
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
 ﻿namespace RECEPTIONIST
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee

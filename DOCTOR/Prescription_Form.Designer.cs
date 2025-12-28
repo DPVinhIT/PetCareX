@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace DOCTOR
+=======
+﻿namespace DOCTOR
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
 ﻿namespace DOCTOR
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
@@ -37,6 +41,7 @@ namespace DOCTOR
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Prescription_Form));
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -871,6 +876,8 @@ namespace DOCTOR
             this.ResumeLayout(false);
 
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
             panel2 = new Panel();
             dataGridView3 = new DataGridView();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -1687,6 +1694,9 @@ namespace DOCTOR
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
         }
 

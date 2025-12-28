@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <!-- 
     Microsoft ResX Schema 
     
@@ -14,6 +15,8 @@
     Example:
     
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
   <!--
     Microsoft ResX Schema
 
@@ -26,6 +29,9 @@
 
     Example:
 
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
@@ -41,6 +47,7 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 
     There are any number of "resheader" rows that contain simple 
@@ -68,6 +75,8 @@
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with 
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 
     There are any number of "resheader" rows that contain simple
     name/value pairs.
@@ -93,13 +102,20 @@
 
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
 <<<<<<< HEAD
+<<<<<<< HEAD
     value   : The object must be serialized into a byte array 
+=======
+    value   : The object must be serialized into a byte array
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
     value   : The object must be serialized into a byte array
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee

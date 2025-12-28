@@ -1,10 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
@@ -30,5 +33,8 @@
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 </Project>

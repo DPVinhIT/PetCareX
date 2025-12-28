@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace DOCTOR
+=======
+﻿namespace DOCTOR
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
 ﻿namespace DOCTOR
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
@@ -37,6 +41,7 @@ namespace DOCTOR
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Examination));
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
@@ -581,6 +586,8 @@ namespace DOCTOR
             this.ResumeLayout(false);
 
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
             pictureBox10 = new PictureBox();
             richTextBox4 = new RichTextBox();
             richTextBox3 = new RichTextBox();
@@ -1123,6 +1130,9 @@ namespace DOCTOR
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
         }
 

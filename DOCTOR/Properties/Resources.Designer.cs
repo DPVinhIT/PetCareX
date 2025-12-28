@@ -9,15 +9,21 @@
 //------------------------------------------------------------------------------
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace DOCTOR.Properties
 {
 
 
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 namespace DOCTOR.Properties {
     using System;
     
     
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
@@ -26,6 +32,7 @@ namespace DOCTOR.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
+<<<<<<< HEAD
 <<<<<<< HEAD
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -43,6 +50,8 @@ namespace DOCTOR.Properties {
         }
 
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -56,11 +65,15 @@ namespace DOCTOR.Properties {
         internal Resources() {
         }
         
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+<<<<<<< HEAD
 <<<<<<< HEAD
         internal static global::System.Resources.ResourceManager ResourceManager
         {
@@ -73,6 +86,11 @@ namespace DOCTOR.Properties {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DOCTOR.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
@@ -80,7 +98,11 @@ namespace DOCTOR.Properties {
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
         
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
@@ -89,6 +111,7 @@ namespace DOCTOR.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+<<<<<<< HEAD
 <<<<<<< HEAD
         internal static global::System.Globalization.CultureInfo Culture
         {
@@ -99,11 +122,16 @@ namespace DOCTOR.Properties {
             set
             {
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
         internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
                 resourceCulture = value;
             }

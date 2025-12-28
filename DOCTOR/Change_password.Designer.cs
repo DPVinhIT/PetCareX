@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace DOCTOR
+=======
+﻿namespace DOCTOR
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
 =======
 ﻿namespace DOCTOR
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
@@ -36,6 +40,7 @@ namespace DOCTOR
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Change_password));
+<<<<<<< HEAD
 <<<<<<< HEAD
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -542,6 +547,8 @@ namespace DOCTOR
             this.ResumeLayout(false);
 
 =======
+=======
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
             panel1 = new Panel();
             pictureBox10 = new PictureBox();
             richTextBox4 = new RichTextBox();
@@ -1045,6 +1052,9 @@ namespace DOCTOR
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+<<<<<<< HEAD
+>>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
+=======
 >>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
         }
 
