@@ -1,21 +1,7 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace RECEPTIONIST
-<<<<<<< HEAD
-=======
-=======
-﻿namespace RECEPTIONIST
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-=======
-﻿namespace RECEPTIONIST
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
 {
     partial class Customer_Management
     {

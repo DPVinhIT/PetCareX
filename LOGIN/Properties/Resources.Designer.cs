@@ -8,29 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
 namespace LOGIN.Properties
 {
 
 
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-namespace LOGIN.Properties {
-    using System;
-    
-    
-<<<<<<< HEAD
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-=======
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -38,11 +19,6 @@ namespace LOGIN.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -58,86 +34,28 @@ namespace LOGIN.Properties {
         {
         }
 
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
-        
-        private static global::System.Resources.ResourceManager resourceMan;
-        
-        private static global::System.Globalization.CultureInfo resourceCulture;
-        
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
-        }
-        
-<<<<<<< HEAD
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-=======
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
         internal static global::System.Resources.ResourceManager ResourceManager
         {
             get
             {
                 if ((resourceMan == null))
                 {
-<<<<<<< HEAD
-=======
-=======
-        internal static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-=======
-        internal static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LOGIN.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-=======
-        
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
         internal static global::System.Globalization.CultureInfo Culture
         {
             get
@@ -146,21 +64,6 @@ namespace LOGIN.Properties {
             }
             set
             {
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-        internal static global::System.Globalization.CultureInfo Culture {
-            get {
-                return resourceCulture;
-            }
-            set {
-<<<<<<< HEAD
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
-=======
->>>>>>> 7d0825fb45b5e008fd08699a04400a342044acee
->>>>>>> 81eac580c30dc02b74b9f450b21a54453a718457
                 resourceCulture = value;
             }
         }
