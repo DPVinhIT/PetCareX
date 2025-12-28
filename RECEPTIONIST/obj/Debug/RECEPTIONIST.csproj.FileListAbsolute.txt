@@ -1,0 +1,14 @@
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.AssemblyReference.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Add_Customer.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Appointment_Form.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Customer_Management.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Pet_Management.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Properties.Resources.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.Service_Form.resources
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.GenerateResource.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.csproj.CoreCompileInputs.cache
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe.config
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\bin\Debug\RECEPTIONIST.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\bin\Debug\RECEPTIONIST.pdb
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.exe
+D:\Dai_Hoc\3rd_year\CSDLNC\WindowsFormsApp1\RECEPTIONIST\obj\Debug\RECEPTIONIST.pdb

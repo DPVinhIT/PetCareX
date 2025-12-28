@@ -1,0 +1,81 @@
+﻿DiscountID,DiscountName,StartDate,EndDate,TargetUser,Percentage,MID
+DST0001,Giảm giá dịch vụ khám bệnh,2023-10-03,2023-10-25,Nhóm khách hàng đặc biệt,0.15,E0327
+DST0002,Giảm giá khách VIP,2023-09-25,2023-10-17,Khách hàng mới,0.05,E0348
+DST0003,Khuyến mãi cuối tuần,2024-05-27,2024-07-12,Tổ chức,0.1,E0325
+DST0004,Khuyến mãi tặng quà,2023-12-03,2024-01-12,Tổ chức,0.1,E0285
+DST0005,Khuyến mãi cuối tuần,2024-02-18,2024-04-02,Tổ chức,0.05,E0467
+DST0006,Khuyến mãi cuối tuần,2023-04-28,2023-05-21,Nhóm khách hàng đặc biệt,0.15,E0323
+DST0007,Giảm giá thẻ thành viên,2023-05-08,2023-05-20,Tất cả khách hàng,0.25,E0372
+DST0008,Khuyến mãi cuối tuần,2024-04-03,2024-05-23,Khách hàng mới,0.25,E0424
+DST0009,Khuyến mãi cuối tuần,2024-04-12,2024-05-12,Tổ chức,0.2,E0272
+DST0010,Giảm 50% dịch vụ grooming,2023-12-18,2024-02-03,Thành viên Cơ Bản,0.1,E0424
+DST0011,Khuyến mãi mua kèm thức ăn,2024-04-24,2024-06-03,Thành viên VIP,0.05,E0306
+DST0012,Khuyến mãi thanh viên mới,2023-12-02,2024-01-03,Tổ chức,0.2,E0424
+DST0013,Giảm giá dành cho tập thể,2024-03-18,2024-03-31,Thành viên VIP,0.15,E0325
+DST0014,Khuyến mãi lên băng hàng tháng,2024-01-19,2024-03-01,Thành viên Standard,0.05,E0272
+DST0015,Khuyến mãi cuối tuần,2023-02-21,2023-04-11,Thành viên Standard,0.25,E0467
+DST0016,Khuyến mãi lên băng hàng tháng,2023-09-28,2023-10-23,Khách hàng lần đầu,0.15,E0272
+DST0017,Khuyến mãi cuối tuần,2024-03-11,2024-04-16,Tổ chức,0.05,E0348
+DST0018,Khuyến mãi cuối tuần,2024-03-12,2024-03-25,Khách hàng lần đầu,0.1,E0285
+DST0019,Khuyến mãi mua kèm thức ăn,2023-03-19,2023-04-20,Thành viên Cơ Bản,0.15,E0325
+DST0020,Khuyến mãi mua kèm thức ăn,2023-07-09,2023-08-03,Khách hàng mới,0.25,E0372
+DST0021,Khuyến mãi cuối tuần,2023-03-12,2023-04-13,Khách hàng mới,0.2,E0467
+DST0022,Combo vaccine tiêm phòng,2023-09-10,2023-10-13,Thành viên Cơ Bản,0.2,E0327
+DST0023,Giảm giá dành cho tập thể,2024-06-04,2024-07-17,Thành viên VIP,0.2,E0306
+DST0024,Khuyến mãi thanh viên mới,2023-02-13,2023-03-01,Khách hàng lần đầu,0.2,E0348
+DST0025,Khuyến mãi cuối tuần,2024-05-05,2024-06-07,Tổ chức,0.05,E0272
+DST0026,Khuyến mãi lên băng hàng tháng,2023-02-19,2023-04-02,Doanh nghiệp,0.15,E0323
+DST0027,Giảm 50% dịch vụ grooming,2024-04-21,2024-06-19,Hội viên CLB thú cưng,0.15,E0348
+DST0028,Giảm 50% dịch vụ grooming,2023-11-02,2023-12-30,Khách hàng lần đầu,0.25,E0327
+DST0029,Khuyến mãi mua kèm thức ăn,2023-01-13,2023-03-10,Tổ chức,0.15,E0372
+DST0030,Giảm giá khách VIP,2023-12-10,2023-12-29,Hội viên CLB thú cưng,0.15,E0348
+DST0031,Khuyến mãi tặng quà,2024-04-25,2024-06-10,Hội viên CLB thú cưng,0.15,E0272
+DST0032,Khuyến mãi tặng quà,2023-10-27,2023-12-20,Thành viên Cơ Bản,0.05,E0285
+DST0033,Giảm 50% dịch vụ grooming,2023-05-11,2023-05-22,Thành viên Cơ Bản,0.05,E0285
+DST0034,Giảm giá dịch vụ khám bệnh,2023-03-24,2023-04-13,Thành viên Cơ Bản,0.1,E0306
+DST0035,Giảm giá dịch vụ khám bệnh,2024-03-26,2024-04-05,Thành viên VIP,0.15,E0306
+DST0036,Khuyến mãi lên băng hàng tháng,2023-06-03,2023-07-05,Tổ chức,0.1,E0327
+DST0037,Giảm giá dịch vụ khám bệnh,2024-01-19,2024-02-10,Nhóm khách hàng đặc biệt,0.1,E0325
+DST0038,Giảm 50% dịch vụ grooming,2023-07-18,2023-08-12,Hội viên CLB thú cưng,0.25,E0325
+DST0039,Khuyến mãi lên băng hàng tháng,2023-07-15,2023-09-02,Doanh nghiệp,0.25,E0323
+DST0040,Combo vaccine tiêm phòng,2023-06-01,2023-07-19,Khách hàng lần đầu,0.2,E0372
+DST0041,Khuyến mãi cuối tuần,2023-07-04,2023-08-18,Hội viên CLB thú cưng,0.2,E0372
+DST0042,Giảm giá dịch vụ khám bệnh,2024-03-02,2024-04-02,Tất cả khách hàng,0.15,E0372
+DST0043,Combo vaccine tiêm phòng,2023-09-24,2023-11-10,Thành viên Standard,0.2,E0323
+DST0044,Khuyến mãi thanh viên mới,2023-11-27,2024-01-07,Khách hàng mới,0.2,E0323
+DST0045,Giảm giá thẻ thành viên,2024-05-01,2024-06-05,Tổ chức,0.05,E0372
+DST0046,Giảm giá dành cho tập thể,2024-02-25,2024-04-14,Doanh nghiệp,0.25,E0272
+DST0047,Giảm giá khách VIP,2023-05-13,2023-06-01,Nhóm khách hàng đặc biệt,0.25,E0325
+DST0048,Khuyến mãi lên băng hàng tháng,2024-04-30,2024-05-11,Tổ chức,0.15,E0323
+DST0049,Giảm giá thẻ thành viên,2024-06-01,2024-07-19,Khách hàng lần đầu,0.25,E0372
+DST0050,Giảm 50% dịch vụ grooming,2024-02-23,2024-03-01,Hội viên CLB thú cưng,0.2,E0323
+DST0051,Combo vaccine tiêm phòng,2023-01-29,2023-03-13,Khách hàng mới,0.05,E0327
+DST0052,Khuyến mãi mua kèm thức ăn,2023-09-30,2023-10-23,Thành viên Cơ Bản,0.25,E0424
+DST0053,Khuyến mãi cuối tuần,2023-12-24,2024-01-22,Thành viên Cơ Bản,0.05,E0285
+DST0054,Giảm giá khách VIP,2023-04-20,2023-04-29,Tất cả khách hàng,0.15,E0424
+DST0055,Khuyến mãi tặng quà,2023-10-11,2023-11-02,Khách hàng mới,0.1,E0424
+DST0056,Giảm giá thẻ thành viên,2024-05-15,2024-06-13,Thành viên VIP,0.15,E0306
+DST0057,Khuyến mãi lên băng hàng tháng,2023-08-28,2023-09-27,Doanh nghiệp,0.25,E0327
+DST0058,Khuyến mãi cuối tuần,2023-03-21,2023-04-18,Hội viên CLB thú cưng,0.05,E0348
+DST0059,Giảm 50% dịch vụ grooming,2023-06-15,2023-07-14,Khách hàng mới,0.05,E0424
+DST0060,Khuyến mãi thanh viên mới,2023-08-15,2023-10-02,Tất cả khách hàng,0.15,E0327
+DST0061,Khuyến mãi mua kèm thức ăn,2024-04-02,2024-04-24,Thành viên Cơ Bản,0.15,E0306
+DST0062,Combo vaccine tiêm phòng,2023-07-27,2023-09-15,Thành viên Cơ Bản,0.05,E0327
+DST0063,Khuyến mãi lên băng hàng tháng,2024-01-08,2024-02-01,Khách hàng lần đầu,0.15,E0467
+DST0064,Giảm giá thẻ thành viên,2024-01-24,2024-02-29,Thành viên VIP,0.25,E0272
+DST0065,Combo vaccine tiêm phòng,2023-09-28,2023-10-15,Tất cả khách hàng,0.25,E0348
+DST0066,Khuyến mãi mua kèm thức ăn,2024-02-21,2024-04-10,Khách hàng lần đầu,0.25,E0327
+DST0067,Khuyến mãi thanh viên mới,2023-03-29,2023-04-13,Thành viên Standard,0.15,E0272
+DST0068,Khuyến mãi cuối tuần,2024-03-16,2024-04-17,Tổ chức,0.05,E0327
+DST0069,Giảm 50% dịch vụ grooming,2024-03-04,2024-03-25,Thành viên VIP,0.15,E0424
+DST0070,Khuyến mãi thanh viên mới,2023-05-05,2023-06-26,Khách hàng lần đầu,0.15,E0348
+DST0071,Giảm giá dịch vụ khám bệnh,2024-02-04,2024-03-03,Tất cả khách hàng,0.25,E0348
+DST0072,Khuyến mãi thanh viên mới,2023-11-11,2023-12-08,Khách hàng mới,0.05,E0285
+DST0073,Giảm giá dành cho tập thể,2024-04-02,2024-04-15,Tổ chức,0.25,E0325
+DST0074,Khuyến mãi cuối tuần,2024-01-06,2024-02-23,Doanh nghiệp,0.05,E0272
+DST0075,Combo vaccine tiêm phòng,2023-05-01,2023-06-12,Khách hàng lần đầu,0.15,E0348
+DST0076,Khuyến mãi mua kèm thức ăn,2023-05-09,2023-06-20,Thành viên Cơ Bản,0.05,E0372
+DST0077,Giảm 50% dịch vụ grooming,2023-01-25,2023-02-26,Khách hàng mới,0.15,E0323
+DST0078,Khuyến mãi lên băng hàng tháng,2023-01-11,2023-03-05,Thành viên Cơ Bản,0.05,E0424
+DST0079,Khuyến mãi thanh viên mới,2023-03-28,2023-04-26,Thành viên VIP,0.15,E0306
+DST0080,Combo vaccine tiêm phòng,2024-05-23,2024-07-04,Tất cả khách hàng,0.1,E0424

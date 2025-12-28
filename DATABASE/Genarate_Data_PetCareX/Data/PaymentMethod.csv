@@ -1,0 +1,5 @@
+﻿PaymentTypeID,MethodName,Description
+PM01,Tiền mặt,Thanh toán tại quầy
+PM02,Thẻ,Thẻ ngân hàng
+PM03,Chuyển khoản,Internet banking
+PM04,Ví điện tử,"Momo/ZaloPay, ..."
