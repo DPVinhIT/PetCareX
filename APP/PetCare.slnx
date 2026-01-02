@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="CASHIER/CASHIER.csproj" Id="7219a6b2-11b4-48ec-832b-e97a0bb5dfcc" />
+  <Project Path="DOCTOR/DOCTOR.csproj" Id="7403306f-8d64-49c3-81e4-34573a3f59bf" />
+  <Project Path="LOGIN_FIX/LOGIN_FIX.csproj" Id="80112bcf-c6b9-4225-b7c5-3a8e71b1c9ec" />
+  <Project Path="MANAGER/MANAGER.csproj" Id="ad7f1c5d-5014-4003-bd15-ef0bc94ad434" />
+  <Project Path="NURSE/NURSE.csproj" Id="06c30fc5-c31b-40be-95ed-0091723b33b1" />
+  <Project Path="RECEPTIONIST/RECEPTIONIST.csproj" />
+  <Project Path="SALE/SALE.csproj" Id="0b680e06-586c-4bf0-b685-27f696c1a65c" />
+</Solution>

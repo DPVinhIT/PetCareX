@@ -1,0 +1,23 @@
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\bin\Debug\NURSE.exe.config
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\bin\Debug\NURSE.exe
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\bin\Debug\NURSE.pdb
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.csproj.AssemblyReference.cache
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.frmNurseInpatients.resources
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.frmNurseNursingWorklist.resources
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.Properties.Resources.resources
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.csproj.GenerateResource.cache
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.csproj.CoreCompileInputs.cache
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.exe
+D:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.pdb
+d:\HK1-3\CSDL-NC\do an\PetCareX\NURSE\obj\Debug\NURSE.exe.config
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\bin\Debug\NURSE.exe.config
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\bin\Debug\NURSE.exe
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\bin\Debug\NURSE.pdb
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.csproj.AssemblyReference.cache
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.frmNurseInpatients.resources
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.frmNurseNursingWorklist.resources
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.Properties.Resources.resources
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.csproj.GenerateResource.cache
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.csproj.CoreCompileInputs.cache
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.exe
+V:\CHUYEN_NGANH\CSDLNC\PetCareX\NURSE\obj\Debug\NURSE.pdb
