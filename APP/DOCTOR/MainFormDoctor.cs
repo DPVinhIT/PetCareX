@@ -1,41 +1,48 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using LOGIN_Class;
+
+//using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Collections.Specialized.BitVector32;
+using LOGIN;
 
 namespace DOCTOR
 {
     public partial class MainFormDoctor : Form
     {
+
         private readonly Dictionary<Type, Form> _cache = new Dictionary<Type, Form>();
         private Form _currentForm;
 
-        private readonly string _username;
-        private readonly string _employeeId;
-        private readonly string _fullName;
-        private readonly string _role;
+        private readonly Color _sidebarColor = Color.FromArgb(176, 202, 219); // màu xanh sidebar
 
-        private List<Button> _menuButtons;
-        private readonly Color _sidebarColor = Color.FromArgb(176, 202, 219);
 
         protected override CreateParams CreateParams
         {
             get
             {
                 var cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000; // WS_EX_COMPOSITED (chống flicker)
                 return cp;
             }
         }
 
-        // ===== CTOR DESIGNER =====
+        private readonly string _employeeId;
+        private readonly string _fullName;
+        private readonly string _role;
+
+
+        
+
+        private List<Button> _menuButtons;
+
         public MainFormDoctor()
         {
             InitializeComponent();
@@ -43,18 +50,25 @@ namespace DOCTOR
             panelMain.Dock = DockStyle.Fill;
             panelMain.Visible = true;
 
+           
             EnableDoubleBuffer(panelMain);
 
+            
+            //MessageBox.Show(Session.EmployeeID + " " + Session.FullName + " " + Session.Role);
+
+            // ===== INIT MENU BUTTONS =====
             _menuButtons = new List<Button>
             {
                 btnAppointmentList,
                 btnChangepassword,
                 btnExaminationRecord,
+                btnLogout,
                 btnPetHistory,
                 btnPrescription,
                 btnSurgeryRecord,
                 btnVaccination,
-                btnLogout,
+
+
             };
 
             foreach (var btn in _menuButtons)
@@ -69,50 +83,11 @@ namespace DOCTOR
             this.Shown += MainFormDoctor_Shown;
         }
 
-        // ===== CTOR LOGIN (match SignIn) =====
-        public MainFormDoctor(string employeeId, string fullName, string role, string username) : this()
+        public MainFormDoctor(string employeeId, string fullName, string role) : this()
         {
             _employeeId = employeeId;
             _fullName = fullName;
             _role = role;
-            _username = username;
-        }
-
-        protected override void OnActivated(EventArgs e)
-        {
-            base.OnActivated(e);
-            ApplyUserInfo();
-        }
-
-        // ✅ public getters giống Manager để form con lấy
-        public string Username => lblUsername?.Text;        // nếu Doctor có lblUsername
-        public string Did => lblEmployeeID?.Text;           // Doctor ID
-        public string FullName => lblEmployeeName?.Text;
-        public string Role => lblRole?.Text;
-
-        private void ApplyUserInfo()
-        {
-            if (lblEmployeeID != null)
-                lblEmployeeID.Text = string.IsNullOrWhiteSpace(_employeeId) ? "N/A" : _employeeId;
-
-            if (lblEmployeeName != null)
-                lblEmployeeName.Text = string.IsNullOrWhiteSpace(_fullName) ? "N/A" : _fullName;
-
-            if (lblRole != null)
-                lblRole.Text = string.IsNullOrWhiteSpace(_role) ? "N/A" : _role;
-
-            // ⚠️ chỉ set nếu bạn có label username trên Doctor
-            if (lblUsername != null)
-                lblUsername.Text = string.IsNullOrWhiteSpace(_username) ? "N/A" : _username;
-        }
-
-        private void MainFormDoctor_Shown(object sender, EventArgs e)
-        {
-            ApplyUserInfo();
-
-            // mặc định active AppointmentList
-            SetActiveButton(btnAppointmentList);
-            BeginInvoke(new Action(() => LoadForm<Appointment_List>()));
         }
 
         private static void EnableDoubleBuffer(Control c)
@@ -120,6 +95,25 @@ namespace DOCTOR
             typeof(Control)
                 .GetProperty("DoubleBuffered", BindingFlags.NonPublic | BindingFlags.Instance)
                 ?.SetValue(c, true, null);
+        }
+
+        private void ApplyUserInfo()
+        {
+            lblEmployeeID.Text = string.IsNullOrWhiteSpace(_employeeId) ? "N/A" : _employeeId;
+            lblEmployeeName.Text = string.IsNullOrWhiteSpace(_fullName) ? "N/A" : _fullName;
+            lblRole.Text = string.IsNullOrWhiteSpace(_role) ? "N/A" : _role;
+            Session.EmployeeID = lblEmployeeID.Text;
+            Session.FullName = lblEmployeeName.Text;
+            Session.Role = lblRole.Text;
+        }
+        private void MainFormDoctor_Shown(object sender, EventArgs e)
+        {
+            ApplyUserInfo();
+
+            // mặc định active AppointmentList
+            
+            SetActiveButton(btnAppointmentList);
+            BeginInvoke(new Action(() => LoadForm<Appointment_List>()));
         }
 
         private void SetActiveButton(Button activeBtn)
@@ -131,7 +125,7 @@ namespace DOCTOR
                 btn.FlatAppearance.BorderSize = 1;
             }
 
-            activeBtn.BackColor = Color.White;
+            activeBtn.BackColor = Color.White; 
             activeBtn.ForeColor = Color.Black;
         }
 
@@ -144,7 +138,7 @@ namespace DOCTOR
 
             if (!_cache.TryGetValue(key, out var frm) || frm == null || frm.IsDisposed)
             {
-                // ưu tiên ctor nhận MainFormDoctor
+                // ưu tiên ctor (ManagerMainForm), fallback ctor mặc định
                 var ctor = typeof(T).GetConstructor(new[] { typeof(MainFormDoctor) });
                 frm = ctor != null
                     ? (Form)ctor.Invoke(new object[] { this })
@@ -169,7 +163,6 @@ namespace DOCTOR
             _currentForm = frm;
         }
 
-        // ===== MENU EVENTS =====
         private void btnAppointmentList_Click(object sender, EventArgs e)
         {
             SetActiveButton(btnAppointmentList);
@@ -199,43 +192,26 @@ namespace DOCTOR
             SetActiveButton(btnPrescription);
             LoadForm<Prescription_Form>();
         }
-
         private void btnSurgeryRecord_Click(object sender, EventArgs e)
         {
             SetActiveButton(btnSurgeryRecord);
             LoadForm<Surgery>();
         }
-
         private void btnVaccination_Click(object sender, EventArgs e)
         {
             SetActiveButton(btnVaccination);
             LoadForm<Vaccination>();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            SetActiveButton(btnLogout);
 
-            var confirm = MessageBox.Show(
-                "Bạn chắc chắn muốn đăng xuất không?",
-                "Xác nhận đăng xuất",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
 
-            if (confirm == DialogResult.Yes)
-            {
-                this.Close();
-                return;
-            }
 
-            // NO -> quay lại mặc định
-            SetActiveButton(btnAppointmentList);
-            LoadForm<Appointment_List>();
-        }
+
+
 
         private void MainFormDoctor_Load(object sender, EventArgs e)
         {
+
         }
     }
 }
